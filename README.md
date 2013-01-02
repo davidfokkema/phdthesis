@@ -4,6 +4,11 @@ phdthesis
 My PhD thesis, titled: *The HiSPARC Cosmic Ray Experiment: Data
 Acquisition and Reconstruction of Shower Direction*.
 
+This is a fork of a private repository containing the complete history of
+my thesis from day one.  At this time, I'm not yet sure whether I will
+release the full history.  In contrast, all the code that I used for my
+analysis and graphs is available at https://github.com/hisparc/sapphire/.
+
 This thesis has been carried out as part of the HiSPARC science and
 outreach project.
 
