@@ -1,0 +1,57 @@
+\begin{tikzpicture}
+[font=\sffamily,
+]
+\draw[very thick,gray] (0, -5) -- (0, 2);
+
+
+\node at (0, 0) [left=20pt] (lab) {\begin{tikzpicture}
+\node[anchor=center] at (1.5, 2) {Lab frame};
+
+\draw[fill] (0, -10pt) circle (1pt);
+\draw[->] (0, -10pt) -- +(2, 0) node[midway,below] {$v$};
+\draw[gray] (2cm+2pt, -10pt) -- (3cm-8pt, -10pt) to[out=0,in=0,looseness=3] (3cm-8pt, 10pt);
+\node[draw, cloud, minimum width=55pt, minimum height=45pt, anchor=center] at (3, 0) {};
+\draw[->] (3, 0) -- +(-.75, 0) node[midway,below] {$-u$};
+
+\draw[fill] (3cm-10pt, 10pt) circle (1pt);
+\draw[->,dashed] (3cm-10pt, 10pt) -- +(-3.5, 0) node [midway,above] {$-(v + u) - u$};
+\end{tikzpicture}};
+
+\node at (0, 0) [right=20pt] (cloud) {\begin{tikzpicture}
+\node[anchor=center] at (1.5, 2) {Cloud frame};
+
+\draw[fill] (0, -10pt) circle (1pt);
+\draw[->] (0, -10pt) -- +(2.75, 0) node[midway,below] {$v + u$};
+\draw[gray] (2.75cm+2pt, -10pt) to[out=0,in=0,looseness=3] (2.75cm+2pt, 10pt) -- (3cm-8pt, 10pt);
+
+\draw[fill] (3cm-10pt, 10pt) circle (1pt);
+\draw[->,dashed] (3cm-10pt, 10pt) -- +(-2.75, 0) node[midway,above] {$-(v + u)$};
+\node[draw, cloud, minimum width=55pt, minimum height=45pt, anchor=center] at (3, 0) {};
+\end{tikzpicture}};
+
+\node at (0, 0) [below left=70pt and 20pt] {\begin{tikzpicture}
+
+\draw[fill] (0, -10pt) circle (1pt);
+\draw[->] (0, -10pt) -- +(2, 0) node[midway,below] {$v$};
+\draw[gray] (2cm+2pt, -10pt) -- (3cm-8pt, -10pt) to[out=0,in=0,looseness=3] (3cm-8pt, 10pt) -- (2cm-18pt, 10pt);
+\node[draw, cloud, minimum width=55pt, minimum height=45pt, anchor=center] at (3, 0) {};
+\draw[->] (3, 0) -- +(.75, 0) node[midway,below] {$u$};
+
+\draw[fill] (2cm-20pt, 10pt) circle (1pt);
+\draw[->,dashed] (2cm-20pt, 10pt) -- +(-.5, 0) node [midway,above] {$-(v - u) + u$};
+\end{tikzpicture}};
+
+\draw[very thick,gray] (0, -2) -- (0, 2);
+
+\node at (0, 0) [below right=70pt and 20pt] {\begin{tikzpicture}
+
+\draw[fill] (0, -10pt) circle (1pt);
+\draw[->] (0, -10pt) -- +(1.25, 0) node[midway,below] {$v - u$};
+\draw[gray] (1.25cm+2pt, -10pt) -- (3cm-8pt, -10pt) to[out=0,in=0,looseness=3] (3cm-8pt, 10pt) -- (2cm-18pt, 10pt);
+
+\draw[fill] (2cm-20pt, 10pt) circle (1pt);
+\draw[->,dashed] (2cm-20pt, 10pt) -- +(-1.25, 0) node[midway,above] {$-(v - u)$};
+\node[draw, cloud, minimum width=55pt, minimum height=45pt, anchor=center] at (3, 0) {};
+\end{tikzpicture}};
+
+\end{tikzpicture}

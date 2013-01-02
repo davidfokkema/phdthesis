@@ -1,0 +1,37 @@
+\begin{tikzpicture}[
+    font=\sffamily,
+    station/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
+    nagios/.style={draw,thick,rounded corners,fill=blue!20,inner sep=.3cm},
+    admin/.style={draw,thick,rounded corners,fill=green!20,inner sep=.3cm},
+    vpn/.style={draw,thick,fill=black!10},
+    connect/.style={<->,>=stealth',shorten >=1pt,shorten <=1pt,semithick},
+    forbidden/.style={red,dashed,semithick},
+    decoration={markings,mark=at position .5 with {\draw[solid] (-3pt, -3pt) -- (3pt, 3pt); \draw[solid] (-3pt, 3pt) -- (3pt, -3pt);}},
+    allowed/.style={dashed,semithick},
+]
+\pgfmathsetmacro{\radius}{1};
+\pgfmathsetmacro{\labelradius}{3};
+
+\draw[vpn] (0, 0) circle (\radius);
+\node[right=1cm] (0, 0) {VPN server};
+
+\coordinate (S1) at (150:\radius);
+\node[station] (S1') at (150:\labelradius) {station};
+\coordinate (S2) at (30:\radius);
+\node[station] (S2') at (30:\labelradius) {station};
+\coordinate (N) at (270:\radius);
+\node[nagios] (N') at (270:\labelradius) {Nagios};
+\coordinate (A) at (210:\radius);
+\node[admin] (A') at (210:\labelradius) {administrator};
+
+\draw[connect] (S1') -- (S1);
+\draw[connect] (S2') -- (S2);
+\draw[connect] (N') -- (N);
+\draw[connect] (A') -- (A);
+
+\draw[forbidden,postaction={decorate}] (S1) to[out=-30,in=210] (S2);
+\draw[allowed] (S1) to[out=-30,in=90] (N);
+\draw[allowed] (S2) to[out=210,in=90] (N);
+\draw[allowed] (A) to[out=30,in=-30] (S1);
+
+\end{tikzpicture}

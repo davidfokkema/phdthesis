@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+[font=\sffamily,
+]
+
+\draw[very thick,gray] (0, -2) -- (0, 2);
+\node at (-3, 3) {Upstream frame};
+\node at (3, 3) {Downstream frame};
+\node at (0, 2cm+10pt) {\footnotesize Shock front};
+
+\draw[->] (1, -1.5) -- +(-2, 0) node[near end,below] {$-u_1$} node[near start,below] {$-u_2$};;
+\draw[fill,gray] (0, -1.5) circle (1pt);
+
+\begin{scope}[yshift=-20pt]
+\draw[gray] (-1cm+2pt, 0) -- (1cm-2pt, 0);
+\draw[fill] (-2, 0) circle (1pt);
+\draw[->] (-2, 0) -- +(1, 0) node[midway,below] {$v$};
+\draw[fill] (1, 0) circle (1pt);
+\draw[->] (1, 0) -- +(1.5, 0) node[midway,below] {$v + \Delta u$};
+\end{scope}
+
+\begin{scope}[yshift=20pt]
+\draw[gray,dashed] (-1cm+2pt, 0) -- (1cm-2pt, 0);
+\draw[fill] (2.5, 0) circle (1pt);
+\draw[->,dashed] (2.5, 0) -- +(-1.5, 0) node[midway,below] {$-(v + \Delta u)$};
+\draw[fill] (-1, 0) circle (1pt);
+\draw[->,dashed] (-1, 0) -- +(-2, 0) node[midway,below] {$-(v + \Delta u) - \Delta u$};
+\end{scope}
+
+\draw[gray] (2.5cm+2pt, -20pt) to[out=0,in=0,looseness=2] (2.5cm+2pt, 20pt);
+
+\end{tikzpicture}

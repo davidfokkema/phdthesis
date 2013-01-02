@@ -1,0 +1,72 @@
+	set *
+*	option *
+	option nbox
+	set pass 3
+	set bwid 3
+	set xwid 3
+	set ywid 3
+	set ysize 25
+        ve/read lpen,lpfl,lperr leap-prot.dat 
+        sigma lpen=lpen*1e6
+        sigma lpflx=lpfl*1e3*2.
+        sigma lperr=lperr*lpflx/lpfl
+	ve/read proflx,proen,proerr,proerrn proton
+	sigma proflx=proflx/(proen/1e9)**2.75
+	sigma proerr=proerr/(proen/1e9)**2.75
+	ve/read akeflx,akeen,akeerr,akeerrn akeno
+	sigma akeflx=akeflx/(akeen/1e9)**2.75
+	sigma akeerr=akeerr/(akeen/1e9)**2.75
+	ve/read yakflx,yaken,yakerr,yakerrn yakustk
+	sigma yakflx=yakflx/(yaken/1e9)**2.75
+	sigma yakerr=yakerr/(yaken/1e9)**2.75
+	sigma yakerrn=yakerrn/(yaken/1e9)**2.75
+	ve/read havflx,haven,haverr,haverrn haverah
+	sigma havflx=havflx/(haven/1e9)**2.75
+	sigma haverr=haverr/(haven/1e9)**2.75
+	sigma haverrn=haverrn/(haven/1e9)**2.75
+	ve/read aen,aflx,aerr akeno-new-lo
+	sigma aflx=aflx/(aen/1e9)**2.75
+	sigma aerr=aerr/(aen/1e9)**2.75
+	ve/read aenhi,aflxhi,aerrlo,aerrhi akeno-fluxes-hi
+	sigma aflxhi=aflxhi/(aenhi/1e9)**2.75
+	sigma aerrhi=aerrhi/(aenhi/1e9)**2.75
+	sigma aerrlo=aerrlo/(aenhi/1e9)**2.75
+	ve/read feen,feflx,feerrhi,feerrlo fe-new
+	sigma feflx=feflx/(feen/1e9)**2.75
+	sigma feerrlo=feerrlo/(feen/1e9)**2.75
+	sigma feerrhi=feerrhi/(feen/1e9)**2.75
+	ve/read airen,airflx air-sum
+	set bcol 4
+	option logy
+	option logx
+	set btyp 1000
+	null 2e8 1e21 1e-29 1e4 
+	set pmci 2
+	set hcol 2
+	graph/hplot/error lpen lpflx '?' lperr 22 26 0.20
+	graph/hplot/errors proen proflx '?' proerr 11 27 0.28
+*	graph/hplot/errors akeen akeflx null akeerr 38 31 0.20
+	graph/hplot/errors aen aflx '?' aerr 46 31 0.15
+	graph/hpl/aerrors aenhi aflxhi '?' '?' aerrlo aerrhi 23 26 0.2
+	graph/hpl/aerrors feen feflx '?' '?' feerrlo feerrhi 25 23 0.2
+	graph/hplot/aerrors yaken yakflx '?' '?' yakerrn yakerr 7 30 0.2 
+	graph/hplot/aerrors haven havflx '?' '?' haverrn haverr 20 28 0.2
+	atitle 'Energy (eV)' 'Flux (m^2! sr s GeV)^-1!' 0.4
+	set txci 4
+	text 1e15 2e2 'Fluxes of Cosmic Rays' 0.35
+* now extra commands
+	set txci 4
+	set plci 3
+	set ltyp 4
+	gra/pri/dline 1e11 6e20 1e-1 1.5e-29
+	set plci 4
+	set ltyp 1
+	arrow 3e16 1e16 1e-12 1e-13 0.2
+	text 1e16 2e-11 'Knee' 0.3
+	text 1e16 3e-12 '(1 particle per m^2!-year)' 0.3
+ 	arrow 1e17 4e18 1e-24 1e-23 0.2
+	text 1e15 1.5e-24 'Ankle' 0.3
+	text 1e14 1e-25 '(1 particle per km^2!-year)' 0.3
+	arrow 1e13 3e11 1e-1 1e-1 0.2
+	text 2e13 1e-1 '(1 particle per m^2!-second)' 0.3
+

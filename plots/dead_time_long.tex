@@ -1,0 +1,111 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .4\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            %
+            title={  },
+            %
+            xlabel={ Time between triggers [\si{\milli\second}] },
+            ylabel={ Number of events },
+            %
+            xmin={ 0 },
+            xmax={ 1000 },
+            ymin={  },
+            ymax={  },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+        ]
+
+        
+
+        
+            
+            % Draw series plot
+            \addplot[no markers,solid,const plot] coordinates {
+                (0.0, 147287)
+                (20.0, 146066)
+                (40.0, 144154)
+                (60.0, 142272)
+                (80.0, 142025)
+                (100.0, 139574)
+                (120.0, 137249)
+                (140.0, 136536)
+                (160.0, 134312)
+                (180.0, 133683)
+                (200.0, 131668)
+                (220.0, 130560)
+                (240.0, 128917)
+                (260.0, 127331)
+                (280.0, 126711)
+                (300.0, 125040)
+                (320.0, 123828)
+                (340.0, 121961)
+                (360.0, 120293)
+                (380.0, 119455)
+                (400.0, 118819)
+                (420.0, 117058)
+                (440.0, 115814)
+                (460.0, 114589)
+                (480.0, 112883)
+                (500.0, 112432)
+                (520.0, 110374)
+                (540.0, 109437)
+                (560.0, 108296)
+                (580.0, 107056)
+                (600.0, 105249)
+                (620.0, 104967)
+                (640.0, 102935)
+                (660.0, 102781)
+                (680.0, 101053)
+                (700.0, 100435)
+                (720.0, 99071)
+                (740.0, 98205)
+                (760.0, 97291)
+                (780.0, 96302)
+                (800.0, 94444)
+                (820.0, 93854)
+                (840.0, 92580)
+                (860.0, 92052)
+                (880.0, 91245)
+                (900.0, 90415)
+                (920.0, 88733)
+                (940.0, 88287)
+                (960.0, 87065)
+                (980.0, 86228)
+                (1000.0, 86228)
+            };
+        
+
+        
+
+        
+
+        
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

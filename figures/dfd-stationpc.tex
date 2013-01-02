@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+[font=\sffamily,
+ every matrix/.style={ampersand replacement=\&,column sep=2cm,row sep=2cm},
+ source/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
+ process/.style={draw,thick,circle,fill=blue!20},
+ sink/.style={source,fill=green!20},
+ datastore/.style={draw,very thick,shape=datastore,inner sep=.3cm},
+ dots/.style={gray,scale=2},
+ to/.style={->,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize},
+ every node/.style={align=center},
+]
+\matrix{
+\node[source] (hisparcbox) {electronics}; \& \node[process] (daq) {DAQ};
+\&
+\\
+\& \node[datastore] (buffer) {buffer}; \& \\
+\node[datastore] (storage) {storage}; \& \node[process] (monitor) {monitor}; \& \node[sink] (datastore) {datastore}; \\
+};
+
+\draw[to] (hisparcbox) -- node[midway,above] {raw events} node[midway,below] {level 0} (daq);
+\draw[to] (daq) -- node[midway,right] {raw event data\\level 1} (buffer);
+\draw[to] (buffer) -- node[midway,right] {raw event data\\level 1} (monitor);
+\draw[to] (monitor) to[bend right=50] node[midway,above] {events} node[midway,below] {level 1} (storage);
+\draw[to] (storage) to[bend right=50] node[midway,above] {events} node[midway,below] {level 1} (monitor);
+\draw[to] (monitor) -- node[midway,above] {events} node[midway,below] {level 1} (datastore);
+\end{tikzpicture}

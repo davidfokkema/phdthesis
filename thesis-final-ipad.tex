@@ -1,0 +1,20 @@
+\documentclass[oneside]{book}
+\usepackage[papersize={15cm,19.6cm},
+            total={14cm,18.5cm},
+            includehead,
+            centering]
+           {geometry}
+
+\input{preamble}
+
+\tikzexternalize
+% Only enable this for the final output output (it is really slow).  First
+% run a few times without microtype and create all TikZ figures.
+%\usepackage[babel]{microtype}
+
+% Only activate this for draft output
+%\renewcommand{\longprocess}[1]{}
+
+\onehalfspacing
+
+\input{main}

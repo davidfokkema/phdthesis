@@ -1,0 +1,165 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            axis equal=true,
+            %
+            title={  },
+            %
+            xlabel={ Distance [\si{\meter}] },
+            ylabel={ Distance [\si{\meter}] },
+            %
+            xmin={  },
+            xmax={  },
+            ymin={  },
+            ymax={  },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (-6.35688996287, -5.83363094479)
+                (-1.56977705423, -1.47078210487)
+                (3.69816846561, -3.69816846561)
+                (-3.59210244843, 3.59210244843)
+                (-68.570756426, -61.8300519361)
+                (-70.0641423163, -67.4034439538)
+                (-75.641758488, -68.9008743662)
+                (-65.9825002252, -71.4890648173)
+                (116.495268961, 42.9083405995)
+                (120.575275088, 38.828334472)
+                (119.08327978, 33.2492619685)
+                (126.154347592, 40.3203297803)
+                (219.979282882, 130.984113089)
+                (220.482171518, 136.732156497)
+                (225.715025105, 139.175380461)
+                (215.753078124, 140.046937888)
+                (-195.538869701, 148.314820407)
+                (-189.782925131, 147.912325554)
+                (-187.248747394, 142.722909093)
+                (-186.551182657, 152.698549596)
+                (66.0163876837, 139.150114325)
+                (60.2542952682, 139.452092793)
+                (57.629935694, 144.59649138)
+                (57.1065761316, 134.610196032)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,only marks] coordinates {
+                (-6.35688996287, -5.83363094479)
+                (-1.56977705423, -1.47078210487)
+                (3.69816846561, -3.69816846561)
+                (-3.59210244843, 3.59210244843)
+                (-68.570756426, -61.8300519361)
+                (-70.0641423163, -67.4034439538)
+                (-75.641758488, -68.9008743662)
+                (-65.9825002252, -71.4890648173)
+                (116.495268961, 42.9083405995)
+                (120.575275088, 38.828334472)
+                (119.08327978, 33.2492619685)
+                (126.154347592, 40.3203297803)
+                (219.979282882, 130.984113089)
+                (220.482171518, 136.732156497)
+                (225.715025105, 139.175380461)
+                (215.753078124, 140.046937888)
+                (-195.538869701, 148.314820407)
+                (-189.782925131, 147.912325554)
+                (-187.248747394, 142.722909093)
+                (-186.551182657, 152.698549596)
+                (66.0163876837, 139.150114325)
+                (60.2542952682, 139.452092793)
+                (57.629935694, 144.59649138)
+                (57.1065761316, 134.610196032)
+            };
+        
+            
+            % Draw series plot
+            \addplot[no markers,dashed] coordinates {
+                (-1.95515024998, -1.85261976671)
+                (120.577042855, 38.8265667051)
+                (60.2517986944, 139.452223633)
+                (-1.95515024998, -1.85261976671)
+            };
+        
+
+        
+
+        
+
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] left:{ 501 }}]
+                at (axis cs:-1.95515024998, -1.85261976671) {};
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] right:{ 502 }}]
+                at (axis cs:-70.0647893639, -67.4058587683) {};
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] right:{ 503 }}]
+                at (axis cs:120.577042855, 38.8265667051) {};
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] right:{ 504 }}]
+                at (axis cs:220.482389407, 136.734646984) {};
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] right:{ 505 }}]
+                at (axis cs:-189.780431221, 147.912151163) {};
+        
+            \node[coordinate,
+                  label={[gray,label distance=1ex] above right:{ 506 }}]
+                at (axis cs:60.2517986944, 139.452223633) {};
+        
+            \node[coordinate,
+                  label={[] below right:{ \SI{128}{\meter} }}]
+                at (axis cs:47.0577269921, 14.419054822) {};
+        
+            \node[coordinate,
+                  label={[] left:{ \SI{151}{\meter} }}]
+                at (axis cs:29.1483242222, 68.7998019329) {};
+        
+            \node[coordinate,
+                  label={[] above right:{ \SI{122}{\meter} }}]
+                at (axis cs:90.4144207747, 89.1393951688) {};
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

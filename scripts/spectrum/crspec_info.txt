@@ -1,0 +1,56 @@
+Information on the cosmic ray spectrum compilation
+--------------------------------------------------
+
+Simon Swordy - s-swordy@uchicago.edu
+------------
+
+I made this compilation for an article which appeared in
+Scientific American in January 1997. 
+
+The accompanying file sciam1.kumac is a macro file for
+the PAW program available from CERN. It needs the associated
+data files in the tar file. The data here is as follows:-
+
+leap-prot.dat => data on protons from LEAP balloon payload,
+this has to be scaled (by ~2.0) to represent the all particle
+fluxes. This scaling is done in the macro.
+REF: Seo et al. Ap.J. 1991, v378, p763
+
+akeno => old akeno fluxes 
+REF: Nagano et al. J. Phys. G  1984 v10, p1295.
+
+akeno-new-lo
+and akeno-fluxes-hi => newer fluxes from akeno
+REF: Nagano et al. J. Phys. G 1992 v18, p423.
+
+fe-new => fly's eye
+REF: Bird et al. Ap.J. 1994 v424, p491.
+
+yakustk => yakustk data
+REF: Afanasiev et al. 1996 Proceedings Int. Symposium 
+of Extremely High Energy Cosmic Rays. (ICRR Tokyo) p32.
+
+proton => direct measured fluxes from the proton satellite in the 1960s
+REF: Grigorov et al. 1971 Proceedings 12th ICRC, Hobart v5, p1760.
+  
+haverah =>Haverah Park
+REF: Lawrence, Reid, Watson 1991, J. Phys. G. G17, 733.
+
+the file air-sum is some model calculation I made which can be ignored.
+
+the green line is just show how there is some difference from a 
+constant power law.
+
+---------------------------------------------------
+
+In the event, Scientific American redrew this thing using their own
+artists.
+
+A good reference for the overall thing is:-
+
+REF: J. Cronin, T.K. Gaisser, and S.P. Swordy, Sci. Amer. v276, p44 (1997)
+
+---------------------------------------------------
+
+Everytime you show this, please send 2cents to your favorite charity.
+

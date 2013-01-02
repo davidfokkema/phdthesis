@@ -1,0 +1,1007 @@
+\chapter{Single Station Event Simulation and Reconstruction}
+\label{ch:reconstruction}
+
+A \hisparc station consists of two or four detectors. The four-detector stations
+have the layout shown in \figref{fig:station-layout}.  An
+inclined shower will not reach the detectors within the station simultaneously.
+The arrival time differences depend
+on the direction of the shower.  From the time measurements of the individual
+detectors, it should be possible to reconstruct the direction of the shower.
+
+To calculate the arrival time differences, a model of the shower front has to be
+defined.  The shower direction, i.e. the zenith and azimuthal angles, are
+parameters in this model.  The conventional method for reconstructing the
+shower direction is to fit the results of the model to the arrival times
+measured by the stations of a (dense) array.  An accurate estimate for the
+direction of the shower can then be determined using a minimization method.
+Some of the algorithms developed in the literature do not make use of a
+minimization procedure \cite{Mayer:1993}, but require a large number of
+detectors.  Both methods work best for extended arrays with knowledge of the
+shower core position.
+
+In the case of a single \hisparc station, a method has been developed using
+direct calculation of the shower direction based on the arrival time
+measurements of three out of the four detectors.
+
+In this chapter, this algorithm will be tested on simulated air shower data.
+First, the simulations will be discussed.  Then, the algorithm for the
+reconstruction of the direction of the shower will be developed and the
+statistical uncertainties will be evaluated.  The uncertainties will be
+propagated through the analysis yielding equations for the accuracy of the
+reconstructed azimuthal and zenith angles.  Correlations between
+experimental errors are not considered and errors on errors are not
+determined.  Finally, the reconstruction results of the simulated data
+will be discussed and errors in the reconstruction will be compared to the
+calculated uncertainties.
+
+
+\section{Event Simulation}
+
+The simulation contains three parts.
+The first part is a full Monte Carlo simulation of the shower development.  The
+second part is a simulation which uses the results of the first part to
+effectively simulate many showers occurring in the neighborhood of a \hisparc
+station.  This part tracks which of the shower particles hit the detectors. The
+third part is a simulation of the detector response.
+
+
+\subsection{Extensive Air Showers}
+\label{sec:shower-simulation}
+
+\aires \cite{Sciutto:1999}, such as the \corsika \cite{Corsika} program, is a
+simulation package for studying extensive air showers.
+Given an input file containing parameters defining the primary particle and
+the accuracy of the calculations, \aires simulates interactions and tracks
+particles through the atmosphere.
+
+\corsika makes extensive use of third-party interaction models.  This allows
+\corsika to be based on proven models.  While \aires also links to high-energy
+hadronic interaction models such as SIBYLL and QGSJET, other interactions such
+as electrodynamical processes, particle decays and the propagation of charged
+particles, is handled by custom algorithms.  This allows \aires to be tuned to
+be fast.  In fact, it is about \num{3.5} times faster than \corsika
+\cite{Knapp:2002}.  The input file syntax of \aires is less complex than
+the one used by \corsika.  A comparison between the results of \aires and
+\corsika can be found in \cite{Knapp:2002}.  Differences in the results are
+mainly due to different simulation parameters and details in the types
+of interactions considered.  When the simulations are rerun with identical
+parameters and interactions for both packages, no significant differences are
+observed.
+Overall, the authors conclude that \corsika and \aires agree to better than
+\SI{20}{\percent} for the basic shower parameters observed by the Pierre Auger
+Observatory.
+
+Both programs include \emph{thinning algorithms}.
+These algorithms are designed to reduce the number of particles that have to be
+fully tracked. This reduces computation time, memory usage and the size of a
+simulated event considerably. \aires makes use of an extended version of the
+\emph{Hillas thinning algorithm}.  \citeauthor{Hillas:1981} \cites{Hillas:1981}{Hillas:1997}
+proposed the following procedure to reduce the number of particles.  Consider
+the process in which a particle $A$ generates a number of secondary particles:
+\begin{equation}
+A \to B_1, B_2, \ldots, B_n, \qquad \text{with } n \geq 1.
+\end{equation}
+Let $E_A$ be the energy of particle $A$, $E_{B_i}$ be the energy of
+particle $B_i$, and $E_{th}$ the so-called \emph{thinning energy}.  Then, if
+$E_A \geq E_{th}$, the secondaries are considered separately and included in the
+remainder of the simulation with probability $P_i$, given by
+\begin{equation}
+P_i = \begin{cases}
+  1 &\text{if $E_{B_i} \geq E_{th}$}, \\[5pt]
+  \frac{E_{B_i}}{E_{th}} &\text{if $E_{B_i} < E_{th}$}.
+\end{cases}
+\end{equation}
+That is, if a particle has an energy \emph{greater than} the thinning energy, it
+is kept in the simulation.  If the energy is \emph{less than} the thinning
+energy, there is a probability that the particle is removed from the simulation.
+Particles with a larger energy fraction have a larger probability to be kept in
+the simulation.  If the energy $E_A < E_{th}$, then particle $A$ is the result
+of a previous thinning operation. Only one of the secondary particles is kept.
+In other words, the number of particles with energies below the thinning energy
+$E_{th}$ is never increased.  The secondary particle to keep in the simulation
+is selected among all $n$ particles with the probability given by
+\begin{equation}
+P_i = \frac{E_{B_i}}{\sum_{j=1}^n E_{B_j}}.
+\end{equation}
+The remaining particles are given a statistical weight $w_{B_i} = w_A / P_i$,
+with $w_A$ the weight of particle $A$.  This enables faster simulations while
+keeping the results statistically correct.
+When taking the statistical weights into account during analysis of the shower,
+the global shower observables are almost unaffected.  Fluctuations increase,
+however.
+
+To reduce the fluctuations, \aires incorporates an extension to the
+original splitting algorithm.  The new algorithm monitors the statistical
+weights of the particles. If the weights become too large, the thinning
+algorithm will keep more particles in the simulation.
+
+It is essential to track individual particles in a detector to simulate detector
+responses. To accomplish this, it becomes necessary to not use or reverse the
+thinning.
+A \emph{resampling} algorithm to obtain individual particle properties for use
+in simulations for the Auger Observatory is proposed in \cite{Billoir:2008}.
+A similar method for application in the Telescope Array, including validation
+studies, is discussed in \cite{Stokes:2011}. However, the validation studies are only
+done using the same thinned showers \emph{before} and \emph{after} the
+resampling procedure.  Comparison of a \emph{dethinned} shower with a shower
+\emph{without} thinning is carried out in \cite{Bruijn:2009}, using the \corsika
+program.  A shower induced by a proton with an energy of \SI{e19}{\electronvolt}
+is simulated with and without thinning.  The thinned shower is subsequently
+resampled to obtain individual particles.  The study shows that fluctuations of
+the number of particles in the detectors are significantly larger for dethinned
+showers than for showers without thinning.  The fluctuations in the simulation
+are compared to the expected Poissonian fluctuations. Showers are simulated with
+thinning level $E_{th} = \num{e-6} E_p$, with $E_p$ the primary energy. This is
+a commonly used setting. For electrons, the ratio $\sigma /
+\sigma_\mathrm{Poisson} \approx 80$ \cite{Bruijn:2009}.
+
+A realistic simulation of the shower front is essential to study the effect of
+the accuracy of the time-of-arrival measurements on the reconstruction of the
+shower direction.  The simulation of showers with $E_p \leq
+\SI{e16}{\electronvolt}$ is still feasible without thinning.  Therefore, to
+obtain the most realistic results, thinning and resampling is not performed in
+this work.
+
+A single \hisparc station is sensitive to extensive air showers starting from
+primary energies of approximately \SI{1}{\peta\electronvolt}, see
+\secref{sec:design-criteria-EAS} for details.  Since the number of showers falls
+steeply with increasing primary energy, only an energy of
+\SI{1}{\peta\electronvolt} is taken.
+
+Showers have been simulated for a series of discrete zenith angles:
+\SIlist{0;5;10;15;22.5;30;35;45}{\degree}.  For each angle, \num{10} showers
+are generated. All showers are simulated with an incoming proton with an
+energy of \SI{1}{\peta\electronvolt}.
+
+
+\subsection{Detector Response}
+\label{sec:detector-response}
+
+Since the shower footprint is very large compared to the size of the
+station, it is justified to change the coordinate system such that a single
+shower can be used multiple times.  A station is then positioned at various
+core distances inside the same shower and is given a random rotation
+(\figref{fig:station-in-shower}).
+
+\begin{figure}
+\centering
+\input{figures/simulation-coordinates-change}
+\caption{A station is placed at various locations inside an inclined
+shower and rotated over random angles.  This is equivalent to showers
+arriving at the station from random azimuthal angles.  In this way, a
+single simulated shower can be reused many times.}
+\label{fig:station-in-shower}
+\end{figure}
+
+For each position, the charged leptons that traverse the detectors are
+identified.  Leptons are by far the most numerous charged particles in a
+shower.  Hadrons appear only at small core distances and are ignored since
+even where they appear, they are far outnumbered by electrons.
+
+The (cartesian) $x,\, y$ coordinate system is used by \aires and places the
+shower core at the origin $O$ (\figref{fig:coordinates}).  The azimuthal angle of the shower,
+$\phi$, is always equal to zero.  For each event, a random position inside the
+shower is chosen for the location of the station. The coordinate system $x',\,
+y'$ is introduced such that the station is always at the origin $O'$. This
+position is defined by a core distance $r$ and polar angle $\Phi$, with respect
+to $O$.
+An angle $\alpha$ is randomly chosen and the station is rotated over that angle.
+The coordinate system $x'',\, y''$ is defined as the rotation of $x', y'$ over
+$-\alpha$, such that in the system $x'', y''$ the positions of the detectors are
+the same for all events.
+This coordinate system describes a stationary station which detects showers with
+random core positions and random azimuthal angles $\phi''$.
+ The transformation of $x,\, y$ coordinates to $x'',\, y''$ coordinates is given
+by
+\begin{equation}
+r'' = r, \qquad
+\Phi'' = \Phi + \pi - \alpha, \qquad
+\phi'' = -\alpha.
+\end{equation}
+The shower core position $x'',\, y''$ and direction $\theta'',\, \phi''$
+is given by
+\begin{equation}
+x'' = -r\cos (\Phi - \alpha), \qquad
+y'' = -r\sin (\Phi - \alpha), \qquad
+\theta'' = \theta, \qquad
+\phi'' = -\alpha.
+\end{equation}
+
+\begin{figure}
+\centering
+\input{figures/simulation-coordinates}
+\caption{Coordinate system used in the simulation.  The $x,\, y$ axes are
+the natural coordinates for the shower, as used by \aires, with the shower
+core at the origin $O$.  The four rectangles are the four \hisparc
+detectors.  In polar coordinates, the center of the station is defined as
+$O'$ = $(r,\, \Phi)$, with the $x',\, y'$ coordinates defined as a
+translation.  The angle $\alpha$ is defined as the angle over which the
+station is rotated with respect to the $x',\, y'$ coordinates.  The
+$x'',\, y''$ coordinate system is defined as the natural coordinates for
+the station in which the detectors are always stationary.  This coordinate
+system is used for the simulation output.}
+\label{fig:coordinates}
+\end{figure}
+
+Photons generated by the charged particles propagate through the
+scintillator. A photon may reflect multiple times before it reaches the PMT, or
+it may escape the scintillator. In \secref{sec:transmission} a simulation is
+discussed in which the propagation of photons is tracked to measure the
+transmission efficiency of the scintillator. The simulation is extended to
+include the propagation time of photons \cite{Steijger:2010-time}. The transport
+time of the photons from the point of impact to the PMT depends on the location
+of the particle path in the scintillator, as well as the initial directions of
+the photons. If a photon reaches the PMT there is a probability $Q$, the PMT's
+\emph{quantum efficiency}, that it will create a photoelectron. The
+photoelectron creates an avalanche in the PMT, resulting in a pulse of
+$\mathcal{O}(\num{e6})$ electrons.
+For a signal above the \SI{70}{\milli\volt} threshold, 15 photoelectrons are required.
+\figref{fig:photon-arrival-times} shows the distribution of the time of arrival
+of the 15\textsuperscript{th} \emph{detected} photon. The transport time
+distribution is approximated by the straight lines.
+The mean value of the distribution is \SI{4.4}{\nano\second}, with a standard
+deviation of \SI{1.2}{\nano\second}.
+
+In the detector response simulation, for each charged particle traversing the
+detector a random propagation time is chosen according to the transport time
+distribution.
+This value is added to the arrival time of the particle in the scintillator,
+resulting in the \emph{measurement} of the arrival time:
+\begin{equation}
+t_\mathrm{measured} = t_\mathrm{arrival} + \Delta t_\mathrm{transport}.
+\end{equation}
+More than one particle
+may traverse a detector. In this case, the detector simulation is performed for
+each particle independently. From the list of measured arrival times, the
+smallest value of $t_\mathrm{measured}$ is selected as the time measurement. The
+simulation records the total number of particles which are detected in each
+scintillator.
+
+\begin{figure}
+\centering
+\input{plots/transport_time}
+\caption{Transport time of photons from the point of impact of the
+detected charged particles to the PMT (gray).  The time for the
+15\textsuperscript{th} photoelectron is recorded.  This is the first
+photon over the detection threshold and will result in the arrival time
+measurement.  The mean value is \SI{4.4}{\nano\second} and the standard
+deviation is \SI{1.2}{\nano\second}.  An approximation for the transport
+time distribution, used in the detector simulation, is shown in the same
+graph (black).  Redrawn from \cite{Steijger:2010-time}.}
+\label{fig:photon-arrival-times}
+\end{figure}
+
+
+\section{Reconstruction of Shower Direction}
+\label{sec:direction-reconstruction-method}
+
+To reconstruct the direction of the shower, it is sufficient to determine the
+arrival time in three detectors.
+The procedure is discussed below.  The
+shower front is approximated by a plane.  This means that all particles in a
+vertical shower should arrive at the same time, i.e.
+there is no curvature of the shower front, and the front is infinitely thin.
+These assumptions will be justified in the following discussion.
+
+In \figref{fig:reconstruction-coordinates}
+\begin{figure}
+\centering
+\input{figures/angle-reconstruction}
+\caption{Three-dimensional representation of the coordinate system used in
+reconstructing the direction of a shower. Refer to
+\figref{fig:front-at-stations} for a two-dimensional representation.}
+\label{fig:reconstruction-coordinates}
+\end{figure}
+a three-dimensional representation is given of the coordinate system used in the
+reconstruction of the direction of a shower. For a slightly less
+general two-dimensional representation, refer to \figref{fig:front-at-stations}.
+The plane shower front is depicted as a surface traveling in the direction of
+the shower axis. The shower axis has an angle $\theta$ with respect to
+the vertical direction ($z$-axis), and an angle $\phi$ with respect to the
+positive-$x$ direction. In the figure, the shower front is at the location of
+detector 1. To reach detector 0, it has to travel a distance $c\Delta t_1$, where the
+velocity of the shower front is approximated by $c$, and $\Delta t_1 \equiv t_1
+- t_0$ is the arrival time difference between the detectors 0 and 1. The
+projection of the shower front on the ground, the $xy$-plane, travels a distance
+$r'_1$. It can be seen that
+\begin{equation}
+\sin \theta = \frac{c \Delta t_1}{r'_1},
+\label{eq:sintheta}
+\end{equation}
+and
+\begin{equation}
+\cos (\phi - \phi_1) = \frac{r'_1}{r_1}.
+\label{eq:cosphi}
+\end{equation}
+Combining \eqtworef{eq:sintheta}{eq:cosphi} results in
+\begin{equation}
+c \Delta t_1 = r_1 \cos (\phi - \phi_1) \sin \theta.
+\label{eq:time_angle_relation}
+\end{equation}
+Then $\phi$ and $\theta$ are the two unknowns that can be resolved by two
+measurements of the time differences ($\Delta t_1$, $\Delta t_2 \equiv t_2 -
+t_0$):
+\begin{equation}
+\label{eq:system}
+\left.\begin{aligned}
+c \Delta t_1 &= r_1 \cos (\phi - \phi_1) \sin \theta \\
+c \Delta t_2 &= r_2 \cos (\phi - \phi_2) \sin \theta
+\end{aligned}\right\},
+\end{equation}
+where $\phi_2$ is the azimuthal angle of detector 2
+with respect to detector 0. From \eqsref{eq:system} one obtains
+\begin{equation}
+\frac{\Delta t_1}{\Delta t_2} = \frac{r_1 \cos(\phi - \phi_1)}{r_2 \cos(\phi - \phi_2)},
+\end{equation}
+which, after using the trigonometric identity $\cos(\alpha - \beta) = \cos
+\alpha \cos \beta + \sin \alpha \sin \beta$, turns into
+\begin{equation}
+\frac{r_2 \Delta t_1}{r_1 \Delta t_2}
+= \frac{\cos \phi \cos \phi_1 + \sin \phi \sin \phi_1}{\cos \phi \cos \phi_2 + \sin \phi \sin \phi_2}
+= \frac{\cos \phi_1 + \tan \phi \sin \phi_1}{\cos \phi_2 + \tan \phi \sin \phi_2}.
+\end{equation}
+By reordering, one arrives at
+\begin{equation}
+\label{eq:phi}
+\tan \phi = - \frac{r_1 \Delta t_2 \cos \phi_1 - r_2 \Delta t_1 \cos \phi_2}{r_1 \Delta t_2 \sin \phi_1 - r_2 \Delta t_1 \sin \phi_2}.
+\end{equation}
+Once the angle $\phi$ is determined, either one of the \eqsref{eq:system} can be
+solved for $\theta$:
+\begin{subequations}
+\label{eq:theta}
+\begin{align}
+\label{eq:theta1}
+\sin \theta &= \frac{c \Delta t_1}{r_1 \cos(\phi - \phi_1)}, \\
+\label{eq:theta2}
+\sin \theta &= \frac{c \Delta t_2}{r_2 \cos(\phi - \phi_2)}.
+\end{align}
+\end{subequations}
+
+
+\section{Measurement Uncertainties}
+\label{sec:uncertainty-calculations}
+
+\subsection{Timing Uncertainties}
+\label{sec:uncertainty-sources}
+
+Experimental uncertainties in the determination of the arrival time are
+introduced by the decay time of the scintillator (\secref{sec:scintillator}),
+time-of-flight of scintillation photons from the point of impact of the particle
+to the PMT, transit time spread of the electrons through the PMT, and the timing
+resolution of the ADCs.  The GPS timing system has no influence on the
+reconstruction from a station, since it is only used to generate an overall
+timestamp for the event.
+
+The decay constant of the scintillator is \SI{2.1}{\nano\second} \cite{BC-408}.
+On average, approximately \num{440} photons reach the PMT, while only \num{15}
+photoelectrons are required to cross the detection threshold. Most of these
+photons will therefore have a vanishingly small delay due to the decay time.
+
+When a charged particle traverses the scintillator, the time for
+scintillation photons to reach the phototube depends on the distance
+between the phototube and the point of impact.  This is determined by the
+geometry of the scintillator and the lightguide.  When the scintillator is
+uniformly illuminated, the mean time-of-flight is \SI{4.4}{\nano\second}
+with a standard deviation of \SI{1.2}{\nano\second}
+\cite{Steijger:2010-time}, see \figref{fig:photon-arrival-times}.  The
+sampling time of the ADCs is \SI{2.5}{\nano\second}.
+
+
+\subsection{Model Uncertainties}
+
+The shower front is not a flat plane.  Also, the shower front
+has a certain thickness.
+It is therefore unknown whether a particle is measured very near the causal
+front\footnote{When the primary cosmic ray particle interacts, information from
+that event can at best be transmitted at the speed of light.  All possible light
+signals from the event form an expanding sphere.  The part of the sphere in the
+direction of the primary particle momentum is called the \emph{causal front}.
+The shower front, containing the secondary particles, travels behind the causal
+front.} or lagging behind, which leads to an uncertainty in the timing
+measurement.
+The arrival time distributions of simulated vertical
+\SI{1}{\peta\electronvolt} proton showers are shown in
+\figref{fig:arrival-time-distributions}.
+The arrival time is defined as the amount of time a particle arrives after the
+causal front has passed.  Only events that have at least one charged particle in all
+corner detectors are considered.  The median arrival time delay
+increases with increasing core distance.
+\SI{50}{\percent} of the particles are contained within the gray band.  The
+width of the band, i.e. the thickness of the shower front, also increases with
+core distance.
+
+\begin{figure}
+\centering
+\input{plots/DIR-boxplot_arrival_times-1}
+\caption{The measured arrival time distributions of vertical showers. The
+difference in arrival time in two detectors is graphed. The showers are
+generated by a \SI{1}{\peta\electronvolt} proton.  Only measurements with
+at least one charged particle in all three corner detectors are taken into
+account. The dots show the median arrival time and the gray bands contain
+\SI{50}{\percent} of the events, evenly distributed around the median.
+This figure can be compared to \figref{fig:front-arrival-time}, which shows
+the actual simulated arrival time distributions.  The data in this graph
+is an approximation derived from \emph{measuring} the arrival times in two
+detectors.}
+\label{fig:arrival-time-distributions}
+\end{figure}
+
+
+\subsection{Propagation through Analysis}
+
+The uncertainty in reconstructing the azimuthal angle introduced by timing
+uncertainties is given by
+\begin{equation}
+\sigma_\phi^2 = \sigma_t^2 \left(\left|\frac{\partial\phi}{\partial t_0}\right|^2 + \left|\frac{\partial\phi}{\partial t_1}\right|^2 + \left|\frac{\partial\phi}{\partial t_2}\right|^2\right),
+\end{equation}
+with $\sigma_\phi, \sigma_t$ the \emph{standard deviation}, of
+$\phi$ and $t$ respectively.  The first-order derivatives of $\phi(t_0, t_1,
+t_2)$ are:
+\begin{align}
+\frac{\partial \phi}{\partial t_0} &= \frac{1}{1 + \tan^2\phi} \cdot \frac{r_2\cos \phi_2 - r_1\cos \phi_1 + (r_2\sin \phi_2 - r_1\sin \phi_1)\tan \phi}{\frac{r_1 r_2}{c}\sin\theta\left(\sin\phi_2\cos(\phi - \phi_1) - \sin\phi_1\cos(\phi - \phi_2)\right)} , \\[10pt]
+\frac{\partial \phi}{\partial t_1} &= \frac{1}{1 + \tan^2\phi} \cdot \frac{-r_2(\sin \phi_2 \tan \phi + \cos \phi_2)}{\frac{r_1 r_2}{c}\sin\theta\left(\sin\phi_2\cos(\phi - \phi_1) - \sin\phi_1\cos(\phi - \phi_2)\right)}, \\[10pt]
+\frac{\partial \phi}{\partial t_2} &= \frac{1}{1 + \tan^2\phi} \cdot
+\frac{r_1(\sin \phi_1 \tan \phi + \cos \phi_1)}{\frac{r_1 r_2}{c}\sin\theta\left(\sin\phi_2\cos(\phi - \phi_1) - \sin\phi_1\cos(\phi - \phi_2)\right)}.
+\end{align}
+The time differences $\Delta t$ remaining after the differentiation procedure
+have been rewritten in terms of $\theta$ and $\phi$ using \eqsref{eq:theta}.  Applying
+the trigonometric identities, these equations reduce to
+\begin{align}
+\frac{\partial \phi}{\partial t_0} &= -\left( \frac{\partial \phi}{\partial t_1} + \frac{\partial \phi}{\partial t_2} \right), \\[10pt]
+\frac{\partial \phi}{\partial t_1} &= \frac{-c\, \cos(\phi - \phi_2)}{r_1 \sin\theta \sin(\phi_2 - \phi_1)}, \\[10pt]
+\frac{\partial \phi}{\partial t_2} &= \frac{c\, \cos(\phi - \phi_1)}{r_2 \sin\theta \sin(\phi_2 - \phi_1)}.
+\end{align}
+%
+Singularities occur for $r_1 = 0$, $r_2 = 0$, $\theta = 0$, and $\phi_2 -
+\phi_1 \in \{-\pi,\, 0,\, \pi\}$. For $r_1 = 0$ or $r_2 = 0$, the direction cannot be reconstructed
+since two detectors will be on top of each other.  The same holds
+for $\phi_2 - \phi_1 \in \{-\pi,\, 0,\, \pi\}$: the
+three detectors are on a straight line.  For $\theta = 0$, the azimuthal angle
+$\phi$ is also undefined and the uncertainty becomes infinite.
+
+The full expression for the uncertainty in $\phi$ is then given by
+\begin{equation}
+\begin{split}
+\label{eq:errphi}
+\sigma_\phi^2 &= 2 \sigma_t^2 \left(\left|\frac{\partial\phi}{\partial t_1}\right|^2 + \left|\frac{\partial\phi}{\partial t_2}\right|^2 + \frac{\partial\phi}{\partial t_1}\frac{\partial\phi}{\partial t_2} \right) \\
+&= \frac{2c^2\sigma_t^2}{\sin^2\theta\sin^2(\phi_2 - \phi_1)} \left( \frac{\cos^2(\phi - \phi_2)}{r_1^2} + \frac{\cos^2(\phi - \phi_1)}{r_2^2} - \frac{\cos(\phi - \phi_1)\cos(\phi - \phi_2)}{r_1r_2} \right).
+\end{split}
+\end{equation}
+%
+Similarly, the uncertainty in the zenith angle in \eqref{eq:theta1} becomes:
+\begin{equation}
+\label{eq:errtheta}
+\begin{split}
+\sigma_\theta^2 &= \sigma_t^2 \left(\left|\frac{\partial\theta}{\partial t_0}\right|^2 + \left|\frac{\partial\theta}{\partial t_1}\right|^2 + \left|\frac{\partial\theta}{\partial t_2}\right|^2\right) \\
+&= \sigma_t^2 \frac{A\sin^2\theta + B\sin\theta + C}{r_1^2(1 - \sin^2\theta)\cos^2(\phi - \phi_1)},
+\end{split}
+\end{equation}
+with
+\begin{align}
+A &= r_1^2\sin^2(\phi - \phi_1) \left[\left|\frac{\partial\phi}{\partial t_0}\right|^2 + \left|\frac{\partial\phi}{\partial t_1}\right|^2 + \left|\frac{\partial\phi}{\partial t_2}\right|^2\right] ,\\
+B &= -2r_1 c \sin(\phi - \phi_1) \left[\frac{\partial\phi}{\partial t_0} - \frac{\partial\phi}{\partial t_1}\right] ,\\
+C &= 2c^2 .
+\end{align}
+%
+For horizontal showers ($\theta = \SI{90}{\degree}$) the acceptance becomes zero
+and the uncertainty becomes infinite.  Furthermore, when a shower hits detector
+0 and detector 1 (\figref{fig:reconstruction-coordinates}) from a direction
+perpendicular to the line connecting the two detectors, $\left(\phi - \phi_1 =
+\pm\frac{\pi}{2}\right)$, it is impossible to determine the zenith angle since all
+angles result in the same time difference $\Delta t_1 = 0$.  In this situation,
+it is required to switch from \eqref{eq:theta1} to \eqref{eq:theta2}.  The
+uncertainty in that equation can be calculated as shown above.  The end result
+is identical for the substitutions $r_1 \to r_2, \phi_1 \to \phi_2, t_1 \to t_2$
+and $t_2 \to t_1$.  Denoting the angle and uncertainties from
+\eqsref{eq:theta} as $(\theta_1, \sigma_{\theta_1})$ and $(\theta_2,
+\sigma_{\theta_2})$, respectively, one obtain an expression for the zenith
+angle:
+\begin{equation}
+\theta = \frac{\frac{1}{\sigma_{\theta_1}} \theta_1 + \frac{1}{\sigma_{\theta_2}} \theta_2}{\frac{1}{\sigma_{\theta_1}} + \frac{1}{\sigma_{\theta_2}}}.
+\end{equation}
+This will lead to a robust calculation which is only susceptible to large uncertainties
+for (near-) horizontal showers. Obviously, for horizontal showers the acceptance
+of the detectors is extremely small.
+
+
+\section{Performance of a Single Station}
+\label{sec:direction-reconstruction-results}
+
+
+\subsection{Reconstruction Efficiency}
+
+Three independent measurements are required to reconstruct the shower direction.
+ The best result is obtained when the distance between the detectors is
+large. Then the difference between arrival times is large and the uncertainty
+is subsequently smaller.
+Therefore, the three corner detectors of the station
+(\figref{fig:station-layout}) are chosen to reconstruct the shower direction.
+
+Particle densities in a shower are highest near the shower core and fall off
+steeply (\figref{fig:ldf-threshold}).  Therefore, the probability that a
+detector is traversed by a particle decreases with increasing core distance.
+\figref{fig:sim-detection-efficiency} shows the fraction
+of simulated showers detected by all three corner detectors.  Three zenith
+angles are shown.  If the shower core is close to the station, almost all
+showers are detected.  At a distance of approximately \SI{40}{\meter}, the
+detection efficiency is \SI{50}{\percent} for vertical showers.  For inclined
+showers, the detection efficiency is much lower. Since the distance particles
+travel through the atmosphere is larger, fewer particles reach the
+ground.  Moreover, the acceptance of the detectors is less for inclined showers,
+since the effective detection area is decreased.
+
+\begin{figure}
+\centering
+\input{plots/DIR-plot_detection_efficiency_vs_R_for_angles-1}
+\caption{Fraction of showers that are detected with at least 1 charged particle
+in the three corner detectors as a function of core distance.  The showers
+are initiated by \SI{1}{\peta\electronvolt} protons for a series of zenith
+angles. If the shower core is close to the station, almost all showers are
+detected.  At a distance of approximately \SI{40}{\meter}, the detection
+efficiency is \SI{50}{\percent} for vertical showers.  For inclined showers, the
+detection efficiency is much lower, as fewer particles reach the ground.}
+\label{fig:sim-detection-efficiency}
+\end{figure}
+
+A detected shower yields three independent arrival time measurements.  Thus, the
+equations given in \secref{sec:direction-reconstruction-method} can be used to
+reconstruct the direction of the shower.  However, if the arrival time
+differences become too large, the reconstruction results in an unphysical
+solution and the reconstruction is rejected. This occurs when the arrival time
+difference between two detectors is larger than the \emph{light time} ($\Delta t
+= d / c$) between the detectors with distance $d$. Since the velocity of charged
+particles in a shower is approximated by the speed of light, the light time
+between two detectors is the largest time difference allowed in the
+reconstruction.  For a \hisparc station, $d = \SI{10}{\meter}$, thus $\Delta t =
+\SI{33}{\nano\second}$.
+
+\figref{fig:sim-reconstruction-efficiency} shows the fraction of
+\emph{detected} \SI{1}{\peta\electronvolt} proton showers for which the
+direction can be reconstructed as a function of the core distance.
+The reconstruction efficiency decreases with increasing core distance, but is
+up to \SI{90}{\meter} well above \SI{50}{\percent}.  The shape and thickness of
+the shower front differs from the approximated thin, flat plane.  This leads to
+larger arrival time delays for increasing core distance
+(\figref{fig:arrival-time-distributions}).  Approximately \SI{25}{\percent} of
+the vertical EAS events with a core distance of \SI{70}{\meter}, arrive later
+than the light time for the distance between two detectors in a \hisparc
+station and are thus rejected.  This fraction increases for inclined
+showers.
+
+\begin{figure}
+\centering
+\input{plots/DIR-artistplot_reconstruction_efficiency_vs_R_for_angles-1}
+\caption{Fraction of \emph{detected} \SI{1}{\peta\electronvolt} proton showers
+for which the direction can be reconstructed as function of the core distance.
+The requirement for detection is at least 1 charged particle in the three corner
+detectors.  The reconstruction is successful if the zenith and azimuthal angles
+can be calculated using the equations given in
+\secref{sec:direction-reconstruction-method}.  The reconstruction efficiency
+decreases with increasing core distance, but is well above \SI{50}{\percent} up
+to \SI{90}{\meter}.}
+\label{fig:sim-reconstruction-efficiency}
+\end{figure}
+
+
+\subsection{Shower Direction}
+\label{sec:shower-direction}
+
+\figref{fig:phi-reconstruction} shows a strong correlation between simulated and
+reconstructed azimuthal angles for \SI{1}{\peta\electronvolt} proton showers
+with a zenith angle $\theta = \SI{22.5}{\degree}$.
+Reconstruction uncertainties are depicted in
+\figref{fig:phi-reconstruction-error}.  For the left-hand figure at least one
+particle in all three corner detectors is required.
+On the right, however, more strict conditions are applied: at least two
+particles in each of the three corner detectors, which results in a more
+accurate azimuthal angle.
+
+\begin{figure}
+\centering
+\longprocess{\input{plots/DIR-plot_phi_reconstruction_results_for_MIP-1}}
+\caption{Simulated versus reconstructed azimuthal angle for showers of
+\SI{1}{\peta\electronvolt} protons with $\theta$ = $\SI{22.5}{\degree}$.
+Only events with at least \SI{1}{\mip} in all corner detectors are
+included.  There is a strong correlation between simulated and
+reconstructed azimuthal angles.}
+\label{fig:phi-reconstruction}
+\end{figure}
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/DIR-boxplot_phi_reconstruction_results_for_MIP-1}
+\input{plots/DIR-boxplot_phi_reconstruction_results_for_MIP-2}
+}
+\caption{The uncertainty of the reconstruction of the azimuthal angle as a
+function of the simulated angle, for $\theta$ = $\SI{22.5}{\degree}$.  The
+dots show the median values and the shaded region contains
+\SI{50}{\percent} of the events, evenly distributed around the median. On
+the left, minimum reconstruction requirements are used.  That is, at least
+1 particle in all three corner detectors.  On the right, at least 2
+particles in all three corner detectors are selected.  The more stringent
+requirements result in a more accurate reconstruction.}
+\label{fig:phi-reconstruction-error}
+\end{figure}
+
+The uncertainty in the reconstruction of the zenith angle is shown in
+\figref{fig:theta-reconstruction-error}, for $\SI{0}{\degree} \leq \theta \leq
+\SI{45}{\degree}$.
+With increasing $\theta$, the arrival time difference between detectors
+increases (\eqref{eq:time_angle_relation}) while the absolute uncertainty in the
+measurements, due to instrumentation and the structure of the shower front, is
+not changed. The result is that the \emph{relative} timing uncertainty decreases
+and the reconstruction becomes more accurate.
+The right hand figure shows more stringent reconstruction requirements. When
+more particles traverse the detectors, the reconstruction uncertainty reduces.
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/DIR-boxplot_theta_reconstruction_results_for_MIP-1}
+\input{plots/DIR-boxplot_theta_reconstruction_results_for_MIP-2}
+}
+\caption{The uncertainty of the reconstruction of the zenith angle as a
+function of the simulated angle. The dots show the median values and the
+shaded region contains \SI{50}{\percent} of the events, evenly distributed
+around the median.  On the left, minimum reconstruction requirements are
+used.  That is, at least 1 particle in all three corner detectors.  On the
+right, at least 2 particles in all three corner detectors are selected.
+The more stringent requirements result in more accurate reconstructions.
+With increasing zenith angle, the reconstruction uncertainty decreases.}
+\label{fig:theta-reconstruction-error}
+\end{figure}
+
+The timing accuracy resulting from the plane front approximation and the
+transport time of scintillation photons in the detector is given by
+\begin{equation}
+\sigma_t = \sqrt{\sigma_{t,\, \mathrm{front}}^2 + \sigma_{t,\,
+\mathrm{transport}}^2}.
+\end{equation}
+For all
+events, the difference in azimuthal angles $\phi_\mathrm{sim} -
+\phi_\mathrm{rec}$ is determined. Then, the value for the angle
+difference containing \SI{66}{\percent} of the events will be taken as the
+reconstruction uncertainty. This estimator behaves similarly to the standard
+deviation, but is more robust for distributions with long tails. The same
+procedure is followed for the zenith angle.
+The uncertainties will be compared to the results from
+\eqtworef{eq:errphi}{eq:errtheta}.
+
+The first particle that traverses the detector determines the measured arrival
+time. In \cite{Steijger:2010-firsthit} the distribution of the arrival times of
+particles in the shower front is approximated by a normal distribution.
+The standard deviation of the distribution that arises from taking $N$ samples
+is calculated and is equivalent to detecting $N$ particles in a detector.
+The standard deviation is taken as an estimate for the uncertainty on the
+arrival time.  The angular uncertainty can then be calculated using
+\eqtworef{eq:errphi}{eq:errtheta}.
+
+\figref{fig:results-sim-mip} presents the zenith and azimuthal reconstruction
+uncertainties as a function of the \emph{minimum} number of particles in the
+three corner detectors, for \SI{1}{\peta\electronvolt} proton showers with a
+zenith angle of \SI{22.5}{\degree}. The open circles are the results for the
+zenith angle reconstruction, and the closed circles depict the azimuthal angle.
+The dashed line is the calculation performed according to
+\cite{Steijger:2010-firsthit}.
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_mip}
+\caption{Dependence of reconstruction accuracy on the minimum number of
+particles in all three corner detectors.  Data for the most probable
+zenith angle ($\theta$ = $\SI{22.5}{\degree}$) is shown.  The open circles
+are the uncertainties for the zenith angle, the closed circles for the
+azimuthal angle. The dashed lines show the estimates for the uncertainties
+as calculated in \cite{Steijger:2010-firsthit}, with a standard deviation
+of \SI{1.8}{\nano\second}.}
+\label{fig:results-sim-mip}
+\end{figure}
+The results clearly show an increase in accuracy for larger particle numbers.
+When more than one particle hits a detector, the shower front is better defined.
+The probability that the first particle travels close to the causal front
+increases with the number of particles considered. However, the data points fall
+off much steeper than the calculated uncertainty.
+This is attributed to the fact that the shower front time structure can not be
+approximated by a normal distribution. As seen in
+\figref{fig:front-arrival-time}, the distribution has long tails. To better
+understand the effect of the front structure on the presented results, the
+simulated arrival time distribution is used as the basis for a Monte Carlo
+procedure. First, consider that the time structure of the shower front is a
+function of the core distance (\figref{fig:arrival-time-distributions}). Therefore, for each
+value of the minimum number of particles ($N_\mathrm{\mip}$) in the detectors,
+the median core distance $R_0$ is determined (\figref{fig:mip-core-dists}).
+\begin{figure}
+\centering
+\input{plots/DIR-boxplot_core_distances_for_mips}
+\caption{Distribution of core distances as a function of the minimum
+number of particles in all three corner detectors.  Events with a larger
+number of detected particles are generally found closer to the shower
+core.  The results are obtained from showers produced by
+\SI{1}{\peta\electronvolt} protons with $\theta$ = $\SI{22.5}{\degree}$.}
+\label{fig:mip-core-dists}
+\end{figure}
+The arrival time of
+leptons in the simulated \SI{1}{\peta\electronvolt} proton showers ($\theta =
+\SI{22.5}{\degree}$) is determined for core distances $R = R_0 \pm
+\Delta R$, with $\Delta R = \SI{5}{\meter}$ chosen in accordance with the size
+of the \hisparc station. The arrival times are corrected for the passage of the causal
+front (\eqref{eq:time_angle_relation}). The arrival times of particles in
+different parts of the shower can thus be compared to each other. For events with at least two
+particles in the three corner detectors, the median core distance is $R \approx
+\SI{20}{\meter}$. The arrival time distribution is given in
+\figref{fig:montecarlo-arrival-times} (gray line). Using this distribution as
+the basis for a Monte Carlo, we can simulate the arrival times of any number of
+particles in a detector. Drawing two random
+numbers from this distribution and taking the smallest value as the arrival time
+measurement in the detector, and repeating this process, one obtains the
+distribution depicted as the black line in
+\figref{fig:montecarlo-arrival-times}. The median value of this distribution is
+used as the uncertainty in the timing measurements.
+\begin{figure}
+\centering
+\input{plots/SIM-T}
+\caption{Time structure of the shower front (gray). This distribution is used as
+the basis for a Monte Carlo. The black line shows the distribution resulting
+from taking the first particle (out of two) arriving in a detector.}
+\label{fig:montecarlo-arrival-times}
+\end{figure}
+For $N_\mathrm{\mip} \geq 2$, one finds $\sigma_{t,\, \mathrm{front}} =
+\SI{1.4}{\nano\second}$. The total timing uncertainty is thus given by:
+\begin{equation}
+\sigma_t = \sqrt{\sigma_{t,\, \mathrm{front}}^2 + \sigma_{t,\,
+\mathrm{transport}}^2} = \sqrt{1.4^2 + 1.2^2} = \SI{1.8}{\nano\second}.
+\label{eq:ch4-timing1}
+\end{equation}
+Repeating this procedure, the solid line in \figref{fig:results-sim-mip-full} is
+obtained. These results reproduce the uncertainties more accurately than the
+approximation discussed in \cite{Steijger:2010-firsthit}. For
+$N_\mathrm{\mip} \geq 1$, however, the reconstruction uncertainties are
+smaller than estimated. This is attributed to the fact that events with
+more than one particle in some (but not all) detectors have a better
+timing accuracy, which is not taken into account in the estimation. The
+discrepancy is large for $N_\mathrm{\mip} \geq 1$, since the slope in the
+uncertainty is very large for small numbers of particles.
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_mip-full}
+\caption{Dependence of reconstruction accuracy on the minimum number of
+particles in all three corner detectors.  Data for the most probable
+zenith angle ($\theta$ = $\SI{22.5}{\degree}$) is shown.  The open circles
+are the uncertainties for the zenith angle, the closed circles for the
+azimuthal angle. The dashed lines show the estimates for the uncertainties
+as calculated in \cite{Steijger:2010-firsthit}, with a standard deviation
+of \SI{1.8}{\nano\second}. The solid lines show the estimates from the
+Monte Carlo distributions.}
+\label{fig:results-sim-mip-full}
+\end{figure}
+
+In the following discussion the reconstruction will be
+restricted to at least 2 particles in each detector ($N_\mathrm{\mip} \geq 2$).
+This reduces the effect of fluctuations in the shower front for large core
+distances. The timing uncertainty will thus be taken to be $\sigma_t =
+\SI{1.8}{\nano\second}$. This value is of the order of the
+uncertainties discussed in \secref{sec:uncertainty-sources}. It is therefore
+justified to use the plane front approximation.
+
+\figref{fig:results-sim-zenith} shows the reconstruction uncertainty as a
+function of zenith angle, for \SI{1}{\peta\electronvolt} proton showers. While
+the uncertainty in the zenith angle does not differ significantly for vertical
+and inclined showers, the uncertainty in the azimuthal angle diverges. It should
+be noted that for small zenith angles, two points with a large difference in
+azimuthal angle may actually be close together in terms of angular distance.
+Estimates for the reconstruction uncertainties are calculated using
+\eqtworef{eq:errphi}{eq:errtheta}. The estimates are calculated by averaging over all
+azimuthal angles. Data and simulation are in good agreement.
+
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_zenith}
+\caption{Dependence of reconstruction uncertainty on zenith angle, for
+\SI{1}{\peta\electronvolt} proton showers.  A minimum of 2 particles is required
+in all three corner detectors.  The data points show the uncertainties in
+the reconstruction of zenith angle (open circles) and azimuthal angle
+(closed circles).  Estimates for the reconstruction uncertainties (solid
+lines) are calculated using \eqtworef{eq:errphi}{eq:errtheta}, by
+averaging over all azimuthal angles.}
+\label{fig:results-sim-zenith}
+\end{figure}
+
+\figref{fig:results-size} shows the dependence of the angular resolution on
+station size for \SI{1}{\peta\electronvolt} proton showers with $\theta =
+\SI{22.5}{\degree}$.   The resolution increases with increasing size of the
+station.
+Data and calculations are in agreement to better than \SI{20}{\percent}. The
+results show that a detector distance smaller than \SI{10}{\meter} would have a
+detrimental effect on the reconstruction uncertainties. The calculated
+uncertainty distribution
+flattens.
+
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_size}
+\caption{Reconstruction uncertainty as a function of station size.  A
+minimum of 2 particles is required in all three corner detectors.  Data
+for the most probable zenith angle ($\theta$ = $\SI{22.5}{\degree}$) is
+shown.  The data points show the uncertainties in the reconstruction of
+zenith angle (open circles) and azimuthal angle (closed circles).  The
+estimates for the uncertainties (solid lines) are calculated by averaging
+over all azimuthal angles.}
+\label{fig:results-size}
+\end{figure}
+
+Sampling frequency limits the accuracy with which the analog signal can be
+digitized.
+To simulate the effect of sampling, discrete arrival times have been chosen
+corresponding with the sampling rate.
+The following sampling times are used: \SI{0}{\nano\second} (no sampling),
+\SIlist{1;2.5;5}{\nano\second}.
+The reconstruction uncertainty is shown in
+\figref{fig:results-binsize}.  The width of the bins introduce an uncertainty
+$\sigma_{\mathrm{bin}}^2 = \frac{w^2}{12}$, with $w$ the width of the bin.  The
+total uncertainty is then given by
+\begin{equation}
+\sigma_t = \sqrt{\sigma_{t,\, \mathrm{front}}^2 + \sigma_{t,\, \mathrm{transport}}^2 + \frac{w^2}{12}}.
+\label{eq:ch4-timing2}
+\end{equation}
+For the \SI{2.5}{\nano\second} resolution of the \hisparc hardware, one obtains
+$\sigma_t = \SI{2.0}{\nano\second}$, only slightly larger than the total
+uncertainty with perfect time resolution.  Consequently, the reconstruction
+uncertainties are only slightly affected. The results show that the
+\SI{2.5}{\nano\second} sampling time is an excellent choice.
+
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_binsize}
+\caption{Reconstruction uncertainty as a function of bin size.  A minimum
+of 2 particles is required in all three corner detectors.  Data for the
+most probable zenith angle ($\theta$ = $\SI{22.5}{\degree}$) is shown.  The
+data points show the uncertainties in the reconstruction of zenith angle
+(open circles) and azimuthal angle (closed circles).  Estimates (solid
+lines) are calculated using $\sigma_{\mathrm{bin}}^2$ = $\frac{w^2}{12}$,
+with $w$ the width of the bin.}
+\label{fig:results-binsize}
+\end{figure}
+
+
+\section{Discussion and Conclusions}
+\label{sec:reconstruction-conclusions}
+
+A \SI{1}{\peta\electronvolt} proton shower has particle densities higher than
+\SI{1}{\per\square\meter} up to \SI{30}{\meter}
+from the core (\figref{fig:ldf-threshold}).
+Defining the \emph{footprint} of an EAS as the area containing particle
+densities higher than \SI{1}{\per\square\meter}, such a shower has a footprint
+of \SI{2.8e3}{\square\meter}.
+A \hisparc station has an area of \SI{43}{\square\meter}, which is
+\SI{1.5}{\percent} of this footprint. The detection area of the three corner
+detectors is only \SI{1.5}{\square\meter} (\SI{0.053}{\percent} of the
+footprint).
+Using the limited information available, the reconstruction of shower direction
+is performed with surprisingly good accuracy. In some cases, the direction can
+be reconstructed for core distances significantly larger than \SI{30}{\meter}.
+
+It is shown that the uncertainty in the reconstruction of the azimuthal angle
+can be quite large.  It is important to realize, however, that while the
+azimuthal angle may not be very accurately known, the effect of this on the
+position on the celestial sphere decreases with decreasing $\theta$.  For small
+zenith angles, all possible directions on the celestial sphere are close
+together.
+A small uncertainty in the direction can thus result in a large uncertainty of
+the azimuthal angle. For two vectors which only differ in their azimuthal
+angles, $\Delta\phi = \phi_1 - \phi_2$, the angular distance is given by
+\begin{equation}
+\phi_\mathrm{dist} = \Delta\phi \sin\theta.
+\label{eq:angular-distance}
+\end{equation}
+For \SI{1}{\peta\electronvolt} proton showers with a zenith angle of
+\SI{22.5}{\degree}, and $N_\mathrm{MIP} \geq 2$, the uncertainty in the
+reconstruction of shower direction is determined to be $\sigma_\theta =
+\SI{4.3}{\degree}$ and $\sigma_\phi = \SI{11}{\degree}$.
+Using \eqref{eq:angular-distance}, the angular distance between two directions
+with $\theta = \SI{22.5}{\degree}$ and separated by $\Delta\phi =
+\SI{11}{\degree}$ is only $\phi_\mathrm{dist} = \SI{4.0}{\degree}$. The angular
+distance between two directions separated by
+$\Delta\phi = \SI{11}{\degree}$ and $\Delta\theta = \SI{4.3}{\degree}$, then
+becomes $d = \SI{5.9}{\degree}$. In other words, for $\theta =
+\SI{22.5}{\degree}$ and $N_\mathrm{MIP} \geq 2$, \SI{66}{\percent} of all EAS
+directions are accurately reconstructed to within \SI{5.9}{\degree} on the
+celestial sphere. \figref{fig:sim-angular-distance} shows the angular distance
+as a function of zenith angle, with the direction uncertainties calculated using
+\eqtworef{eq:errphi}{eq:errtheta} with $\sigma_t = \SI{1.8}{\nano\second}$. The
+results from the simulation are more accurate than the calculated
+estimates.
+\begin{figure}
+\centering
+\input{plots/DIR-plot_uncertainty_zenith_angular_distance}
+\caption{Calculated estimate of EAS direction accuracy expressed as
+angular distance, as a function of zenith angle. The reconstructions are
+restricted to $N_\mathrm{MIP} \geq 2$, and all showers are generated by
+\SI{1}{\peta\electronvolt} protons. \SI{66}{\percent} of all EAS
+directions are accurately reconstructed to within the angular distance
+shown in the figure.}
+\label{fig:sim-angular-distance}
+\end{figure}
+
+There is a slight quantitative difference between calculations and simulations
+which suggests that a detailed analysis of the shower front is required.  The
+arrival time uncertainty is assumed to be \SI{1.8}{\nano\second} for
+$N_\mathrm{\mip} \geq 2$.  In reality, this value depends on the distance of the
+detector to the shower core, as the shower front becomes thicker farther away
+from the core. To improve the understanding of the reconstruction uncertainties,
+the shower front arrival time distribution should be parametrized for several
+zenith angles, as a function of the core distance.
+This distribution should then be propagated using the detection efficiency to
+obtain an estimate which is approximately correct for all core distances and
+also yields a correct average over all events (i.e. detected showers).
+\figref{fig:results-sim-mip} shows the reconstruction uncertainty as a function
+of the minimum number of particles in the detectors. In the analysis presented
+in this chapter, a value for the timing accuracy is determined for a median core
+distance $R_0$, which is taken from the simulation results. This value is used
+for the calculations. The discrepancy between calculation and simulation
+demonstrates that the uncertainties in the data cannot be fully described in
+this way and indicates that there must be another contribution which depends on
+the minimum number of particles per detector. This is most likely the core
+distance, which is, on average, smaller for large numbers of particles per
+detector (\figref{fig:mip-core-dists}). This explains the discrepancy for larger
+numbers of particles. The first datapoint, at $N_\mathrm{MIP} \geq 1$, is also
+better than expected from calculations, but this was explained to be the result
+of more than one particle in some, but not all, detectors. This results in a
+more accurate reconstruction, not taken into account by the calculations.
+
+The energy of the primary particle is also important. The particle density on
+the ground scales linearly with the primary energy and thus the maximum (and
+median) core distance for which EAS are detected depends on this energy.
+Furthermore, the particle density determines the number of particles in the
+detectors. It has been demonstrated that this is of great importance to the
+accuracy of the reconstructions.
+
+The nature of the primary particle is also expected to play a role. The early
+development of EAS differs for protons and heavy nuclei. The effect of this on
+the arrival time distribution of particles in the shower front has not been
+studied. However, as discussed in \secref{sec:solar-neighborhood},
+\SI{84}{\percent} of the primary particles are protons. An additional
+\SI{12}{\percent} is made up of helium nuclei. Therefore, the effect is expected
+to be minor.
+
+Restricting the analysis to at least two particles in all three corner detectors
+significantly reduces the uncertainty in the arrival time distribution.  The
+reconstruction uncertainty as a function of zenith angle shows an excellent
+result (\figref{fig:results-sim-zenith}).
+
+The \SI{10}{\meter} detector
+separation distance is a proper choice to obtain a good accuracy
+(\figref{fig:results-size}).
+Increasing the size of the station would make it difficult to fit the station on
+a typical roof, while the accuracy only slowly improves with size.
+A smaller station size, however, would be detrimental.
+
+The \SI{400}{\mega\hertz} sampling rate of the analog signal is also a proper
+choice.  Sampling accuracy better than \SI{2.5}{\nano\second} only decreases the
+uncertainties slightly.  However, \SI{5}{\nano\second} resolution is
+significantly worse.
+
+A single \hisparc station can be used to reconstruct the direction of EAS.
+In this chapter, an algorithm was developed to calculate the direction of
+EAS from relative differences in the measured particle arrival times in
+the individual detectors.  The accuracy of the presented algorithm has
+been determined from the simulation results.  To better understand the
+accuracy of the reconstruction, several sources of measurement
+uncertainties have been identified.  The resulting timing uncertainties
+have been propagated through the analysis to obtain an estimate for the
+size of the reconstruction uncertainties.  These calculations have been
+compared to the uncertainties determined using the simulation.  Errors on
+errors were not considered.  Howerver, the uncertainties are reasonably
+well understood.  
+
+Considering the cost of a single \hisparc station (\EUR{10000}), the
+precision with which it determines the direction of EAS can compete with
+an air shower array.  The reconstruction performs well for all azimuthal
+angles and all zenith angles considered in this analysis ($\theta <
+\SI{45}{\degree}$).
+
+The next chapters will elaborate on the present analysis.  Integrating a
+\hisparc station in the \kascade array enables a detailed performance study.
+In \chref{ch:kascade} simulation results of the direction reconstruction
+accuracy are compared to experimental data. This analysis will be
+extended in \chref{ch:sciencepark}, in which a triangular cluster of three
+stations in the Science Park Array will be discussed.

@@ -1,0 +1,64 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{semilogyaxis}[
+            width=\defaultwidth,
+            %
+            title={  },
+            %
+            xlabel={ Core distance [\si{\meter}] },
+            ylabel={ Primary energy [\si{\electronvolt}] },
+            %
+            xmin={ 0 },
+            xmax={  },
+            ymin={  },
+            ymax={  },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+        ]
+
+        
+
+        
+            
+            % Draw series plot
+            \addplot[no markers,smooth] coordinates {
+                (20, 1e+15)
+                (73, 1e+16)
+                (208, 1e+17)
+                (443, 1e+18)
+            };
+        
+
+        
+
+        
+
+        
+    \end{semilogyaxis}
+\end{tikzpicture}
+\end{sansmath}

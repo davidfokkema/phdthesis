@@ -1,0 +1,17 @@
+zone 1
+v/cr x(25,50) r
+v/cr y(25,50) r
+v/cr r(25,50) r
+v/cr f(25,50) r
+v/read x,y,r,f hisparc-fish.dat
+2d 100 ' ' 25 -25 25 50 -100 0
+put/cont 100 f
+h/plo 100 col,z
+
+v/cr p(15) r -15 0 15 -15 0 15 -15 0 15 -15 0 15 -15 0 15
+v/cr q(15) r 3*-10 3*-30 3*-50 3*-70 3*-90
+set mscf 1
+set mtyp 20
+grap 15 p q p
+
+exec hcopy -f fishmesh.ps

@@ -1,0 +1,29 @@
+\begin{sansmath}
+\begin{tikzpicture}[scale=.3,
+  vector/.style={->,>=stealth',thick},
+  axis/.style={->,>=stealth',thick},
+]
+\def\sangle{40}
+\def\angalpha{20}
+\def\sshift{(\sangle:15)}
+\begin{scope}[shift={\sshift},rotate=\angalpha]
+\draw (-.25, -.5) rectangle (.25, .5);
+\draw[shift={(0, 5.77)}] (-.25, -.5) rectangle (.25, .5);
+\draw[shift={(-5, -2.89)},rotate=90] (-.25, -.5) rectangle (.25, .5);
+\draw[shift={(5, -2.89)},rotate=-90] (-.25, -.5) rectangle (.25, .5);
+\draw[fill] (0,0) circle (3pt) node[inner sep=7pt,left] {$O'$};
+\draw[axis] (0,0) -- (10,0) node[right] {$x''$};
+\draw[axis] (0,0) -- (0,10) node[above] {$y''$};
+\end{scope}
+\draw[axis] (0,0) -- (20,0) node[right] {$x$};
+\draw[axis] (0,0) -- (0,20) node[above] {$y$};
+\draw[axis,shift={\sshift}] (0,0) -- (0,10) node[above] {$y'$};
+\draw[axis,shift={\sshift}] (0,0) -- (10,0) node[right] {$x'$};
+\draw[shift={\sshift}] (2,0) arc (0:\angalpha:2);
+\draw[shift={\sshift}] (.5 * \angalpha:3) node {$\alpha$};
+\draw[vector] (0,0) -- \sshift node[midway,above] {$r$};
+\draw (2,0) arc (0:\sangle:2);
+\draw (.5 * \sangle:3) node {$\Phi$};
+\draw[fill] (0,0) circle (3pt) node[below left] {$O$};
+\end{tikzpicture}
+\end{sansmath}

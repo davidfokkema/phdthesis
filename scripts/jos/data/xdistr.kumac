@@ -1,0 +1,13 @@
+n/cr 10 ' ' 4 ! ! x y e n
+n/read 10 hisparc.dat
+exec standard
+exec square
+* csel  n 0
+
+opt utit
+set ndvx 605
+2d 100 ' ' 100 -100 0 100 0.26 0.4
+n/plo 10.e%x ! ! ! -100
+h/plo 100 box
+atit 'x \133cm\135' '[e]'
+exec hcopy -eps -f  xdistr.eps

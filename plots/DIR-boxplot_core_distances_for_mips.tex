@@ -1,0 +1,91 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            axis equal=false,
+            %
+            title={  },
+            %
+            xlabel={ Minimum number of particles },
+            ylabel={ Core distance [\si{\meter}] },
+            %
+            xmin={  },
+            xmax={  },
+            ymin={ 0 },
+            ymax={  },
+            %
+            xtick={ 0, 1, 2, 3, 4 },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+            \addplot[draw=none, fill=lightgray] coordinates {
+                (1, 18.1133012772)
+                (2, 12.751144886)
+                (3, 10.0411520004)
+                (4, 8.55329823494)
+                (4, 18.8099541664)
+                (3, 22.1670970917)
+                (2, 27.8337697983)
+                (1, 40.3014287949)
+                } -- cycle;
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (1, 28.1280117035)
+                (2, 19.7581)
+                (3, 15.7564)
+                (4, 13.2933115959)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,only marks] coordinates {
+                (1, 28.1280117035)
+                (2, 19.7581)
+                (3, 15.7564)
+                (4, 13.2933115959)
+            };
+        
+
+        
+
+        
+
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

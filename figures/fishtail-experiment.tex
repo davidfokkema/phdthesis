@@ -1,0 +1,32 @@
+\pgfmathsetmacro{\scale}{6}
+\begin{tikzpicture}[rotate=-90, scale=\scale, font=\sffamily,
+                    every node/.style={font={\sffamily\smaller}}]
+    \draw (-.25, .5) rectangle (.25, -.5);
+    \draw (-.25, -.5) -- (-.02, -1.17) -- (.02, -1.17) -- (.25, -.5);
+    \fill (-.02, -1.17) rectangle (.02, -1.37);
+    
+    \begin{scope}[yshift=-.5cm]
+        \draw (-0.15,0.90) circle (2pt / \scale) node[lightgray,above] {1};
+        \draw (-0.00,0.90) circle (2pt / \scale) node[lightgray,above] {2};
+        \draw (0.15,0.90) circle (2pt / \scale) node[lightgray,above] {3};
+        \draw (-0.15,0.70) circle (2pt / \scale) node[lightgray,above] {4};
+        \draw (-0.00,0.70) circle (2pt / \scale) node[lightgray,above] {5};
+        \draw (0.15,0.70) circle (2pt / \scale) node[lightgray,above] {6};
+        \draw (-0.15,0.50) circle (2pt / \scale) node[lightgray,above] {7};
+        \draw (-0.00,0.50) circle (2pt / \scale) node[lightgray,above] {8};
+        \draw (0.15,0.50) circle (2pt / \scale) node[lightgray,above] {9};
+        \draw (-0.15,0.30) circle (2pt / \scale) node[lightgray,above=.03cm * \scale] {10};
+        \draw (-0.00,0.30) circle (2pt / \scale) node[lightgray,above] {11};
+        \draw (0.15,0.30) circle (2pt / \scale) node[lightgray,above] {12};
+        \draw (-0.15,0.10) circle (2pt / \scale) node[lightgray,above] {13};
+        \draw (-0.00,0.10) circle (2pt / \scale) node[lightgray,above] {14};
+        \draw (0.15,0.10) circle (2pt / \scale) node[lightgray,above] {15};
+        \draw (-0.12,0.27) circle (2pt / \scale) node[lightgray,below left] {16};
+        \draw (-0.18,0.27) circle (2pt / \scale) node[lightgray,above left] {17};
+        \draw (-0.18,0.33) circle (2pt / \scale) node[lightgray,above right] {18};
+        \draw (-0.12,0.33) circle (2pt / \scale) node[lightgray,below right] {19};
+    \end{scope}
+
+    \draw[dotted] (-.25, -.5) -- (.1, .5);
+    \draw[dotted] (.25, -.5) -- (-.1, .5);
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+macro effdistr file=-fish.
+
+v/dele x,y,a,b 
+v/read x,y,a,b hisparc[file]dat
+exec standard
+exec square
+
+* v/plo b
+v/plo a
+1d 1000 ' ' 100 0.25 0.40
+hfill a 1000
+v/cr c(100) r
+v/cr d(100) r
+get/cont 1000 c
+get/abs 1000 d
+mess $hinfo(1000,'xmin') $hinfo(1000,'xmax')
+sigma c=c*5000/1250
+put/cont 1000 c
+h/plo 1000 hist
+
+* h/fit 12345 g
+wait
+
+opt utit
+set ndvx 503
+h/plo 1000 hist
+* fu/plo 751.06*exp(-0.5*((x-0.274620)/0.25779E-02)**2) 0.25 0.4 s
+atit '[e] \133%\135' 'area \133cm^2!\135'
+set ndvx 0
+exec hcopy -eps -f effdistr.eps

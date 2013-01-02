@@ -1,0 +1,115 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            axis equal=false,
+            %
+            title={  },
+            %
+            xlabel={ Core distance [\si{\meter}] },
+            ylabel={ Arrival time difference $|t_2 - t_1|$ [\si{\nano\second}] },
+            %
+            xmin={ 0 },
+            xmax={ 100 },
+            ymin={ 0 },
+            ymax={  },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+            \addplot[draw=none, fill=lightgray] coordinates {
+                (5.0, 0.132635653019)
+                (15.0, 0.327908158302)
+                (25.0, 0.704736948013)
+                (35.0, 1.18435704708)
+                (45.0, 1.7541)
+                (55.0, 2.51782)
+                (65.0, 3.08078861237)
+                (75.0, 3.65520644188)
+                (85.0, 4.36163759232)
+                (95.0, 4.38032484055)
+                (95.0, 21.9856824875)
+                (85.0, 20.0310139656)
+                (75.0, 17.849779129)
+                (65.0, 14.7559034824)
+                (55.0, 12.8306)
+                (45.0, 9.03775)
+                (35.0, 5.74408388138)
+                (25.0, 3.34901916981)
+                (15.0, 1.66783547401)
+                (5.0, 0.658097743988)
+                } -- cycle;
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (5.0, 0.312565326691)
+                (15.0, 0.772647)
+                (25.0, 1.62775)
+                (35.0, 2.73280000687)
+                (45.0, 4.15145)
+                (55.0, 5.99931)
+                (65.0, 7.31134724617)
+                (75.0, 8.86992359161)
+                (85.0, 10.2278804779)
+                (95.0, 11.1200256348)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,only marks] coordinates {
+                (5.0, 0.312565326691)
+                (15.0, 0.772647)
+                (25.0, 1.62775)
+                (35.0, 2.73280000687)
+                (45.0, 4.15145)
+                (55.0, 5.99931)
+                (65.0, 7.31134724617)
+                (75.0, 8.86992359161)
+                (85.0, 10.2278804779)
+                (95.0, 11.1200256348)
+            };
+        
+
+        
+
+        
+
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

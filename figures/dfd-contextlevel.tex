@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+[font=\sffamily,
+ every matrix/.style={ampersand replacement=\&,column sep=2cm,row sep=0.2cm},
+ source/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
+ process/.style={draw,thick,circle,fill=blue!20},
+ sink/.style={source,fill=green!20},
+ dots/.style={gray,scale=2},
+ to/.style={->,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize},
+]
+\matrix{
+\node[source] (station1) {station}; \& \& \node[sink] (user1) {user}; \\
+\node[dots] {\vdots}; \& \node[process] (datastore) {datastore}; \& \node[dots] {\vdots}; \\
+\node[source] (station2) {station}; \& \& \node[sink] (user2) {user}; \\
+};
+
+\draw[to] (station1) -- (datastore) node[midway,above,sloped] {events};
+\draw[to] (station2) -- (datastore) node[midway,above,sloped] {events};
+\draw[to] (datastore) to[bend left=10] node[midway,above,sloped] {datasets} (user1);
+\draw[to] (user1) to[bend left=10] node[midway,below,sloped] {results} (datastore);
+\draw[to] (datastore) to[bend left=10] node[midway,above,sloped] {datasets} (user2);
+\draw[to] (user2) to[bend left=10] node[midway,below,sloped] {results} (datastore);
+\end{tikzpicture}

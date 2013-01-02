@@ -1,0 +1,47 @@
+\begin{tikzpicture}[scale=.05,
+  detector/.style={fill},
+]
+\newcommand{\station}[2]{
+  \begin{scope}[shift={#1},rotate=#2]
+    \draw[detector] (-.25, -.5) rectangle (.25, .5);
+    \draw[detector,shift={(0, 5.77)}] (-.25, -.5) rectangle (.25, .5);
+    \draw[detector,shift={(-5, -2.89)},rotate=90] (-.25, -.5) rectangle (.25, .5);
+    \draw[detector,shift={(5, -2.89)},rotate=-90] (-.25, -.5) rectangle (.25, .5);
+    \draw[->,>=stealth',black!50] (0,0) -- (10,0);
+    \draw[->,>=stealth',black!50] (0,0) -- (0,10);
+  \end{scope}
+}
+\station{(33,37)}{146}
+\station{(50,-27)}{-147}
+\station{(29,-32)}{157}
+\station{(0,76)}{-135}
+\station{(-17,46)}{-23}
+\station{(-61,-21)}{89}
+\station{(-78,66)}{-35}
+\station{(2,13)}{40}
+\station{(7,-30)}{-157}
+\station{(18,32)}{-160}
+\station{(20,74)}{77}
+\station{(43,59)}{10}
+\station{(0,61)}{-80}
+\station{(15,35)}{20}
+\station{(5,7)}{134}
+\station{(16,4)}{94}
+\station{(17,-30)}{81}
+\station{(-26,57)}{12}
+\station{(56,-51)}{15}
+\station{(-26,-6)}{-81}
+\station{(65,-59)}{99}
+\station{(-22,54)}{-58}
+\station{(45,-46)}{83}
+\station{(21,39)}{78}
+\station{(-3,21)}{-27}
+\station{(6,73)}{-81}
+\station{(-73,28)}{59}
+\station{(-44,-15)}{-41}
+\station{(-13,-34)}{39}
+
+\foreach \r in {7, 20, 40, 80}
+  %\draw[black!50] (0,0) ellipse (1.5 * \r cm and \r cm);
+  \draw[black!50] (0,0) circle (\r cm);
+\end{tikzpicture}

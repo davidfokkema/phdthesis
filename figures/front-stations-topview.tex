@@ -1,0 +1,25 @@
+\begin{sansmath}
+\pgfmathsetmacro{\unit}{1.5mm}
+\pgfmathsetmacro{\azimuth}{-30}
+\begin{tikzpicture}[x=\unit, y=\unit, draft/.style={red,opacity=0},
+font=\sffamily]
+\coordinate[label={[draft]below:{$S_1$}}] (S1) at (0, 0);
+\coordinate[label={[draft]below:{$S_2$}}] (S2) at (20, 0);
+\foreach \x in {0, 20}
+    \draw[gray] (\x - 1.2, -1.2) rectangle (\x + 1.2, 1.2);
+\draw[dashed] (-10, 0) -- (30, 0);
+\draw[|<->|] ($(S1)!10pt!-90:(S2)$) -- ($(S2)!10pt!90:(S1)$)
+    node[midway, below] {$r$};
+\begin{scope}[rotate=\azimuth]
+    \coordinate[label={[draft]below:{$A$}}] (A) at (0, 10);
+\end{scope}
+\draw[gray] ($(A)!-.2!(S2)$) -- (A);
+\draw (A) -- (S2) node [midway, sloped, above] {front};
+\draw[dashed] (A) -- (S1) node[midway, sloped, above] {$r'$};
+\draw[gray] ($(A)!-.75!(S1)$) -- (A);
+\path ($(A)!-.75!(S1)$) -- (A) node[midway, sloped, above] {axis};
+
+\draw (20pt, 0) arc (0:90+\azimuth:20pt);
+\draw (-.5*\azimuth:25pt) node {$\phi$};
+\end{tikzpicture}
+\end{sansmath}

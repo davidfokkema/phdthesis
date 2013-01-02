@@ -1,0 +1,111 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            axis equal=false,
+            %
+            title={ $N_\mathrm{MIP} \geq 1$ },
+            %
+            xlabel={ $\theta_\mathrm{sim}$ [\si{\degree}] },
+            ylabel={ $\theta_\mathrm{rec} - \theta_\mathrm{sim}$ [\si{\degree}] },
+            %
+            xmin={  },
+            xmax={  },
+            ymin={ -8 },
+            ymax={ 22 },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+            \addplot[draw=none, fill=lightgray] coordinates {
+                (0, 3.91251671314)
+                (5, 0.838356360793)
+                (10, -0.443454489112)
+                (15, -1.28439587355)
+                (22.5, -2.34810185432)
+                (30, -3.46658885479)
+                (35, -4.20188522339)
+                (45, -5.60682761669)
+                (45, 6.06249201298)
+                (35, 6.44192755222)
+                (30, 6.96421599388)
+                (22.5, 8.31906414032)
+                (15, 10.3945536613)
+                (10, 12.3053934574)
+                (5, 15.63880229)
+                (0, 20.2432279587)
+                } -- cycle;
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (0, 8.85276)
+                (5, 5.16502213478)
+                (10, 3.35315263271)
+                (15, 2.34780311584)
+                (22.5, 1.50870335102)
+                (30, 0.977362453938)
+                (35, 0.648010760546)
+                (45, 0.0836100466549)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,only marks] coordinates {
+                (0, 8.85276)
+                (5, 5.16502213478)
+                (10, 3.35315263271)
+                (15, 2.34780311584)
+                (22.5, 1.50870335102)
+                (30, 0.977362453938)
+                (35, 0.648010760546)
+                (45, 0.0836100466549)
+            };
+        
+
+        
+            \draw[gray]
+                ({rel axis cs:0, 0} |- {axis cs:0, 0 }) --
+                ({rel axis cs:1, 1} |- {axis cs:0, 0 });
+        
+
+        
+
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

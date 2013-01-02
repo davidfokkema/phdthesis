@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+[ simulation/.style={draw,thick,fill=blue!20},
+  data/.style={draw,thick,fill=yellow!20},
+  analysis/.style={draw,thick,fill=green!20},
+  every matrix/.style={ampersand replacement=\&,column sep=1cm,row sep=1.5cm},
+  inner sep=.3cm,
+  every node/.style={anchor=center,rectangle,rounded corners},
+  to/.style={->,>=stealth',shorten >=1pt,semithick},
+  borderline/.style={very thick,black!60,dashed},
+  type/.style={black!60},
+]
+\matrix (matrix) {
+\node[simulation] (aires) {\aires}; \& \node[simulation,text width=5em,text centered] (detsim) {Detector Simulation}; \& \& \node[type] {\textbf{\textsc{\Large simulation}}}; \\
+\node[data] (grdpcles) {\textsc{grdpcles}}; \& \node[data] (hdf) {\hdf}; \& \& \node[type] (data) {\textbf{\textsc{\Large data}}}; \\
+\& \node[analysis] (python) {Reconstruction}; \& \node[analysis] (analysis) {Analysis}; \& \node[type] {\textbf{\textsc{\Large analysis}}}; \\
+};
+
+\draw[to] (aires) -- (grdpcles);
+\draw[to] (grdpcles) -- (hdf);
+\draw[to] (hdf) to[bend left=30] (detsim);
+\draw[to] (detsim) to[bend left=30] (hdf);
+\draw[to] (hdf) to[bend right=30] (python);
+\draw[to] (python) to[bend right=30] (hdf);
+\draw[to] (hdf) to[bend left=30] (analysis);
+
+\coordinate (p1) at ($(hdf)!.5!(detsim)$);
+\coordinate (p2) at ($(hdf)!.5!(python)$);
+\draw[borderline] (matrix.west |- p1) -- (matrix.east |- p1);
+\draw[borderline] (matrix.west |- p2) -- (matrix.east |- p2);
+
+\end{tikzpicture}

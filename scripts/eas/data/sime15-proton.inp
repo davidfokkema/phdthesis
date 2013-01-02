@@ -1,0 +1,17 @@
+Task showere15-proton
+Primary         proton
+PrimaryEnergy   1e15 eV
+PrimaryZenAngle 0 deg 60 deg CS
+Thinning        1e-6 Rel
+TotalShowers    20
+
+SaveInFile grdpcles None
+SaveInFile lgtpcles None
+
+RLimsTables     10 m    2000 m
+
+Export          2001 Option d
+Export          2205 Option d
+Export          2207 Option d
+
+End

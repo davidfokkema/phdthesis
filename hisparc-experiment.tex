@@ -1,0 +1,1025 @@
+\chapter{The HiSPARC Experiment}
+\label{ch:hisparc-experiment}
+
+Propagating charged particles lose energy in matter. In scintillators, the
+energy loss can be observed in the form of light. \hisparc employs scintillator
+detectors to detect EAS. In this chapter, the experimental setup is discussed
+in detail. In \secref{sec:design-criteria} the design criteria are presented.
+\secref{sec:hisparc-overview} discusses detector physics and the geometry of the
+\hisparc station. \secref{sec:data-acquisition} describes the signal
+characteristic, the trigger, and the data acquisition system.
+\secref{sec:features-pulseheight-spectrum} discusses some features of
+the pulseheight spectrum. \secref{sec:features-time-spectrum} discusses
+the timing between stations. Finally, in \secref{sec:hisparc-locations} an
+overview of the \hisparc locations of stations in the Netherlands is given.
+
+In \hisparc the distances between clusters of \hisparc stations ranges from tens
+of kilometers to hundreds of kilometers.  \hisparc is therefore ideally suited
+to study long-range correlations between cosmic ray showers.
+
+
+\section{Design Criteria}
+\label{sec:design-criteria}
+
+The purpose of the \hisparc experiment is to detect air showers and reconstruct
+shower direction and energy.  However, due to the collaboration with high
+schools, resources are limited.
+The majority of detectors is financed by high schools, while students are
+responsible for assembly and subsequent installation on the roof of their high
+school.  Therefore, detectors should be cheap, robust and easily
+maintainable (e.g.
+scintillators).
+The geometry of the detector network is constrained by the geographical location
+of each high school.
+
+
+\subsection{Extensive Air Showers}
+\label{sec:design-criteria-EAS}
+
+High energy cosmic ray particles generate cascades in the atmosphere. The number
+of particles in an EAS depends on the energy and nature of the primary particle,
+as well as the first series of particle interactions.
+The particle density in an EAS falls steeply with increasing distance to the
+center of the shower (core distance). The \emph{lateral distribution} for a few
+particle types in an \SI{1}{\peta\electronvolt} proton EAS is depicted in
+\figref{fig:lateral_distribution}.
+
+For charged particles, the efficiency of scintillator detectors is close to
+\SI{100}{\percent}.
+The probability that exactly $k$ charged particles are detected is given by the
+\emph{Poisson distribution}
+\begin{equation}
+P_k(\lambda) = \frac{\lambda^k e^{-\lambda}}{k!},
+\end{equation}
+with $\lambda$ the \emph{expected} number of detected particles. The probability
+of detecting \emph{zero} particles then becomes
+\begin{equation}
+P_0(\lambda) = e^{-\lambda}.
+\end{equation}
+The probability of detecting at least one particle
+is then given by
+\begin{equation}
+P_p(\lambda) = 1 - P_0(\lambda).
+\end{equation}
+For a scintillator surface area of \SI{0.5}{\square\meter}, $\lambda = \num{0.5}
+\rho$, with $\rho$ the particle density. The
+particle density at which a single scintillator has a \SI{50}{\percent}
+detection probability is then calculated to be
+\SI{1.39}{\per\square\meter}.
+
+A single scintillator can not distinguish between charged particles that are
+part of a shower, or stray particles not correlated to any shower.  Low-energy
+primary particles are much more abundant than high-energy particles.  This
+results in a large number of showers of which only a few particles reach the
+ground. These spurious charged particles, mainly muons, form the background (see
+\secref{sec:fluxes}).
+
+However, observation of coincident signals in two scintillators that are a few
+meters apart, decreases the probability that the particles are uncorrelated.
+Coincidences are predominantly due to EAS.  For two detectors, the probability
+of detecting a particle in both (given a particle density $\rho$) is
+$P_p(\rho)^2$.  The particle density at which the combination of two detectors
+has a \SI{50}{\percent} probability of recording at least one particle in each
+detector becomes \SI{2.46}{\per\square\meter}.
+
+\figref{fig:ldf-threshold} shows the lateral distribution function (LDF) summed
+over electrons and positrons in proton-induced EAS. Primary energies ranging
+from \SI{e14}{\electronvolt} to \SI{e18}{\electronvolt} are depicted. For EAS
+with primary energies of \SI{e14}{\electronvolt}, the particle densities are too
+low to reach a detection probability of \SI{50}{\percent} for any core distance.
+A two-detector setup will only measure EAS of \SI{e15}{\electronvolt} up to
+\SI{20}{\meter} with probabilities higher than \SI{50}{\percent}. EAS of
+\SI{e17}{\electronvolt}, on the other hand, can be detected at distances up to
+\SI{200}{\meter}.
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.5\linewidth}
+\pgfkeys{/artist/height/.initial=.7\linewidth}
+\input{plots/ldf-threshold}
+}
+\caption{\captitle{Lateral distribution functions (LDFs) for proton-induced
+EAS.} The LDF is summed over electrons and positrons for primary energies
+ranging from \SI{e14}{\electronvolt} to \SI{e18}{\electronvolt} (left).  The two
+horizontal lines show the particle densities of \SI{1.39}{\per\square\meter} and
+\SI{2.46}{\per\square\meter}, i.e. the \SI{50}{\percent} detection probabilities
+for one and two detectors, respectively.  For EAS with primary energies of
+\SI{e14}{\electronvolt}, the particle densities are too low to reach a detection
+probability of \SI{50}{\percent} for any core distance. A two detector setup can
+only measure EAS of \SI{e15}{\electronvolt} up to \SI{20}{\meter} with
+probabilities higher than \SI{50}{\percent}. EAS of \SI{e17}{\electronvolt}, on
+the other hand, can be detected at distances up to \SI{200}{\meter}. The
+LDF for electrons (\Pelectron + \Ppositron{\unsansmath$^+$}) and muons
+(\Pmuon + \APmuon{\unsansmath$^+$}) is
+shown for a primary energy of \SI{e16}{\electronvolt} (right).  The muon
+distribution is much flatter. At \SI{600}{\meter}, the densities are equal.
+The muon particle density does not contribute significantly to the charged
+particle density for core distances smaller than a few hundred meters.}
+\label{fig:ldf-threshold}
+\end{figure}
+On the right hand side of the figure the LDF for electrons and positrons, and
+muons is shown for a primary energy of \SI{e16}{\electronvolt}.  The muon
+distribution is much flatter. At \SI{600}{\meter}, the densities are equal.
+The muon particle density does not contribute significantly to the charged
+particle density for core distances smaller than a few hundred
+meters.
+
+The particle densities increase linearly with increasing primary energy.  By
+determining the shower size, i.e. the number of particles in the shower, one can
+estimate the primary energy.  Determination of the core position is essential,
+since the shower size can only be measured by sampling the particle density at
+multiple core distances.
+
+A greater distance between stations means that the effective detection area
+increases.  However, the detection \emph{threshold} also increases.  The
+result of this is that for a given energy, assuming that this energy can
+still be measured at the greater distance, more EAS will be observed. The
+typical distances between high schools in cities are of the order of
+\SIrange{500}{1500}{\meter}.  At the Science Park, the distance between stations
+is reduced to only \SIrange{100}{240}{\meter}. With increasing primary energy,
+the number of EAS decreases as a power law (\figref{fig:energy_spectrum}).  This
+implies that most of the observed showers have an energy approximately equal to
+the minimum detection energy threshold. \figref{fig:energy-threshold-vs-R} shows
+the primary energy of proton showers that can be detected with a
+\SI{50}{\percent} probability, as a function of the core distance. EAS with a
+primary energy of \SI{2e16}{\electronvolt} can be detected at a core distance of
+\SI{100}{\meter} with a probability of \SI{50}{\percent}. Two stations separated
+by twice this distance, i.e. \SI{200}{\meter}, can observe the same shower with
+a probability $P_2 = P_\mathrm{station}^2 = 0.5^2 = 0.25$, with $P_2$ the
+probability to detect an EAS with two stations in coincidence. However, the
+shower should then have a core position exactly between the two stations.
+\begin{figure}
+\centering
+\input{plots/energy-distance}
+\caption{Primary energy of proton showers that can be detected with a
+\SI{50}{\percent} probability, as a function of the core distance.}
+\label{fig:energy-threshold-vs-R}
+\end{figure}
+
+
+\subsection{Shower Front}
+
+In an EAS, almost all particles are relativistic.
+\figref{fig:front-arrival-time} shows the arrival time distribution of leptons
+reaching ground level, for a simulated vertical \SI{1}{\peta\electronvolt}
+proton-induced shower.
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/front-passage}
+\input{plots/front-passage-vs-R}
+}
+\caption{\captitle{Time structure of the shower front.}  Arrival
+times of leptons in a typical \SI{1}{\peta\electronvolt} proton-induced
+vertical shower.  The shower was simulated using \aires, with default
+parameters but thinning disabled.  In the left figure, a histogram of the
+arrival times is given for particles that arrive with a core distance
+\SI[separate-uncertainty=true]{40(2)}{\meter}.  The arrival time of the
+first particle reaching the ground is taken to be \SI{0}{\nano\second}.
+The most probable value of the arrival time is
+\SIrange{1}{2}{\nano\second}.  However, there is a long tail extending
+past \SI{30}{\nano\second}.  The right figure shows the arrival time
+distribution as a function of core distance. The open circles show the
+median value of the arrival time. The shaded region contains
+\SI{50}{\percent} of the particle arrival times, split evenly below and
+above the median value.  At a distance of \SI{100}{\meter} from the shower
+core, \SI{50}{\percent} of the electrons arrive within
+\SI{15}{\nano\second} of the arrival time of the first particle to reach
+ground level.}
+\label{fig:front-arrival-time}
+\end{figure}
+While interactions introduce lateral velocity components, they are small
+with respect to the longitudinal velocity. As a result, the bulk of the
+particles travel in a thin disk, the \emph{shower front}.  The shower front can be
+approximated by a plane to simplify the reconstruction of shower
+orientation.
+However, this is not entirely accurate.
+The distribution of the arrival times is skewed; its tail may become very long.
+At a distance of \SI{100}{\meter} from the shower core, \SI{50}{\percent} of the
+leptons arrive within \SI{15}{\nano\second} of the time of arrival of the first
+particle that reaches ground level.  The shower front is better described
+by a cone with a certain thickness.
+
+\label{pg:shower-front-angle-time-spread}
+The arrival time difference at detectors in the footprint is related to the
+inclination of the shower. In only one spatial dimension, the arrival time
+difference $\Delta t$ for two stations separated by a distance $r$ is given by
+(\figref{fig:front-at-stations}):
+\begin{equation}
+\Delta t = \frac{r \sin\theta}{c}.
+\end{equation}
+With $r = \SI{100}{\meter}$ and $\theta =
+\SI{22}{\degree}$, one obtains $\Delta t = \SI{125}{\nano\second}$.  In the
+two-dimensional case when the shower hits the stations more from the side, the
+correct equation is given by
+\begin{equation}
+\Delta t = \frac{r' \sin\theta}{c} = \frac{r \cos\phi \sin\theta}{c},
+\end{equation}
+and $\Delta t$ becomes smaller. The timing accuracy of the experiment is
+crucial and an essential prerequisite for the design of the (fast)
+electronics.
+
+\begin{figure}
+\centering
+\input{figures/front-stations-sideview}
+\input{figures/front-stations-topview}
+
+\hspace{\stretch{1}}
+\textsf{side view}
+\hspace{\stretch{2}}
+\textsf{top view}
+\hspace*{\stretch{1}}
+
+\caption{The shower front has different arrival times in
+detectors separated by a distance $r$.
+The arrival time differences depend on the shower direction. The figure on the
+left shows a side view. The front of non-vertical showers
+will reach the two detectors with a time difference
+$\Delta t$, depending on the zenith angle $\theta$. The figure on the right
+shows a top view. When a shower arrives from an azimuthal direction $\phi$
+other than zero, the distance $r$ is replaced by a distance $r'$.}
+\label{fig:front-at-stations}
+\end{figure}
+
+
+\section{Overview of the Experiment}
+\label{sec:hisparc-overview}
+
+\subsection{Energy Loss in Matter}
+\label{sec:energy-loss}
+
+Particles traversing any material lose energy.  The energy loss of high-energy
+charged particles is mainly due to collisions (ionization) and radiation
+(Bremsstrahlung).   The processes are inherently statistical in nature.  For
+example, ionization losses (due to collisions with atoms in the medium) are very
+high when atoms are hit centrally, and low when particles only graze the atoms.
+If many collisions are considered, the statistical deviations level out and a
+mean energy loss, or \emph{stopping power} can be calculated.
+The stopping power is the characteristic energy loss of a material.  It is
+expressed in \si{\mega\electronvolt\per\gram\centi\meter\squared}, which is the
+amount of energy loss in \si{\mega\electronvolt} if the particle traversed a
+column density of \SI{1}{\gram\per\centi\meter\squared}.
+
+The first (classical) calculations of the energy loss were performed by Bohr.
+A much more accurate quantum-mechanical treatment was done by Bethe, with
+additions by many people, in particular Bloch, resulting in the
+\emph{Bethe-Bloch formula} \cite[286]{pdg-review:2010}:
+\begin{equation}
+-\left\langle \frac{\ud E}{\ud x} \right\rangle = Kz^2\frac{Z}{A}\frac{1}{\beta^2}
+\left[\frac{1}{2}\ln\frac{2m_e c^2 \beta^2 \gamma^2
+T_{\mathrm{max}}}{I^2} - \beta^2 - \frac{\delta(\beta\gamma)}{2}\right],
+\label{eq:bethe-bloch}
+\end{equation}
+with $-\left\langle \ud E / \ud x \right\rangle$ the stopping power in
+\si{\mega\electronvolt\per\gram\centi\meter\squared}.  That is, $E$ is the
+energy of the incoming particle and $x$ is the thickness of the impact material,
+in \si{\gram\per\centi\meter\squared}.  The other parameters are: $z$ the charge
+of the incoming particle in units of $e$, $Z$ the atomic number of the absorber,
+$A$ the atomic mass of the absorber, $\beta = v / c$ the speed of the incoming
+particle relative to $c$, the electron mass $m_e$, the Lorentz factor $\gamma =
+(1 - \beta^2)^{-1/2}$, $I$ the mean excitation energy of the medium in
+\si{\electronvolt}, and $\delta(\beta\gamma)$ the so-called \emph{density
+correction}.  The constant $K$ is given by
+\begin{equation}
+K = 4\pi N_A r_e^2 m_e c^2,
+\end{equation}
+with $N_A$ Avogadro's number and $r_e$ the classical electron radius.  The
+maximum kinetic energy transfer in one collision, $T_\mathrm{max}$, is given by
+\begin{equation}
+T_\mathrm{max} = \frac{2 m_e c^2 \beta^2 \gamma^2}{1 + 2\gamma m_e / M +
+                                                   (m_e / M)^2},
+\end{equation}
+with $M$ the mass of the incoming particle.
+
+At intermediate energies, the Bethe-Bloch formula is accurate to a few
+\si{\percent}.  The energy loss in this region is by approximation only a
+function of $\beta\gamma$.  At higher energies radiative losses come into play.
+At these energies, Bremsstrahlung starts to play a dominant role and the
+stopping power will increase steeply.  For heavier particles, like muons,
+Bremsstrahlung only becomes dominant at very high energies.
+
+\figref{fig:stoppingpower} shows the stopping power of
+\emph{polyvinyltoluene}-based scintillators for electrons and muons as a
+function of $\beta\gamma$.
+\begin{figure}
+\centering
+\input{plots/stopping-power}
+\caption{\captitle{Stopping power for muons and electrons in the plastic
+scintillator polyvinyltoluene.}  Note that only ionization losses are
+included, since they cause the scintillation.  Data from
+\cites{ESTAR}{AtomicNuclearProperties}.}
+\label{fig:stoppingpower}
+\end{figure}
+The energy loss of low-energy particles is high, but falls steeply to a
+minimum (\SI{1}{\mega\electronvolt} for electrons and
+\SI{325}{\mega\electronvolt} for muons).  At these energies, the particles are
+called \emph{minimum ionizing particles} (\mip).  Above this energy, the
+stopping power increases slowly until radiative losses come into play.  Note
+that the ionization part of the stopping power continues to increase slowly
+(\eqref{eq:bethe-bloch}).
+Radiative losses are not important for scintillators, because photons from
+Bremsstrahlung do not ionize the medium and the spectrum does not
+overlap with that of the visible
+scintillation light.
+
+\label{pg:landau}
+While the Bethe-Bloch equation describes the \emph{mean} energy loss of
+particles, it does not describe the fluctuations in the energy loss.  These can
+be quite large.  This process is called \emph{energy straggling}.  For thin
+absorbers like plastic scintillator plates, this distribution was first
+calculated by Landau \cite{Landau:1944}. This \emph{Landau distribution} is
+usually expressed in terms of the Landau probability density function
+$\phi(\lambda)$ which is independent of physical parameters. The energy loss
+distribution is given by \cite{Leo:1994}:
+\begin{equation}
+f(\Delta) = \frac{1}{\xi}\phi(\lambda),
+\end{equation}
+with $f(\Delta)$ the relative probability of the energy loss $\Delta$, which is
+related to the parameter $\lambda$ by
+\begin{equation}
+\lambda = \frac{1}{\xi}\left[\Delta - \xi(\ln\xi - \ln\epsilon + 1 - C)\right],
+\end{equation}
+with $C$ the \emph{Euler-Mascheroni constant}, and
+\begin{equation}
+\ln\epsilon = \ln\frac{(1 - \beta^2)I^2}{2mc^2\beta^2} + \beta^2.
+\end{equation}
+The parameter $\xi$ depends on the medium and its thickness, and can be
+calculated using
+\begin{equation}
+\xi = \frac{K}{2} \frac{Z}{A} \left(\frac{z}{\beta}\right)^{\!2} x,
+\end{equation}
+with the same parameters as in \eqref{eq:bethe-bloch}.  Finally, an integral
+representation of $\phi(\lambda)$ is given by
+\begin{equation}
+\phi(\lambda) = \frac{1}{\pi} \int_0^\infty \exp(-u \ln u - u\lambda) \sin (\pi u)
+\,\ud u.
+\label{eq:landau-integral}
+\end{equation}
+%
+There are a few important assumptions made in the derivation of these equations:
+\begin{itemize}
+    \item $T_\mathrm{max} \to \infty$, i.e. the maximum kinetic energy transfer
+    in a single collision is taken to be infinite
+    \item the energy transfer in a single collision is much larger than the
+    binding energy of the electrons in the target material, i.e. the electrons
+    are treated as \emph{free particles}
+    \item the total energy loss of the incoming particle is much smaller than
+    the initial energy
+\end{itemize}
+%
+Calculating the Landau distribution is very time-consuming.  For strategies to
+compute $\phi(\lambda)$, see \cite{Kolbig:1984} and, more recently,
+\cite{Marucho:2006}.
+
+
+\subsection{Scintillator Detectors}
+\label{sec:scintillator}
+
+Scintillators are cheap and highly efficient.  Scintillation is the process
+where ionizing particles losing energy in a material cause luminescence.  In
+other words, when a particle traverses a scintillator, it emits light.  A
+scintillator has to be transparent to its own scintillation light. The most
+commonly applied scintillators are \emph{plastic} scintillators.  They are
+solutions of organic scintillators (aromatic hydrocarbons, the \emph{fluors}) in
+a solid plastic solvent (the \emph{base}). A very common plastic scintillator is
+the solvent polyvinyltoluene (the base) containing the solute \emph{anthracene}
+(the fluor).
+
+The density of the fluor is generally so low that particles traversing the
+scintillator only excite the base, i.e. the energy is only absorbed by the
+plastic.  The base emits scintillation light of its own, but generally with low
+yields.  It is also not transparent for its own scintillation light.
+Therefore, the addition of a fluor is required.  The energy transfer of the
+base to the fluor is still not clearly understood.  One mechanism appears to be
+that the fluor absorbs the scintillation light from the base, whereas
+non-radiative transfer also plays an important role.  The scintillation of the
+fluor is caused by free valence electrons which occupy the so-called
+\emph{$\pi$-molecular orbitals}.  These electrons are not associated with single
+atoms, but rather with the molecule as a whole.  Typical energy levels are shown
+in \figref{fig:energy-levels}.
+\begin{figure}
+\centering
+\input{figures/fluor-energy-levels}
+\caption{\captitle{Typical energy levels for $\pi$-orbitals of a fluor
+molecule.}  Spin singlet~($S$) and triplet~($T$) states are separated for
+clarity. The ionization level $I_\pi$ is shown at the top.  Excited states
+as well as vibrational sublevels (dashed horizontal lines) are shown.
+Internal degradation is a non-radiative process, while fluorescence and
+phosphorescence are radiative decays.  The decay $T_0 \to S_0$, however,
+is indirect, by interactions with other molecules.}
+\label{fig:energy-levels}
+\end{figure}
+After excitation, the molecule quickly decays to the $S_1$ level, without
+emitting radiation.  This is called \emph{internal degradation}.  The subsequent
+decay of the $S_1$ level to the ground state and its vibrational levels occurs
+by emitting photons.  This is called \emph{fluorescence}.  Photons from the
+decay of $S_1$ to one of the vibrational levels of the ground state ($S_{01},
+S_{02}, \ldots$)  will not excite other fluor molecules which are in the ground
+state $S_0$.  Thus, the scintillator is transparent to these photons, which is
+important for the collection of the scintillation light.
+
+Excited triplet states decay quickly to the lowest triplet state $T_0$.  Decay
+of $T_0 \to S_0$ is highly forbidden by spin-selection rules, so decay usually
+happens through interaction with other molecules:
+\begin{equation}
+T_0 + T'_0 \to S_0 + S_1 + \mathrm{phonons}.
+\end{equation}
+The newly created $S_1$ state can then decay to the ground state by emitting
+photons.  Because this process happens rather slowly, this is called the
+\emph{slow component} of the scintillator light.  The decay of the excited
+singlet states is called the \emph{fast component}.  The fast component of the
+scintillator employed by \hisparc has a decay time of \SI{2.1}{\nano\second}
+\cite{BC-408}, and the slow component has a decay time of
+\SI{14.2}{\nano\second} \cite{lee:2009}. The wavelength of maximum emission is
+\SI{425}{\nano\meter}.
+
+\hisparc uses a rectangular $\SI{1}{\meter}\times\SI{0.5}{\meter}$ scintillator.
+A triangular lightguide is glued to the short edge of the scintillator. The
+scintillation light is detected by a photomultiplier tube (PMT) attached to
+the lightguide. The peak quantum efficiency of the PMT is \SI{28}{\percent} at
+\SI{375}{\nano\meter} \cite{9107B}.  At \SI{425}{\nano\meter}, the quantum
+efficiency is \SI{25}{\percent}.
+
+
+\subsection{Transmission of Scintillation Light}
+\label{sec:transmission}
+
+The transmission of scintillation light to the PMT of \hisparc detectors has
+been studied \cite{Steijger:2010-transmission} using Monte Carlo techniques.
+Over the complete scintillator area random positions have been generated.  For
+each position, scintillation photons are emitted in random directions.  Each
+photon is tracked until it leaves the scintillator (angle of incidence when a
+photon hits a boundary surface is smaller than the critical angle) or reaches
+the PMT.  \figref{fig:transmission-contour} shows a two-dimensional
+histogram of the results.
+\begin{figure}
+\centering
+\input{figures/fishtail}
+\caption{\captitle{The simulated transmission as a function of position.}
+The percentages are relative to the maximum transmission efficiency of
+\SI{2.3}{\percent}.  The fishtail lightguide is located at left side of
+the scintillator.  Attached to that is the PMT.  Figure redrawn from
+\cite{Steijger:2010-transmission}.}
+\label{fig:transmission-contour}
+\end{figure}
+The transmission is shown for positions where a charged particle enters
+the scintillator.  A fishtail lightguide is attached to the scintillator.
+The PMT is attached to this lightguide.  The transmission depends strongly
+on the position of the origin of the scintillation light.  The maximum
+efficiency occurs in the corners of the scintillator adjacent to the
+lightguide, and has a mean value of \SI{2.3}{\percent} for one bin.
+
+In \figref{fig:transmission-hists} the area of the scintillator
+with certain values of the transmission is shown on the left.  Indeed, the
+bulk of the scintillator has very similar transmission characteristics.
+As a function of distance to the lightguide, shown on the right, it is
+clear that from \SIrange{30}{40}{\centi\meter} of the scintillator the
+transmission changes rapidly.
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/detector-area_vs_efficiency}
+\input{plots/detector-efficiency_vs_x}
+}
+\caption{Histogram of the area of the scintillator with certain
+transmission factor (left).  Mean transmission as a factor of `horizontal'
+distance to the read-out side of the scintillator (right).  For each
+distance, the transmission is averaged over the width of the scintillator.
+Figure drawn with data from \cite{Steijger:2010-transmission}.}
+\label{fig:transmission-hists}
+\end{figure}
+Ref. \cite{Steijger:2010-transmission} suggests replacing the fishtail
+with a rectangular lightguide with dimensions $\SI{50}{\centi\meter}
+\times \SI{30}{\centi\meter}$.  This lightguide basically extends the
+scintillator with a length of \SI{30}{\centi\meter} of non-scintillating
+material, eliminating the feature of \figref{fig:transmission-hists}.
+The scintillator itself then has an approximately uniform transmission
+efficiency.
+
+The simulation has been experimentally verified in \cite{Buisman:2011}. In the
+experiment, a trigger is constructed between a single \hisparc detector and a
+probe. The probe is a $\SI{1.5}{\centi\meter}\times\SI{1.5}{\centi\meter}$
+scintillator connected to a small PMT. The probe is placed on top of the
+scintillator at positions in a $3\times 5$ grid. Four additional measurements
+are performed in a small rectangle around one of the grid points, where the
+simulation predicts a large gradient in the transmission efficiency
+(\figref{fig:fishtail-experiment}).
+
+\begin{figure}
+\centering
+\input{figures/fishtail-experiment}
+\caption{Experimental setup for measuring the scintillator transmission
+efficiency.  The dotted lines show the position of the largest gradients in the
+simulated transmission (\figref{fig:transmission-contour}).  The circles
+indicate the positions at which the efficiency is measured.  Fifteen positions
+are defined on a grid, with four additional measurements performed in an area
+along the large transmission gradient.}
+\label{fig:fishtail-experiment}
+\end{figure}
+
+Charged particles traversing both scintillators result in a trigger.
+In this way, the light yield for the known positions in the scintillator can be
+measured. The yield is defined as the most probable value of the signal
+pulseheight for charged particles (\mip peak). Experimental measurements
+are compared to the simulated transmission efficiency
+(\figref{fig:exp-transmission}). The simulation does not include the PMT.
+The transmission of scintillation light must be convolved with the PMT's quantum
+efficiency and response function. Furthermore, when a photon exits the
+scintillator it is removed from the simulation. A \hisparc detector is wrapped
+in aluminum foil to reflect photons back into the scintillator. The y-intercept
+in \figref{fig:exp-transmission} implies that photons will be detected in the
+experiment, even when the simulation predicts that no photons will reach the
+PMT.
+The use of the aluminum foil may explain this discrepancy \cite{Buisman:2011}.
+\begin{figure}
+\centering
+\input{plots/exp-transmission}
+\caption{Correlation between the light yield of a \hisparc detector and the
+simulated transmission efficiency. The units are arbitrary. Each data point is a
+measurement at a location in a $3\times 5$ grid on the scintillator. Four
+additional measurements are performed in a small rectangle around one of the
+grid points, where the simulation predicts a large gradient in the transmission
+efficiency (\figref{fig:fishtail-experiment}). The y-intercept is explained
+by the use of aluminum foil which reflects lost photons back into the
+scintillator. This has not been taken into account by the simulation.
+Redrawn from \cite{Buisman:2011}.}
+\label{fig:exp-transmission}
+\end{figure}
+
+
+\subsection{Detectors and Stations}
+
+The current revision of the electronics is able to operate in a
+\emph{master / slave} combination, which allows two electronics units to operate
+four detectors at a time.  The use of four detectors, with a suitable trigger
+condition, improves sampling of a shower and allows to even measure the
+direction of the shower with a single station.  This setup is favored for remote
+schools\footnote{With a four-detector station the direction of the shower can be
+reconstructed, which provides a valuable contribution to \hisparc.}
+and is used throughout the \emph{Amsterdam Science Park Array}.
+\figref{fig:station-layout} shows the layout and dimensions of such a station.
+\begin{figure}
+\centering
+\input{figures/station-layout}
+\caption{\captitle{Layout of a star-shaped four-detector \hisparc
+station.} The station is shaped as an equilateral triangle with sides of
+\SI{10}{\meter}. Three detectors are placed on the triangle corners, with an
+additional detector in the geometric center of the triangle. A GPS antenna is
+placed in the center of the baseline.}
+\label{fig:station-layout}
+\end{figure}
+The station is an equilateral triangle with sides of \SI{10}{\meter}.  That size
+was chosen as a compromise between timing accuracy (larger is better) and ability to
+fit the station on a typical roof (smaller is better).  Each detector is placed
+in a roof box for protection.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\node[inner sep=0, anchor=north west] at (0, 0)
+    {\includegraphics[width=\linewidth]{figures/HiSPARC_station_506.jpg}};
+\node[inner sep=0, anchor=north west, draw=black, line width=3pt] at
+(10pt, -10pt) {\includegraphics[width=.15\linewidth]{figures/GPS_antenna_of_HiSPARC_station_506.jpg}};
+\end{tikzpicture}
+\caption{The four-detector \hisparc station (\figref{fig:station-layout}) at
+TeleCity, Amsterdam Science Park. Each detector is placed in a roof box for
+protection against the elements. The inset shows a close-up of the GPS antenna.}
+\end{figure}
+
+
+\section{Data Acquisition}
+\label{sec:data-acquisition}
+
+\subsection{ADC}
+
+The PMTs of the scintillators of a \hisparc station are connected to fast AD
+converters and a trigger matrix. Each PMT is connected with two cables, one for
+power and control voltages, the other for the (negative) analog signal.  The
+readout unit contains four ADCs which can be driven at \SI{200}{\mega\hertz}, as well as
+a \SI{200}{\mega\hertz} crystal.
+By using a very stable clock, the sampling frequency can be doubled by driving
+one ADC on the rising edge of the clock signal, and one ADC on the falling edge,
+for each channel.  Thus, each channel uses two ADCs, and the PMT signal is
+sampled at \SI{400}{\mega\hertz}, or $\Delta t = \SI{2.5}{\nano\second}$. The
+maximum time window for a single event is \SI{10}{\micro\second}.
+
+The use of two ADCs per channel means that they need to be carefully aligned
+because the output will consist of samples alternately provided by the first and
+the second ADC.  Any difference between the baselines of the ADCs would result
+in a ragged signal, resembling a \emph{triangle wave}.  This alignment procedure
+can be carried out by the user after installation of the station and is
+performed by applying several different internal reference voltages on the input
+channel.  The ADC gains and offsets can be controlled by software and are
+adjusted until the ADCs are both aligned and are providing a sampling range of
+\SIrange[retain-explicit-plus]{+113}{-2222}{\milli\volt}. The ADC response is
+linear over this range. The converters provide a \SI{12}{bit} output,
+providing a resolution of \SI{-.57}{\milli\volt} per \adc count.  A conversion
+of \adc counts to \si{\milli\volt} units is then given by $V = -.57x + 113$,
+with $x$ the number of \adc counts.
+
+\figref{fig:traces} shows an event sampled by the ADCs.
+The \emph{pulseheight} of an event is the largest negative value attained by the
+signal. The pulseheight is usually expressed as a positive number.
+
+\begin{figure}
+\centering
+\input{plots/traces}
+\caption{An event measurement from a \hisparc station, digitized by the ADCs.
+Note the differences in arrival time of the particles. In at least two
+detectors multiple particles are observed.}
+\label{fig:traces}
+\end{figure}
+
+
+\subsection{Trigger}
+\label{sec:trigger}
+
+For each channel, two discrimination thresholds can be set.  This provides for
+an elaborate trigger definition.  For example, if a signal goes over the
+\emph{high threshold}, there is a high probability that the signal was
+generated by a particle in the detector.
+Such a signal in at least two of the four detectors is sufficient to identify an
+EAS.
+However, if this condition is not satisfied, but at least
+three detectors \emph{do} detect a signal above the \emph{low threshold},
+there is a high probability that these are correlated and a trigger is
+generated accordingly.
+In practice it turns out, however, that the first trigger condition is sufficient
+and that a trigger is seldom generated on at least three low signals.
+\figref{fig:trigger-levels} shows the two discriminator levels in a
+pulseheight histogram of the \hisparc signals. The edge at \SI{70}{\milli\volt}
+is due to the trigger. The trigger matrix is defined in the readout unit's FPGA
+(\appref{ch:electronics}).
+
+\begin{figure}
+\centering
+\input{plots/pulseheight-spectrum-trigger-levels}
+\caption{\captitle{The \SIlist{30;70}{\milli\volt} discriminator levels for a
+four-detector \hisparc station.}  The edge at \SI{70}{\milli\volt} is due to
+the trigger.  The peak to the right of both levels is the \mip peak.}
+\label{fig:trigger-levels}
+\end{figure}
+
+When a trigger is issued, the ADC output is stored in a buffer in the FPGA. The
+buffer captures both pre-trigger and post-trigger signals, up to a total of
+\SI{10}{\micro\second} per event (\figref{fig:daq-time-windows}).
+\begin{figure}
+\centering
+\input{figures/trigger-windows}
+\caption{\captitle{\daq time windows.} A schematic representation of an
+event.  Dashed vertical lines: the pre-trigger (\SI{1}{\micro\second}),
+coincidence (\SI{1.5}{\micro\second}) and post-trigger
+(\SI{3.5}{\micro\second}) windows.  Dotted horizontal line: the data
+reduction threshold (\SI{20}{\adc}).  Shaded area: the data-reduction
+window. Data outside this window will not be stored.}
+\label{fig:daq-time-windows}
+\end{figure}
+The buffer size is sufficient to hold
+\SI{30}{\micro\second} of data. The default measurement time for \hisparc is
+\SI{6}{\micro\second}: the pre-trigger is \SI{1}{\micro\second}, the coincidence
+window is \SI{1.5}{\micro\second} and the post-trigger is
+\SI{3.5}{\micro\second}. In this configuration, the buffer can hold 5 events.
+The buffer is capable of continuously storing event data, eliminating dead time.
+Events do not overlap. Particles are either observed within the previous event
+(if observed before the end of the post-trigger window) or are part of a new
+event. \figref{fig:dead-time} shows the time between triggers for a large set of
+events. There are no triggers for intervals shorter than \SI{6}{\micro\second},
+since events do not overlap. For intervals longer than \SI{6}{\micro\second},
+events are observed. No dead time is observed.
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/dead_time_long}
+\input{plots/dead_time}
+}
+\caption{Time between triggers. The recorded length of an event is
+\SI{6}{\micro\second}. There are no triggers for intervals shorter than this
+value, since events do not overlap. For all intervals longer than
+\SI{6}{\micro\second}, events are observed. Since the GPS timestamp is
+determined when the trigger condition is fulfilled, and not at the start of
+the coincidence window, it is possible to observe events with a time
+difference less than \SI{6}{\micro\second}. Indeed, 15 events occur in the
+\SIrange{4}{6}{\micro\second} interval. There is no significant dead time.}
+\label{fig:dead-time}
+\end{figure}
+
+
+\subsection{GPS Timestamp}
+\label{sec:gps-timing}
+
+The \hisparc electronics contains a dedicated high accuracy GPS board, which
+provides an accurate timestamp to the data \cite{trimble}.  The GPS provides
+several modes of operation. In \emph{self-survey mode}, the antenna's position
+is determined by averaging over many \emph{fixes}\footnote{In \SI{24}{\hour},
+\num{86400} fixes are collected.}. For each fix, the GPS operates in \emph{full
+position mode}. The signals from the satellites are used to calculate both
+the current time and the position of the antenna. Once the position is
+accurately known, at the end of the self-survey, the GPS switches to
+\emph{overdetermined clock mode}. Since the position is static, the
+equations can be solved for current time only. Using many satellites, the
+system of equations is overdetermined and this results in a more accurate
+measurement of the GPS time.
+
+The \hisparc \SI{200}{\mega\hertz} clock is disciplined with the GPS
+pulse-per-second (PPS) signal.  The PPS signal and the clock tick counts
+are combined into a trigger time which is determined at
+\SI{5}{\nano\second} intervals.  By inspecting the PMT signal the trigger time
+is adjusted to \SI{2.5}{\nano\second} intervals.  The trigger time is then
+corrected by taking the GPS-provided quantization error into account, and
+is rounded to the nearest nanosecond.
+
+The GPS can report time either in UTC or GPS time.
+Both these times are essentially equal to \emph{international atomic time}
+(TAI), up to a difference in \emph{leap seconds}.  Leap seconds are introduced
+to better match the UTC clock to \emph{mean solar time}, determined by the
+Earth's rotation.  Since the rotation of the Earth is not constant in time, and
+is continuously slowing down, leap seconds need to be introduced to synchronize
+UTC to mean solar time.  The introduction of leap seconds, however, means that
+UTC is periodically adjusted and is not strictly monotonically increasing.  GPS
+time, however, is directly based on TAI, and thus maintains the same offset, but
+was designed to match UTC in 1980. Since then, GPS time and UTC have diverged.
+As of December 31, 2008, the difference between UTC and GPS is \SI{15}{\second},
+GPS time being ahead of UTC.  Because the GPS time is both continuous and more
+natural for the GPS receiver (UTC has to be calculated, after all necessary
+parameters are received from the GPS satellites, which can take several minutes
+after startup), all \hisparc stations have their clocks set to GPS
+time.
+
+The accuracy of the GPS device is important for the analysis of coincidences
+between multiple stations which each have their own GPS device.  To test the
+accuracy a pulse generator was used as an external trigger source.  The
+trigger was distributed simultaneously to stations 501 and 502, which have a
+separation distance of \SI{100}{\meter}.  The two cables used to connect the
+triggers had different lengths and the resulting time delay has been measured
+and corrected for.
+The trigger period has been set to \SI{0.251}{\second}, ensuring a trigger rate
+of approximately \SI{4}{\hertz}, while sampling the timing accuracy over the
+full subsecond range.  The results of a \SI{24}{\hour} measurement of the time
+differences between both stations are shown in
+\figref{fig:gps-timing-distribution}.
+\begin{figure}
+\centering
+\input{plots/gps-time-distr}
+\caption{\captitle{Distribution of GPS time differences.}  The bin size is
+\SI{1}{\nano\second}, since the time\-stamp is reported to nanosecond accuracy.
+The histogram is fitted with a normal distribution with an offset of
+\SI{18}{\nano\second} and a standard deviation of \SI{3}{\nano\second}.}
+\label{fig:gps-timing-distribution}
+\end{figure}
+The histogram is fitted with a normal distribution.  The distribution has an
+offset of \SI{18}{\nano\second} and a standard deviation of
+\SI{3}{\nano\second}.  The offset is as yet unaccounted for.
+
+
+\subsection{Data Acquisition Software}
+
+LabVIEW \cite{labview} is used to control and read out the \hisparc electronics.
+It provides a graphical user interface for aligning the ADCs, changing settings
+like time windows, thresholds and PMT voltages, and a data display of running
+measurements.  Upon startup, it initializes the hardware, powers on the PMTs,
+initializes the GPS module and starts data acquisition
+(\figref{fig:daq-screenshot}).
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figures/Screenshot_daq_501}
+\caption{\captitle{Screenshot of the \hisparc \daq software.} The top left part
+of the user interface shows the signal of the latest event. The top right shows
+the timestamp of the event, the trigger matrix, GPS location and hardware
+version information. The bottom part of the UI is dedicated to detector and
+trigger settings. Additional tabs (visible at the top of the screen) are
+available to inspect expert settings, status and error messages, and several
+important statistics (e.g. pulseheight histograms, trigger rates, etc.).}
+\label{fig:daq-screenshot}
+\end{figure}
+The \daq software performs a preliminary analysis. Baseline, pulseheight and
+pulse integral are determined. The baseline and noise level are derived from the
+pre-trigger window. The post-trigger signal may contain particles if the
+shower front is particularly thick.
+
+Finally, the baseline is used to apply a \emph{data reduction} algorithm.  The
+algorithm determines the part of the signal containing the PMT pulses and
+removes the rest.  The \SI{6}{\micro\second} signal is thus greatly reduced in
+length.  The algorithm determines the first instant that any detector had a
+signal higher than \SI{20}{\adc}, as well as the last instant.  Only data within
+this time window is stored in a local event store
+(\figref{fig:daq-time-windows}).
+
+
+\section{Pulseheight Spectrum}
+\label{sec:features-pulseheight-spectrum}
+
+\figref{fig:spectrum-features} shows a histogram of the pulseheights of a large
+number of \hisparc events. This \emph{pulseheight spectrum} has several
+features.  The left side of the spectrum shows a large number of events with
+small pulseheights, which falls steeply. This part of the spectrum is
+significantly above the noise level, which is measured to be only a few ADC
+counts.
+\begin{figure}
+\centering
+\input{plots/plot_pulseheight_histogram}
+\caption{\captitle{Features of the pulseheight spectrum.}  The data in this
+figure are produced by using an external trigger to trigger the detector on
+showers.  The data contains no artifacts resulting from triggering on
+the discriminator levels.  The left flank in the data is due to the detection
+of photons, while the bump and the tail are due to the detection of
+charged particles.  The energy loss of charged particles is described by
+the Landau distribution, but can only be observed as a convolution with a
+normal distribution describing the resolution of the detector.}
+\label{fig:spectrum-features}
+\end{figure}
+The events strongly correlate with showers, as discussed in
+\cite{Pennink:2010}.  In fact, by calculating the spectrum that would be
+generated by high-energy photons, \cite{Pennink:2010} shows that this fits the
+measured spectrum well.
+
+Photons lose energy in matter by the photo-electric effect, Compton scattering
+and pair production.  These processes have very small cross sections, so it is
+hard to detect photons using their energy loss in a scintillator.  The
+photo-electric effect dominates for photon energies below
+\SI{50}{\kilo\electronvolt}.  The resulting signal is very small
+because so little energy is available.  In fact, the signal level is below the
+noise level.
+For photons with energies in the range of \SI{50}{\kilo\electronvolt} to
+\SI{10}{\mega\electronvolt} the dominant interaction process is the Compton
+effect, in which a photon scatters off an electron and loses energy to the electron.
+The electron is ejected from the atom and travels through the scintillator,
+losing energy resulting in scintillation light, which can be detected.  The
+amount of energy that is lost to the scintillator depends on the energy of the
+electron (\figref{fig:stoppingpower}), but also on the position in the
+scintillator where the interaction occurred and the path the electron travels.
+Photons with an energy of approximately \SIrange{1}{10}{\mega\electronvolt}
+produce a signal corresponding to about \SIrange{0.15}{1}{\mip}.
+
+Photons with energies above \SI{100}{\mega\electronvolt} primarily produce
+electron-positron pairs when interacting with matter in the scintillator.  The
+resulting minimum-ionizing particles travel through the scintillator.  The
+observed signal is thus in the range of \SIrange{0}{2}{\mip} depending on where
+in the scintillator the interaction occurred.
+
+In \cite{Pennink:2010} a Monte Carlo simulation is performed of photons hitting
+a \hisparc scintillator.  The resulting spectrum can be described by
+\begin{equation}
+N(A) = N(0) \, \exp(-A / A_0),
+\end{equation}
+with $N(A)$ the number of events with pulse height $A$ and $A_0$ a constant
+which depends on the gain of the detector.  The nominal value of $A_0
+\approx \SI{80}{\adc}$.
+
+The part of the spectrum from \SIrange{200}{2000}{\adc} is due to charged
+particles (electrons and muons).  As discussed in \secref{sec:energy-loss} on
+\pgref{pg:landau} the fluctuations in the energy loss are described by the
+Landau distribution.  This is a relatively narrow asymmetric distribution with a
+long tail.  Due to the resolution of the detector this distribution is only
+observed as a convolution with a normal distribution describing this resolution
+(\figref{fig:spectrum-features}).  The sum of the photon and charged particle
+spectra closely matches the observed spectrum up to approximately
+\SI{600}{\adc}.  Above that, the spectrum is dominated by events in which more
+than one charged particle hit the detector. Most charged particle events contain
+only one particle.
+
+Further evidence corroborating the photon interpretation of the spectrum is
+given in \cite{Pennink:2010} by showing a comparison between signals in
+different detectors of one station measuring the same event (see
+\figref{fig:photon-time}). By comparing low pulseheight signals (mainly
+photons) with high pulseheight signals (mainly charged particles), it is
+obvious that in general, the distribution of arrival times shows a
+longer tail for photons than for charged particles. This observation is as
+yet unexplained.
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.5\linewidth}
+\input{plots/gamma-emu-time-differences}
+}
+\caption{Time spectra of coincidence events in two detectors.  The time
+differences are given by $t_1 - t_2$ with $t_1$ the arrival time in
+detector 1 and $t_2$ the arrival time in detector 2.  Shown are the
+distribution of low signals ($\gamma - \gamma$) and high signals
+($\mathrm{e}/\mu - \mathrm{e}/\mu$) as well as the asymmetrical
+distributions resulting from low signals only in detector 1 or detector 2.
+Redrawn from \cite{Pennink:2010}.}
+\label{fig:photon-time}
+\end{figure}
+
+
+\section{Timing Between Stations}
+\label{sec:features-time-spectrum}
+
+\hisparc \emph{stations} consist of two or
+four \emph{scintillator detectors} and a \emph{\textsmaller{GPS} antenna}. A
+collection of stations in the vicinity of a major city is called a
+\emph{cluster}. Each cluster is centered around a scientific institute
+and managed by a \emph{cluster coordinator}.
+
+A subcluster is located at the \emph{Amsterdam Science Park}
+(\figref{fig:hisparc-locations-sciencepark}).  This subcluster has eight
+stations and is detecting EAS with a lower energy threshold.
+
+\begin{figure}
+\centering
+\input{figures/map-sciencepark}
+\caption{Locations of \hisparc stations in the Amsterdam Science Park
+Array.  The station located inside the Nikhef lobby is not shown.}
+\label{fig:hisparc-locations-sciencepark}
+\end{figure}
+
+An analysis of the time differences of coincidences between stations has been
+performed.  The data contains EAS events from stations 501 and 502 during the
+full month of September, 2011.  The time differences ($\Delta t = t_{502} -
+t_{501}$) are shown in \figref{fig:station-timing-distribution}.
+\begin{figure}
+\centering
+\input{plots/station-time-distr}
+\caption{\captitle{Distribution of time differences between two stations.}
+$\Delta t$ = $t_{502} - t_{501}$.  The histogram is fitted with a normal
+distribution with an offset of
+\SI{-15}{\nano\second} and a standard deviation of \SI{102}{\nano\second}.}
+\label{fig:station-timing-distribution}
+\end{figure}
+A normal distribution has again been fitted to the data.  The offset is
+\SI{-15}{\nano\second} and the standard deviation is \SI{102}{\nano\second}.
+The width of the distribution is much larger than the distribution of GPS timing
+differences.  This is the result of the difference in arrival time of EAS at the
+two stations.
+
+The arrival time difference distributions of \hisparc stations at the
+Science Park, Amsterdam have been studied \cite{Bosboom:2011}.  In
+particular the relationship between station separation distance and the
+width of the arrival time difference distributions have been studied.  The
+width of the distributions are expected to increase with increasing
+distance between stations.  This results from the expectation that any
+pair of stations measures approximately the same distribution of shower
+angles.  For inclined showers, the difference of arrival time of the
+shower front at two stations is, in the plane front approximation,
+linearly dependent on the distance between the stations.  See also
+\figref{fig:front-at-stations}.  The experimental results, as well as a
+fit to the data, shown in
+\figref{fig:station-timing-distribution-vs-distance} have been taken from
+\cite{Bosboom:2011}.
+%
+\begin{figure}
+\centering
+\input{plots/sigma-time-vs-distance}
+\caption{\captitle{Standard deviation of time difference distributions vs
+the distance between stations.}  The slope of the fit is
+\SI{1}{\nano\second\per\meter}.  Figure redrawn from \cite{Bosboom:2011}.}
+\label{fig:station-timing-distribution-vs-distance}
+\end{figure}
+%
+The linear function which is fitted to the data has a slope of
+\SI{1}{\nano\second\per\meter}, which illustrates the effect.
+
+
+\section{HiSPARC Clusters}
+\label{sec:hisparc-locations}
+
+\figref{fig:hisparc-locations} shows the locations of \hisparc stations in the
+Netherlands. Clusters cover fairly large areas.  For example, the Eindhoven
+cluster includes Tilburg, which is \SI{30}{\kilo\meter} from Eindhoven.  When
+analyzing EAS, stations within Tilburg are usually analyzed separately from the
+stations within the city of Eindhoven: the cluster is divided into
+\emph{subclusters}.
+
+\begin{figure}
+\centering
+\input{figures/map-NL}
+\caption{Locations of \hisparc stations in the Netherlands.}
+\label{fig:hisparc-locations}
+\end{figure}
+
+The number of active stations per cluster has increased over the years. For the
+period 2003 -- 2011 the numbers are given in \tabref{tab:stations-per-cluster}.
+Many stations have been operational for years. The project has been growing over
+the entire period. In 2012, a dozen additional stations are expected to come
+online. Over the years, the success of \hisparc has generated interest from
+abroad.
+Overseas clusters are located in Aarhus, Denmark (since 2007), Durham, the UK
+(since 2011) and Hanoi, Vietnam. An additional cluster is planned in Bristol,
+the UK.
+
+\begin{table}
+\centering
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Cluster & 2003 & 2005 & 2007 & 2009 & 2011 \\
+\midrule
+Amsterdam & 0 & 16 & 20 & 27 & 29 \\
+Eindhoven & 0 & 0 & 0 & 8 & 18 \\
+Leiden & 0 & 3 & 8 & 9 & 15 \\
+Nijmegen & 5 & 9 & 11 & 11 & 11 \\
+Enschede & 0 & 0 & 1 & 2 & 7 \\
+Utrecht & 0 & 1 & 1 & 2 & 5 \\
+Groningen & 0 & 4 & 4 & 4 & 4 \\
+\bottomrule
+\end{tabular}
+\caption{The number of active stations in \hisparc clusters, for the period of
+2003 -- 2011.}
+\label{tab:stations-per-cluster}
+\end{table}
+
+The use of a weather station is fully integrated in the \hisparc software and
+data flow. Each participating high school can install a weather station at their
+location. Students can analyze correlations between cosmic rays and atmospheric
+conditions. About a dozen schools currently have a weather station installed.
+In addition, lightning detectors are also being integrated and are planned to
+start taking measurements in the second half of 2012.

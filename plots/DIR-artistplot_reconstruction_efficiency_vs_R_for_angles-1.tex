@@ -1,0 +1,114 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            %
+            title={  },
+            %
+            xlabel={ Core distance [\si{\meter}] },
+            ylabel={ Reconstruction efficiency },
+            %
+            xmin={ 0 },
+            xmax={ 100 },
+            ymin={  },
+            ymax={ 1 },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+        ]
+
+        
+
+        
+
+        
+            
+            % Draw series plot
+            \addplot[no markers,solid] coordinates {
+                (5.55555555556, 0.999756986634)
+                (16.6666666667, 0.995549382016)
+                (27.7777777778, 0.979324445557)
+                (38.8888888889, 0.944064901793)
+                (50.0, 0.882616093973)
+                (61.1111111111, 0.813462514808)
+                (72.2222222222, 0.743339055153)
+                (83.3333333333, 0.660478547855)
+                (94.4444444444, 0.596038114343)
+            };
+        
+            
+            % Draw series plot
+            \addplot[no markers,solid] coordinates {
+                (5.55555555556, 0.996893606006)
+                (16.6666666667, 0.983677642248)
+                (27.7777777778, 0.950610643549)
+                (38.8888888889, 0.893984837124)
+                (50.0, 0.813229298468)
+                (61.1111111111, 0.761540600667)
+                (72.2222222222, 0.697945585786)
+                (83.3333333333, 0.643528183716)
+                (94.4444444444, 0.567010309278)
+            };
+        
+            
+            % Draw series plot
+            \addplot[no markers,solid] coordinates {
+                (5.55555555556, 0.981039678553)
+                (16.6666666667, 0.956066501592)
+                (27.7777777778, 0.89586074284)
+                (38.8888888889, 0.822180916976)
+                (50.0, 0.74479889043)
+                (61.1111111111, 0.69394261424)
+                (72.2222222222, 0.618937644342)
+                (83.3333333333, 0.59649122807)
+                (94.4444444444, 0.525423728814)
+            };
+        
+
+        
+
+        
+
+        
+            \node[coordinate,
+                  pin={[] above right:{ \SI{0}{\degree} }}]
+                at (axis cs:85.5555555556, 0.647590461152) {};
+        
+            \node[coordinate,
+                  pin={[] below left:{ \SI{22.5}{\degree} }}]
+                at (axis cs:23.3333333333, 0.963837443028) {};
+        
+            \node[coordinate,
+                  pin={[] below left:{ \SI{35}{\degree} }}]
+                at (axis cs:23.3333333333, 0.919943046341) {};
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

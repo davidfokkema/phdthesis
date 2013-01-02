@@ -1,0 +1,115 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            %
+            title={  },
+            %
+            xlabel={ Core distance [\si{\meter}] $\pm \SI{10}{\meter}$ },
+            ylabel={ Angle reconstruction uncertainty [\si{\degree}] },
+            %
+            xmin={  },
+            xmax={  },
+            ymin={ 0 },
+            ymax={  },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=square*,mark options=white,only marks] coordinates {
+                (0.0, 3.97861353682)
+                (20.0, 5.64604098115)
+                (40.0, 8.49099447274)
+                (60.0, 12.3030917542)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (0, 7.48307465843)
+                (20, 7.33432953076)
+                (40, 10.0113750476)
+                (60, 11.7629073924)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,solid] coordinates {
+                (0, 7.48307465843)
+                (20, 7.33432953076)
+                (40, 10.0113750476)
+                (60, 11.7629073924)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=square,solid] coordinates {
+                (0.0, 3.97861353682)
+                (20.0, 5.64604098115)
+                (40.0, 8.49099447274)
+                (60.0, 12.3030917542)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=*,solid] coordinates {
+                (0, 18.4188068004)
+                (20, 18.7576983157)
+                (40, 23.4177570939)
+                (60, 30.7499545812)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=square*,solid] coordinates {
+                (0.0, 9.36706827682)
+                (20.0, 13.6647062894)
+                (40.0, 21.3656826288)
+                (60.0, 30.3163881745)
+            };
+        
+
+        
+
+        
+
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

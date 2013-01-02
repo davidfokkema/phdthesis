@@ -1,0 +1,17 @@
+Task showere14
+Primary         proton .6
+Primary         iron .4
+PrimaryEnergy   1e14 eV
+PrimaryZenAngle 0 deg 60 deg CS
+Thinning        1e-5 Rel
+TotalShowers    100
+
+SaveInFile grdpcles None
+SaveInFile lgtpcles None
+
+RLimsTables     10 m    2000 m
+
+Export          2205 Option d
+Export          2207 Option d
+
+End

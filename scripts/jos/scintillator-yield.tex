@@ -1,0 +1,5043 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{a4wide}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\usepackage[detect-family]{siunitx}
+\usepackage[eulergreek]{sansmath}
+\sisetup{text-sf=\sansmath}
+\usepackage{relsize}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+        x=2pt, y=2pt,
+    ]
+                    \draw[,fill,
+                          black!57]
+                        (-100, -25)
+                        rectangle (-98, -23);
+                    \draw[,fill,
+                          black!56]
+                        (-100, -23)
+                        rectangle (-98, -21);
+                    \draw[,fill,
+                          black!55]
+                        (-100, -21)
+                        rectangle (-98, -19);
+                    \draw[,fill,
+                          black!50]
+                        (-100, -19)
+                        rectangle (-98, -17);
+                    \draw[,fill,
+                          black!57]
+                        (-100, -17)
+                        rectangle (-98, -15);
+                    \draw[,fill,
+                          black!58]
+                        (-100, -15)
+                        rectangle (-98, -13);
+                    \draw[,fill,
+                          black!52]
+                        (-100, -13)
+                        rectangle (-98, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-100, -11)
+                        rectangle (-98, -9);
+                    \draw[,fill,
+                          black!39]
+                        (-100, -9)
+                        rectangle (-98, -7);
+                    \draw[,fill,
+                          black!43]
+                        (-100, -7)
+                        rectangle (-98, -5);
+                    \draw[,fill,
+                          black!35]
+                        (-100, -5)
+                        rectangle (-98, -3);
+                    \draw[,fill,
+                          black!34]
+                        (-100, -3)
+                        rectangle (-98, -1);
+                    \draw[,fill,
+                          black!35]
+                        (-100, -1)
+                        rectangle (-98, 1);
+                    \draw[,fill,
+                          black!38]
+                        (-100, 1)
+                        rectangle (-98, 3);
+                    \draw[,fill,
+                          black!33]
+                        (-100, 3)
+                        rectangle (-98, 5);
+                    \draw[,fill,
+                          black!36]
+                        (-100, 5)
+                        rectangle (-98, 7);
+                    \draw[,fill,
+                          black!41]
+                        (-100, 7)
+                        rectangle (-98, 9);
+                    \draw[,fill,
+                          black!47]
+                        (-100, 9)
+                        rectangle (-98, 11);
+                    \draw[,fill,
+                          black!50]
+                        (-100, 11)
+                        rectangle (-98, 13);
+                    \draw[,fill,
+                          black!53]
+                        (-100, 13)
+                        rectangle (-98, 15);
+                    \draw[,fill,
+                          black!53]
+                        (-100, 15)
+                        rectangle (-98, 17);
+                    \draw[,fill,
+                          black!57]
+                        (-100, 17)
+                        rectangle (-98, 19);
+                    \draw[,fill,
+                          black!54]
+                        (-100, 19)
+                        rectangle (-98, 21);
+                    \draw[,fill,
+                          black!54]
+                        (-100, 21)
+                        rectangle (-98, 23);
+                    \draw[,fill,
+                          black!57]
+                        (-100, 23)
+                        rectangle (-98, 25);
+                    \draw[,fill,
+                          black!58]
+                        (-98, -25)
+                        rectangle (-96, -23);
+                    \draw[,fill,
+                          black!60]
+                        (-98, -23)
+                        rectangle (-96, -21);
+                    \draw[,fill,
+                          black!55]
+                        (-98, -21)
+                        rectangle (-96, -19);
+                    \draw[,fill,
+                          black!51]
+                        (-98, -19)
+                        rectangle (-96, -17);
+                    \draw[,fill,
+                          black!56]
+                        (-98, -17)
+                        rectangle (-96, -15);
+                    \draw[,fill,
+                          black!54]
+                        (-98, -15)
+                        rectangle (-96, -13);
+                    \draw[,fill,
+                          black!49]
+                        (-98, -13)
+                        rectangle (-96, -11);
+                    \draw[,fill,
+                          black!46]
+                        (-98, -11)
+                        rectangle (-96, -9);
+                    \draw[,fill,
+                          black!41]
+                        (-98, -9)
+                        rectangle (-96, -7);
+                    \draw[,fill,
+                          black!35]
+                        (-98, -7)
+                        rectangle (-96, -5);
+                    \draw[,fill,
+                          black!34]
+                        (-98, -5)
+                        rectangle (-96, -3);
+                    \draw[,fill,
+                          black!32]
+                        (-98, -3)
+                        rectangle (-96, -1);
+                    \draw[,fill,
+                          black!32]
+                        (-98, -1)
+                        rectangle (-96, 1);
+                    \draw[,fill,
+                          black!33]
+                        (-98, 1)
+                        rectangle (-96, 3);
+                    \draw[,fill,
+                          black!31]
+                        (-98, 3)
+                        rectangle (-96, 5);
+                    \draw[,fill,
+                          black!38]
+                        (-98, 5)
+                        rectangle (-96, 7);
+                    \draw[,fill,
+                          black!42]
+                        (-98, 7)
+                        rectangle (-96, 9);
+                    \draw[,fill,
+                          black!51]
+                        (-98, 9)
+                        rectangle (-96, 11);
+                    \draw[,fill,
+                          black!55]
+                        (-98, 11)
+                        rectangle (-96, 13);
+                    \draw[,fill,
+                          black!57]
+                        (-98, 13)
+                        rectangle (-96, 15);
+                    \draw[,fill,
+                          black!50]
+                        (-98, 15)
+                        rectangle (-96, 17);
+                    \draw[,fill,
+                          black!53]
+                        (-98, 17)
+                        rectangle (-96, 19);
+                    \draw[,fill,
+                          black!57]
+                        (-98, 19)
+                        rectangle (-96, 21);
+                    \draw[,fill,
+                          black!57]
+                        (-98, 21)
+                        rectangle (-96, 23);
+                    \draw[,fill,
+                          black!54]
+                        (-98, 23)
+                        rectangle (-96, 25);
+                    \draw[,fill,
+                          black!53]
+                        (-96, -25)
+                        rectangle (-94, -23);
+                    \draw[,fill,
+                          black!59]
+                        (-96, -23)
+                        rectangle (-94, -21);
+                    \draw[,fill,
+                          black!54]
+                        (-96, -21)
+                        rectangle (-94, -19);
+                    \draw[,fill,
+                          black!57]
+                        (-96, -19)
+                        rectangle (-94, -17);
+                    \draw[,fill,
+                          black!55]
+                        (-96, -17)
+                        rectangle (-94, -15);
+                    \draw[,fill,
+                          black!54]
+                        (-96, -15)
+                        rectangle (-94, -13);
+                    \draw[,fill,
+                          black!53]
+                        (-96, -13)
+                        rectangle (-94, -11);
+                    \draw[,fill,
+                          black!45]
+                        (-96, -11)
+                        rectangle (-94, -9);
+                    \draw[,fill,
+                          black!41]
+                        (-96, -9)
+                        rectangle (-94, -7);
+                    \draw[,fill,
+                          black!42]
+                        (-96, -7)
+                        rectangle (-94, -5);
+                    \draw[,fill,
+                          black!37]
+                        (-96, -5)
+                        rectangle (-94, -3);
+                    \draw[,fill,
+                          black!32]
+                        (-96, -3)
+                        rectangle (-94, -1);
+                    \draw[,fill,
+                          black!33]
+                        (-96, -1)
+                        rectangle (-94, 1);
+                    \draw[,fill,
+                          black!31]
+                        (-96, 1)
+                        rectangle (-94, 3);
+                    \draw[,fill,
+                          black!36]
+                        (-96, 3)
+                        rectangle (-94, 5);
+                    \draw[,fill,
+                          black!42]
+                        (-96, 5)
+                        rectangle (-94, 7);
+                    \draw[,fill,
+                          black!44]
+                        (-96, 7)
+                        rectangle (-94, 9);
+                    \draw[,fill,
+                          black!47]
+                        (-96, 9)
+                        rectangle (-94, 11);
+                    \draw[,fill,
+                          black!56]
+                        (-96, 11)
+                        rectangle (-94, 13);
+                    \draw[,fill,
+                          black!55]
+                        (-96, 13)
+                        rectangle (-94, 15);
+                    \draw[,fill,
+                          black!55]
+                        (-96, 15)
+                        rectangle (-94, 17);
+                    \draw[,fill,
+                          black!54]
+                        (-96, 17)
+                        rectangle (-94, 19);
+                    \draw[,fill,
+                          black!55]
+                        (-96, 19)
+                        rectangle (-94, 21);
+                    \draw[,fill,
+                          black!55]
+                        (-96, 21)
+                        rectangle (-94, 23);
+                    \draw[,fill,
+                          black!55]
+                        (-96, 23)
+                        rectangle (-94, 25);
+                    \draw[,fill,
+                          black!53]
+                        (-94, -25)
+                        rectangle (-92, -23);
+                    \draw[,fill,
+                          black!51]
+                        (-94, -23)
+                        rectangle (-92, -21);
+                    \draw[,fill,
+                          black!51]
+                        (-94, -21)
+                        rectangle (-92, -19);
+                    \draw[,fill,
+                          black!52]
+                        (-94, -19)
+                        rectangle (-92, -17);
+                    \draw[,fill,
+                          black!53]
+                        (-94, -17)
+                        rectangle (-92, -15);
+                    \draw[,fill,
+                          black!51]
+                        (-94, -15)
+                        rectangle (-92, -13);
+                    \draw[,fill,
+                          black!54]
+                        (-94, -13)
+                        rectangle (-92, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-94, -11)
+                        rectangle (-92, -9);
+                    \draw[,fill,
+                          black!47]
+                        (-94, -9)
+                        rectangle (-92, -7);
+                    \draw[,fill,
+                          black!40]
+                        (-94, -7)
+                        rectangle (-92, -5);
+                    \draw[,fill,
+                          black!31]
+                        (-94, -5)
+                        rectangle (-92, -3);
+                    \draw[,fill,
+                          black!35]
+                        (-94, -3)
+                        rectangle (-92, -1);
+                    \draw[,fill,
+                          black!30]
+                        (-94, -1)
+                        rectangle (-92, 1);
+                    \draw[,fill,
+                          black!31]
+                        (-94, 1)
+                        rectangle (-92, 3);
+                    \draw[,fill,
+                          black!37]
+                        (-94, 3)
+                        rectangle (-92, 5);
+                    \draw[,fill,
+                          black!40]
+                        (-94, 5)
+                        rectangle (-92, 7);
+                    \draw[,fill,
+                          black!46]
+                        (-94, 7)
+                        rectangle (-92, 9);
+                    \draw[,fill,
+                          black!49]
+                        (-94, 9)
+                        rectangle (-92, 11);
+                    \draw[,fill,
+                          black!51]
+                        (-94, 11)
+                        rectangle (-92, 13);
+                    \draw[,fill,
+                          black!57]
+                        (-94, 13)
+                        rectangle (-92, 15);
+                    \draw[,fill,
+                          black!55]
+                        (-94, 15)
+                        rectangle (-92, 17);
+                    \draw[,fill,
+                          black!51]
+                        (-94, 17)
+                        rectangle (-92, 19);
+                    \draw[,fill,
+                          black!54]
+                        (-94, 19)
+                        rectangle (-92, 21);
+                    \draw[,fill,
+                          black!57]
+                        (-94, 21)
+                        rectangle (-92, 23);
+                    \draw[,fill,
+                          black!57]
+                        (-94, 23)
+                        rectangle (-92, 25);
+                    \draw[,fill,
+                          black!51]
+                        (-92, -25)
+                        rectangle (-90, -23);
+                    \draw[,fill,
+                          black!55]
+                        (-92, -23)
+                        rectangle (-90, -21);
+                    \draw[,fill,
+                          black!54]
+                        (-92, -21)
+                        rectangle (-90, -19);
+                    \draw[,fill,
+                          black!53]
+                        (-92, -19)
+                        rectangle (-90, -17);
+                    \draw[,fill,
+                          black!51]
+                        (-92, -17)
+                        rectangle (-90, -15);
+                    \draw[,fill,
+                          black!56]
+                        (-92, -15)
+                        rectangle (-90, -13);
+                    \draw[,fill,
+                          black!52]
+                        (-92, -13)
+                        rectangle (-90, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-92, -11)
+                        rectangle (-90, -9);
+                    \draw[,fill,
+                          black!45]
+                        (-92, -9)
+                        rectangle (-90, -7);
+                    \draw[,fill,
+                          black!44]
+                        (-92, -7)
+                        rectangle (-90, -5);
+                    \draw[,fill,
+                          black!36]
+                        (-92, -5)
+                        rectangle (-90, -3);
+                    \draw[,fill,
+                          black!35]
+                        (-92, -3)
+                        rectangle (-90, -1);
+                    \draw[,fill,
+                          black!30]
+                        (-92, -1)
+                        rectangle (-90, 1);
+                    \draw[,fill,
+                          black!32]
+                        (-92, 1)
+                        rectangle (-90, 3);
+                    \draw[,fill,
+                          black!38]
+                        (-92, 3)
+                        rectangle (-90, 5);
+                    \draw[,fill,
+                          black!40]
+                        (-92, 5)
+                        rectangle (-90, 7);
+                    \draw[,fill,
+                          black!47]
+                        (-92, 7)
+                        rectangle (-90, 9);
+                    \draw[,fill,
+                          black!45]
+                        (-92, 9)
+                        rectangle (-90, 11);
+                    \draw[,fill,
+                          black!56]
+                        (-92, 11)
+                        rectangle (-90, 13);
+                    \draw[,fill,
+                          black!53]
+                        (-92, 13)
+                        rectangle (-90, 15);
+                    \draw[,fill,
+                          black!57]
+                        (-92, 15)
+                        rectangle (-90, 17);
+                    \draw[,fill,
+                          black!54]
+                        (-92, 17)
+                        rectangle (-90, 19);
+                    \draw[,fill,
+                          black!50]
+                        (-92, 19)
+                        rectangle (-90, 21);
+                    \draw[,fill,
+                          black!56]
+                        (-92, 21)
+                        rectangle (-90, 23);
+                    \draw[,fill,
+                          black!57]
+                        (-92, 23)
+                        rectangle (-90, 25);
+                    \draw[,fill,
+                          black!56]
+                        (-90, -25)
+                        rectangle (-88, -23);
+                    \draw[,fill,
+                          black!54]
+                        (-90, -23)
+                        rectangle (-88, -21);
+                    \draw[,fill,
+                          black!57]
+                        (-90, -21)
+                        rectangle (-88, -19);
+                    \draw[,fill,
+                          black!54]
+                        (-90, -19)
+                        rectangle (-88, -17);
+                    \draw[,fill,
+                          black!52]
+                        (-90, -17)
+                        rectangle (-88, -15);
+                    \draw[,fill,
+                          black!53]
+                        (-90, -15)
+                        rectangle (-88, -13);
+                    \draw[,fill,
+                          black!49]
+                        (-90, -13)
+                        rectangle (-88, -11);
+                    \draw[,fill,
+                          black!50]
+                        (-90, -11)
+                        rectangle (-88, -9);
+                    \draw[,fill,
+                          black!51]
+                        (-90, -9)
+                        rectangle (-88, -7);
+                    \draw[,fill,
+                          black!39]
+                        (-90, -7)
+                        rectangle (-88, -5);
+                    \draw[,fill,
+                          black!39]
+                        (-90, -5)
+                        rectangle (-88, -3);
+                    \draw[,fill,
+                          black!31]
+                        (-90, -3)
+                        rectangle (-88, -1);
+                    \draw[,fill,
+                          black!31]
+                        (-90, -1)
+                        rectangle (-88, 1);
+                    \draw[,fill,
+                          black!34]
+                        (-90, 1)
+                        rectangle (-88, 3);
+                    \draw[,fill,
+                          black!39]
+                        (-90, 3)
+                        rectangle (-88, 5);
+                    \draw[,fill,
+                          black!39]
+                        (-90, 5)
+                        rectangle (-88, 7);
+                    \draw[,fill,
+                          black!46]
+                        (-90, 7)
+                        rectangle (-88, 9);
+                    \draw[,fill,
+                          black!51]
+                        (-90, 9)
+                        rectangle (-88, 11);
+                    \draw[,fill,
+                          black!54]
+                        (-90, 11)
+                        rectangle (-88, 13);
+                    \draw[,fill,
+                          black!54]
+                        (-90, 13)
+                        rectangle (-88, 15);
+                    \draw[,fill,
+                          black!54]
+                        (-90, 15)
+                        rectangle (-88, 17);
+                    \draw[,fill,
+                          black!58]
+                        (-90, 17)
+                        rectangle (-88, 19);
+                    \draw[,fill,
+                          black!55]
+                        (-90, 19)
+                        rectangle (-88, 21);
+                    \draw[,fill,
+                          black!53]
+                        (-90, 21)
+                        rectangle (-88, 23);
+                    \draw[,fill,
+                          black!51]
+                        (-90, 23)
+                        rectangle (-88, 25);
+                    \draw[,fill,
+                          black!53]
+                        (-88, -25)
+                        rectangle (-86, -23);
+                    \draw[,fill,
+                          black!56]
+                        (-88, -23)
+                        rectangle (-86, -21);
+                    \draw[,fill,
+                          black!52]
+                        (-88, -21)
+                        rectangle (-86, -19);
+                    \draw[,fill,
+                          black!56]
+                        (-88, -19)
+                        rectangle (-86, -17);
+                    \draw[,fill,
+                          black!50]
+                        (-88, -17)
+                        rectangle (-86, -15);
+                    \draw[,fill,
+                          black!52]
+                        (-88, -15)
+                        rectangle (-86, -13);
+                    \draw[,fill,
+                          black!52]
+                        (-88, -13)
+                        rectangle (-86, -11);
+                    \draw[,fill,
+                          black!50]
+                        (-88, -11)
+                        rectangle (-86, -9);
+                    \draw[,fill,
+                          black!48]
+                        (-88, -9)
+                        rectangle (-86, -7);
+                    \draw[,fill,
+                          black!47]
+                        (-88, -7)
+                        rectangle (-86, -5);
+                    \draw[,fill,
+                          black!38]
+                        (-88, -5)
+                        rectangle (-86, -3);
+                    \draw[,fill,
+                          black!36]
+                        (-88, -3)
+                        rectangle (-86, -1);
+                    \draw[,fill,
+                          black!31]
+                        (-88, -1)
+                        rectangle (-86, 1);
+                    \draw[,fill,
+                          black!37]
+                        (-88, 1)
+                        rectangle (-86, 3);
+                    \draw[,fill,
+                          black!39]
+                        (-88, 3)
+                        rectangle (-86, 5);
+                    \draw[,fill,
+                          black!44]
+                        (-88, 5)
+                        rectangle (-86, 7);
+                    \draw[,fill,
+                          black!47]
+                        (-88, 7)
+                        rectangle (-86, 9);
+                    \draw[,fill,
+                          black!49]
+                        (-88, 9)
+                        rectangle (-86, 11);
+                    \draw[,fill,
+                          black!55]
+                        (-88, 11)
+                        rectangle (-86, 13);
+                    \draw[,fill,
+                          black!52]
+                        (-88, 13)
+                        rectangle (-86, 15);
+                    \draw[,fill,
+                          black!53]
+                        (-88, 15)
+                        rectangle (-86, 17);
+                    \draw[,fill,
+                          black!50]
+                        (-88, 17)
+                        rectangle (-86, 19);
+                    \draw[,fill,
+                          black!51]
+                        (-88, 19)
+                        rectangle (-86, 21);
+                    \draw[,fill,
+                          black!48]
+                        (-88, 21)
+                        rectangle (-86, 23);
+                    \draw[,fill,
+                          black!52]
+                        (-88, 23)
+                        rectangle (-86, 25);
+                    \draw[,fill,
+                          black!52]
+                        (-86, -25)
+                        rectangle (-84, -23);
+                    \draw[,fill,
+                          black!52]
+                        (-86, -23)
+                        rectangle (-84, -21);
+                    \draw[,fill,
+                          black!54]
+                        (-86, -21)
+                        rectangle (-84, -19);
+                    \draw[,fill,
+                          black!53]
+                        (-86, -19)
+                        rectangle (-84, -17);
+                    \draw[,fill,
+                          black!55]
+                        (-86, -17)
+                        rectangle (-84, -15);
+                    \draw[,fill,
+                          black!51]
+                        (-86, -15)
+                        rectangle (-84, -13);
+                    \draw[,fill,
+                          black!55]
+                        (-86, -13)
+                        rectangle (-84, -11);
+                    \draw[,fill,
+                          black!57]
+                        (-86, -11)
+                        rectangle (-84, -9);
+                    \draw[,fill,
+                          black!47]
+                        (-86, -9)
+                        rectangle (-84, -7);
+                    \draw[,fill,
+                          black!45]
+                        (-86, -7)
+                        rectangle (-84, -5);
+                    \draw[,fill,
+                          black!35]
+                        (-86, -5)
+                        rectangle (-84, -3);
+                    \draw[,fill,
+                          black!34]
+                        (-86, -3)
+                        rectangle (-84, -1);
+                    \draw[,fill,
+                          black!30]
+                        (-86, -1)
+                        rectangle (-84, 1);
+                    \draw[,fill,
+                          black!34]
+                        (-86, 1)
+                        rectangle (-84, 3);
+                    \draw[,fill,
+                          black!38]
+                        (-86, 3)
+                        rectangle (-84, 5);
+                    \draw[,fill,
+                          black!43]
+                        (-86, 5)
+                        rectangle (-84, 7);
+                    \draw[,fill,
+                          black!46]
+                        (-86, 7)
+                        rectangle (-84, 9);
+                    \draw[,fill,
+                          black!58]
+                        (-86, 9)
+                        rectangle (-84, 11);
+                    \draw[,fill,
+                          black!53]
+                        (-86, 11)
+                        rectangle (-84, 13);
+                    \draw[,fill,
+                          black!54]
+                        (-86, 13)
+                        rectangle (-84, 15);
+                    \draw[,fill,
+                          black!57]
+                        (-86, 15)
+                        rectangle (-84, 17);
+                    \draw[,fill,
+                          black!58]
+                        (-86, 17)
+                        rectangle (-84, 19);
+                    \draw[,fill,
+                          black!52]
+                        (-86, 19)
+                        rectangle (-84, 21);
+                    \draw[,fill,
+                          black!49]
+                        (-86, 21)
+                        rectangle (-84, 23);
+                    \draw[,fill,
+                          black!49]
+                        (-86, 23)
+                        rectangle (-84, 25);
+                    \draw[,fill,
+                          black!54]
+                        (-84, -25)
+                        rectangle (-82, -23);
+                    \draw[,fill,
+                          black!55]
+                        (-84, -23)
+                        rectangle (-82, -21);
+                    \draw[,fill,
+                          black!53]
+                        (-84, -21)
+                        rectangle (-82, -19);
+                    \draw[,fill,
+                          black!55]
+                        (-84, -19)
+                        rectangle (-82, -17);
+                    \draw[,fill,
+                          black!46]
+                        (-84, -17)
+                        rectangle (-82, -15);
+                    \draw[,fill,
+                          black!51]
+                        (-84, -15)
+                        rectangle (-82, -13);
+                    \draw[,fill,
+                          black!48]
+                        (-84, -13)
+                        rectangle (-82, -11);
+                    \draw[,fill,
+                          black!51]
+                        (-84, -11)
+                        rectangle (-82, -9);
+                    \draw[,fill,
+                          black!51]
+                        (-84, -9)
+                        rectangle (-82, -7);
+                    \draw[,fill,
+                          black!47]
+                        (-84, -7)
+                        rectangle (-82, -5);
+                    \draw[,fill,
+                          black!44]
+                        (-84, -5)
+                        rectangle (-82, -3);
+                    \draw[,fill,
+                          black!39]
+                        (-84, -3)
+                        rectangle (-82, -1);
+                    \draw[,fill,
+                          black!28]
+                        (-84, -1)
+                        rectangle (-82, 1);
+                    \draw[,fill,
+                          black!36]
+                        (-84, 1)
+                        rectangle (-82, 3);
+                    \draw[,fill,
+                          black!39]
+                        (-84, 3)
+                        rectangle (-82, 5);
+                    \draw[,fill,
+                          black!42]
+                        (-84, 5)
+                        rectangle (-82, 7);
+                    \draw[,fill,
+                          black!55]
+                        (-84, 7)
+                        rectangle (-82, 9);
+                    \draw[,fill,
+                          black!53]
+                        (-84, 9)
+                        rectangle (-82, 11);
+                    \draw[,fill,
+                          black!51]
+                        (-84, 11)
+                        rectangle (-82, 13);
+                    \draw[,fill,
+                          black!54]
+                        (-84, 13)
+                        rectangle (-82, 15);
+                    \draw[,fill,
+                          black!52]
+                        (-84, 15)
+                        rectangle (-82, 17);
+                    \draw[,fill,
+                          black!52]
+                        (-84, 17)
+                        rectangle (-82, 19);
+                    \draw[,fill,
+                          black!48]
+                        (-84, 19)
+                        rectangle (-82, 21);
+                    \draw[,fill,
+                          black!51]
+                        (-84, 21)
+                        rectangle (-82, 23);
+                    \draw[,fill,
+                          black!49]
+                        (-84, 23)
+                        rectangle (-82, 25);
+                    \draw[,fill,
+                          black!49]
+                        (-82, -25)
+                        rectangle (-80, -23);
+                    \draw[,fill,
+                          black!54]
+                        (-82, -23)
+                        rectangle (-80, -21);
+                    \draw[,fill,
+                          black!54]
+                        (-82, -21)
+                        rectangle (-80, -19);
+                    \draw[,fill,
+                          black!49]
+                        (-82, -19)
+                        rectangle (-80, -17);
+                    \draw[,fill,
+                          black!53]
+                        (-82, -17)
+                        rectangle (-80, -15);
+                    \draw[,fill,
+                          black!52]
+                        (-82, -15)
+                        rectangle (-80, -13);
+                    \draw[,fill,
+                          black!47]
+                        (-82, -13)
+                        rectangle (-80, -11);
+                    \draw[,fill,
+                          black!57]
+                        (-82, -11)
+                        rectangle (-80, -9);
+                    \draw[,fill,
+                          black!48]
+                        (-82, -9)
+                        rectangle (-80, -7);
+                    \draw[,fill,
+                          black!41]
+                        (-82, -7)
+                        rectangle (-80, -5);
+                    \draw[,fill,
+                          black!43]
+                        (-82, -5)
+                        rectangle (-80, -3);
+                    \draw[,fill,
+                          black!33]
+                        (-82, -3)
+                        rectangle (-80, -1);
+                    \draw[,fill,
+                          black!37]
+                        (-82, -1)
+                        rectangle (-80, 1);
+                    \draw[,fill,
+                          black!39]
+                        (-82, 1)
+                        rectangle (-80, 3);
+                    \draw[,fill,
+                          black!43]
+                        (-82, 3)
+                        rectangle (-80, 5);
+                    \draw[,fill,
+                          black!45]
+                        (-82, 5)
+                        rectangle (-80, 7);
+                    \draw[,fill,
+                          black!52]
+                        (-82, 7)
+                        rectangle (-80, 9);
+                    \draw[,fill,
+                          black!50]
+                        (-82, 9)
+                        rectangle (-80, 11);
+                    \draw[,fill,
+                          black!52]
+                        (-82, 11)
+                        rectangle (-80, 13);
+                    \draw[,fill,
+                          black!51]
+                        (-82, 13)
+                        rectangle (-80, 15);
+                    \draw[,fill,
+                          black!50]
+                        (-82, 15)
+                        rectangle (-80, 17);
+                    \draw[,fill,
+                          black!53]
+                        (-82, 17)
+                        rectangle (-80, 19);
+                    \draw[,fill,
+                          black!52]
+                        (-82, 19)
+                        rectangle (-80, 21);
+                    \draw[,fill,
+                          black!51]
+                        (-82, 21)
+                        rectangle (-80, 23);
+                    \draw[,fill,
+                          black!50]
+                        (-82, 23)
+                        rectangle (-80, 25);
+                    \draw[,fill,
+                          black!49]
+                        (-80, -25)
+                        rectangle (-78, -23);
+                    \draw[,fill,
+                          black!50]
+                        (-80, -23)
+                        rectangle (-78, -21);
+                    \draw[,fill,
+                          black!50]
+                        (-80, -21)
+                        rectangle (-78, -19);
+                    \draw[,fill,
+                          black!54]
+                        (-80, -19)
+                        rectangle (-78, -17);
+                    \draw[,fill,
+                          black!50]
+                        (-80, -17)
+                        rectangle (-78, -15);
+                    \draw[,fill,
+                          black!51]
+                        (-80, -15)
+                        rectangle (-78, -13);
+                    \draw[,fill,
+                          black!58]
+                        (-80, -13)
+                        rectangle (-78, -11);
+                    \draw[,fill,
+                          black!51]
+                        (-80, -11)
+                        rectangle (-78, -9);
+                    \draw[,fill,
+                          black!49]
+                        (-80, -9)
+                        rectangle (-78, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-80, -7)
+                        rectangle (-78, -5);
+                    \draw[,fill,
+                          black!40]
+                        (-80, -5)
+                        rectangle (-78, -3);
+                    \draw[,fill,
+                          black!32]
+                        (-80, -3)
+                        rectangle (-78, -1);
+                    \draw[,fill,
+                          black!35]
+                        (-80, -1)
+                        rectangle (-78, 1);
+                    \draw[,fill,
+                          black!36]
+                        (-80, 1)
+                        rectangle (-78, 3);
+                    \draw[,fill,
+                          black!38]
+                        (-80, 3)
+                        rectangle (-78, 5);
+                    \draw[,fill,
+                          black!50]
+                        (-80, 5)
+                        rectangle (-78, 7);
+                    \draw[,fill,
+                          black!53]
+                        (-80, 7)
+                        rectangle (-78, 9);
+                    \draw[,fill,
+                          black!50]
+                        (-80, 9)
+                        rectangle (-78, 11);
+                    \draw[,fill,
+                          black!51]
+                        (-80, 11)
+                        rectangle (-78, 13);
+                    \draw[,fill,
+                          black!50]
+                        (-80, 13)
+                        rectangle (-78, 15);
+                    \draw[,fill,
+                          black!56]
+                        (-80, 15)
+                        rectangle (-78, 17);
+                    \draw[,fill,
+                          black!50]
+                        (-80, 17)
+                        rectangle (-78, 19);
+                    \draw[,fill,
+                          black!51]
+                        (-80, 19)
+                        rectangle (-78, 21);
+                    \draw[,fill,
+                          black!50]
+                        (-80, 21)
+                        rectangle (-78, 23);
+                    \draw[,fill,
+                          black!52]
+                        (-80, 23)
+                        rectangle (-78, 25);
+                    \draw[,fill,
+                          black!50]
+                        (-78, -25)
+                        rectangle (-76, -23);
+                    \draw[,fill,
+                          black!46]
+                        (-78, -23)
+                        rectangle (-76, -21);
+                    \draw[,fill,
+                          black!51]
+                        (-78, -21)
+                        rectangle (-76, -19);
+                    \draw[,fill,
+                          black!50]
+                        (-78, -19)
+                        rectangle (-76, -17);
+                    \draw[,fill,
+                          black!53]
+                        (-78, -17)
+                        rectangle (-76, -15);
+                    \draw[,fill,
+                          black!56]
+                        (-78, -15)
+                        rectangle (-76, -13);
+                    \draw[,fill,
+                          black!51]
+                        (-78, -13)
+                        rectangle (-76, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-78, -11)
+                        rectangle (-76, -9);
+                    \draw[,fill,
+                          black!47]
+                        (-78, -9)
+                        rectangle (-76, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-78, -7)
+                        rectangle (-76, -5);
+                    \draw[,fill,
+                          black!44]
+                        (-78, -5)
+                        rectangle (-76, -3);
+                    \draw[,fill,
+                          black!39]
+                        (-78, -3)
+                        rectangle (-76, -1);
+                    \draw[,fill,
+                          black!38]
+                        (-78, -1)
+                        rectangle (-76, 1);
+                    \draw[,fill,
+                          black!43]
+                        (-78, 1)
+                        rectangle (-76, 3);
+                    \draw[,fill,
+                          black!46]
+                        (-78, 3)
+                        rectangle (-76, 5);
+                    \draw[,fill,
+                          black!45]
+                        (-78, 5)
+                        rectangle (-76, 7);
+                    \draw[,fill,
+                          black!51]
+                        (-78, 7)
+                        rectangle (-76, 9);
+                    \draw[,fill,
+                          black!52]
+                        (-78, 9)
+                        rectangle (-76, 11);
+                    \draw[,fill,
+                          black!50]
+                        (-78, 11)
+                        rectangle (-76, 13);
+                    \draw[,fill,
+                          black!51]
+                        (-78, 13)
+                        rectangle (-76, 15);
+                    \draw[,fill,
+                          black!48]
+                        (-78, 15)
+                        rectangle (-76, 17);
+                    \draw[,fill,
+                          black!50]
+                        (-78, 17)
+                        rectangle (-76, 19);
+                    \draw[,fill,
+                          black!50]
+                        (-78, 19)
+                        rectangle (-76, 21);
+                    \draw[,fill,
+                          black!47]
+                        (-78, 21)
+                        rectangle (-76, 23);
+                    \draw[,fill,
+                          black!49]
+                        (-78, 23)
+                        rectangle (-76, 25);
+                    \draw[,fill,
+                          black!49]
+                        (-76, -25)
+                        rectangle (-74, -23);
+                    \draw[,fill,
+                          black!46]
+                        (-76, -23)
+                        rectangle (-74, -21);
+                    \draw[,fill,
+                          black!50]
+                        (-76, -21)
+                        rectangle (-74, -19);
+                    \draw[,fill,
+                          black!50]
+                        (-76, -19)
+                        rectangle (-74, -17);
+                    \draw[,fill,
+                          black!44]
+                        (-76, -17)
+                        rectangle (-74, -15);
+                    \draw[,fill,
+                          black!53]
+                        (-76, -15)
+                        rectangle (-74, -13);
+                    \draw[,fill,
+                          black!48]
+                        (-76, -13)
+                        rectangle (-74, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-76, -11)
+                        rectangle (-74, -9);
+                    \draw[,fill,
+                          black!51]
+                        (-76, -9)
+                        rectangle (-74, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-76, -7)
+                        rectangle (-74, -5);
+                    \draw[,fill,
+                          black!42]
+                        (-76, -5)
+                        rectangle (-74, -3);
+                    \draw[,fill,
+                          black!40]
+                        (-76, -3)
+                        rectangle (-74, -1);
+                    \draw[,fill,
+                          black!38]
+                        (-76, -1)
+                        rectangle (-74, 1);
+                    \draw[,fill,
+                          black!40]
+                        (-76, 1)
+                        rectangle (-74, 3);
+                    \draw[,fill,
+                          black!48]
+                        (-76, 3)
+                        rectangle (-74, 5);
+                    \draw[,fill,
+                          black!51]
+                        (-76, 5)
+                        rectangle (-74, 7);
+                    \draw[,fill,
+                          black!44]
+                        (-76, 7)
+                        rectangle (-74, 9);
+                    \draw[,fill,
+                          black!48]
+                        (-76, 9)
+                        rectangle (-74, 11);
+                    \draw[,fill,
+                          black!52]
+                        (-76, 11)
+                        rectangle (-74, 13);
+                    \draw[,fill,
+                          black!46]
+                        (-76, 13)
+                        rectangle (-74, 15);
+                    \draw[,fill,
+                          black!49]
+                        (-76, 15)
+                        rectangle (-74, 17);
+                    \draw[,fill,
+                          black!48]
+                        (-76, 17)
+                        rectangle (-74, 19);
+                    \draw[,fill,
+                          black!47]
+                        (-76, 19)
+                        rectangle (-74, 21);
+                    \draw[,fill,
+                          black!48]
+                        (-76, 21)
+                        rectangle (-74, 23);
+                    \draw[,fill,
+                          black!48]
+                        (-76, 23)
+                        rectangle (-74, 25);
+                    \draw[,fill,
+                          black!46]
+                        (-74, -25)
+                        rectangle (-72, -23);
+                    \draw[,fill,
+                          black!49]
+                        (-74, -23)
+                        rectangle (-72, -21);
+                    \draw[,fill,
+                          black!52]
+                        (-74, -21)
+                        rectangle (-72, -19);
+                    \draw[,fill,
+                          black!46]
+                        (-74, -19)
+                        rectangle (-72, -17);
+                    \draw[,fill,
+                          black!52]
+                        (-74, -17)
+                        rectangle (-72, -15);
+                    \draw[,fill,
+                          black!50]
+                        (-74, -15)
+                        rectangle (-72, -13);
+                    \draw[,fill,
+                          black!49]
+                        (-74, -13)
+                        rectangle (-72, -11);
+                    \draw[,fill,
+                          black!46]
+                        (-74, -11)
+                        rectangle (-72, -9);
+                    \draw[,fill,
+                          black!48]
+                        (-74, -9)
+                        rectangle (-72, -7);
+                    \draw[,fill,
+                          black!49]
+                        (-74, -7)
+                        rectangle (-72, -5);
+                    \draw[,fill,
+                          black!45]
+                        (-74, -5)
+                        rectangle (-72, -3);
+                    \draw[,fill,
+                          black!45]
+                        (-74, -3)
+                        rectangle (-72, -1);
+                    \draw[,fill,
+                          black!46]
+                        (-74, -1)
+                        rectangle (-72, 1);
+                    \draw[,fill,
+                          black!42]
+                        (-74, 1)
+                        rectangle (-72, 3);
+                    \draw[,fill,
+                          black!52]
+                        (-74, 3)
+                        rectangle (-72, 5);
+                    \draw[,fill,
+                          black!48]
+                        (-74, 5)
+                        rectangle (-72, 7);
+                    \draw[,fill,
+                          black!43]
+                        (-74, 7)
+                        rectangle (-72, 9);
+                    \draw[,fill,
+                          black!46]
+                        (-74, 9)
+                        rectangle (-72, 11);
+                    \draw[,fill,
+                          black!43]
+                        (-74, 11)
+                        rectangle (-72, 13);
+                    \draw[,fill,
+                          black!46]
+                        (-74, 13)
+                        rectangle (-72, 15);
+                    \draw[,fill,
+                          black!49]
+                        (-74, 15)
+                        rectangle (-72, 17);
+                    \draw[,fill,
+                          black!47]
+                        (-74, 17)
+                        rectangle (-72, 19);
+                    \draw[,fill,
+                          black!50]
+                        (-74, 19)
+                        rectangle (-72, 21);
+                    \draw[,fill,
+                          black!49]
+                        (-74, 21)
+                        rectangle (-72, 23);
+                    \draw[,fill,
+                          black!44]
+                        (-74, 23)
+                        rectangle (-72, 25);
+                    \draw[,fill,
+                          black!49]
+                        (-72, -25)
+                        rectangle (-70, -23);
+                    \draw[,fill,
+                          black!46]
+                        (-72, -23)
+                        rectangle (-70, -21);
+                    \draw[,fill,
+                          black!47]
+                        (-72, -21)
+                        rectangle (-70, -19);
+                    \draw[,fill,
+                          black!48]
+                        (-72, -19)
+                        rectangle (-70, -17);
+                    \draw[,fill,
+                          black!48]
+                        (-72, -17)
+                        rectangle (-70, -15);
+                    \draw[,fill,
+                          black!48]
+                        (-72, -15)
+                        rectangle (-70, -13);
+                    \draw[,fill,
+                          black!44]
+                        (-72, -13)
+                        rectangle (-70, -11);
+                    \draw[,fill,
+                          black!52]
+                        (-72, -11)
+                        rectangle (-70, -9);
+                    \draw[,fill,
+                          black!46]
+                        (-72, -9)
+                        rectangle (-70, -7);
+                    \draw[,fill,
+                          black!48]
+                        (-72, -7)
+                        rectangle (-70, -5);
+                    \draw[,fill,
+                          black!49]
+                        (-72, -5)
+                        rectangle (-70, -3);
+                    \draw[,fill,
+                          black!43]
+                        (-72, -3)
+                        rectangle (-70, -1);
+                    \draw[,fill,
+                          black!45]
+                        (-72, -1)
+                        rectangle (-70, 1);
+                    \draw[,fill,
+                          black!49]
+                        (-72, 1)
+                        rectangle (-70, 3);
+                    \draw[,fill,
+                          black!47]
+                        (-72, 3)
+                        rectangle (-70, 5);
+                    \draw[,fill,
+                          black!46]
+                        (-72, 5)
+                        rectangle (-70, 7);
+                    \draw[,fill,
+                          black!47]
+                        (-72, 7)
+                        rectangle (-70, 9);
+                    \draw[,fill,
+                          black!49]
+                        (-72, 9)
+                        rectangle (-70, 11);
+                    \draw[,fill,
+                          black!50]
+                        (-72, 11)
+                        rectangle (-70, 13);
+                    \draw[,fill,
+                          black!51]
+                        (-72, 13)
+                        rectangle (-70, 15);
+                    \draw[,fill,
+                          black!46]
+                        (-72, 15)
+                        rectangle (-70, 17);
+                    \draw[,fill,
+                          black!48]
+                        (-72, 17)
+                        rectangle (-70, 19);
+                    \draw[,fill,
+                          black!49]
+                        (-72, 19)
+                        rectangle (-70, 21);
+                    \draw[,fill,
+                          black!51]
+                        (-72, 21)
+                        rectangle (-70, 23);
+                    \draw[,fill,
+                          black!45]
+                        (-72, 23)
+                        rectangle (-70, 25);
+                    \draw[,fill,
+                          black!45]
+                        (-70, -25)
+                        rectangle (-68, -23);
+                    \draw[,fill,
+                          black!47]
+                        (-70, -23)
+                        rectangle (-68, -21);
+                    \draw[,fill,
+                          black!48]
+                        (-70, -21)
+                        rectangle (-68, -19);
+                    \draw[,fill,
+                          black!46]
+                        (-70, -19)
+                        rectangle (-68, -17);
+                    \draw[,fill,
+                          black!49]
+                        (-70, -17)
+                        rectangle (-68, -15);
+                    \draw[,fill,
+                          black!42]
+                        (-70, -15)
+                        rectangle (-68, -13);
+                    \draw[,fill,
+                          black!46]
+                        (-70, -13)
+                        rectangle (-68, -11);
+                    \draw[,fill,
+                          black!50]
+                        (-70, -11)
+                        rectangle (-68, -9);
+                    \draw[,fill,
+                          black!43]
+                        (-70, -9)
+                        rectangle (-68, -7);
+                    \draw[,fill,
+                          black!51]
+                        (-70, -7)
+                        rectangle (-68, -5);
+                    \draw[,fill,
+                          black!51]
+                        (-70, -5)
+                        rectangle (-68, -3);
+                    \draw[,fill,
+                          black!55]
+                        (-70, -3)
+                        rectangle (-68, -1);
+                    \draw[,fill,
+                          black!52]
+                        (-70, -1)
+                        rectangle (-68, 1);
+                    \draw[,fill,
+                          black!54]
+                        (-70, 1)
+                        rectangle (-68, 3);
+                    \draw[,fill,
+                          black!52]
+                        (-70, 3)
+                        rectangle (-68, 5);
+                    \draw[,fill,
+                          black!49]
+                        (-70, 5)
+                        rectangle (-68, 7);
+                    \draw[,fill,
+                          black!49]
+                        (-70, 7)
+                        rectangle (-68, 9);
+                    \draw[,fill,
+                          black!50]
+                        (-70, 9)
+                        rectangle (-68, 11);
+                    \draw[,fill,
+                          black!47]
+                        (-70, 11)
+                        rectangle (-68, 13);
+                    \draw[,fill,
+                          black!41]
+                        (-70, 13)
+                        rectangle (-68, 15);
+                    \draw[,fill,
+                          black!48]
+                        (-70, 15)
+                        rectangle (-68, 17);
+                    \draw[,fill,
+                          black!47]
+                        (-70, 17)
+                        rectangle (-68, 19);
+                    \draw[,fill,
+                          black!46]
+                        (-70, 19)
+                        rectangle (-68, 21);
+                    \draw[,fill,
+                          black!48]
+                        (-70, 21)
+                        rectangle (-68, 23);
+                    \draw[,fill,
+                          black!44]
+                        (-70, 23)
+                        rectangle (-68, 25);
+                    \draw[,fill,
+                          black!48]
+                        (-68, -25)
+                        rectangle (-66, -23);
+                    \draw[,fill,
+                          black!43]
+                        (-68, -23)
+                        rectangle (-66, -21);
+                    \draw[,fill,
+                          black!44]
+                        (-68, -21)
+                        rectangle (-66, -19);
+                    \draw[,fill,
+                          black!50]
+                        (-68, -19)
+                        rectangle (-66, -17);
+                    \draw[,fill,
+                          black!50]
+                        (-68, -17)
+                        rectangle (-66, -15);
+                    \draw[,fill,
+                          black!44]
+                        (-68, -15)
+                        rectangle (-66, -13);
+                    \draw[,fill,
+                          black!42]
+                        (-68, -13)
+                        rectangle (-66, -11);
+                    \draw[,fill,
+                          black!49]
+                        (-68, -11)
+                        rectangle (-66, -9);
+                    \draw[,fill,
+                          black!45]
+                        (-68, -9)
+                        rectangle (-66, -7);
+                    \draw[,fill,
+                          black!47]
+                        (-68, -7)
+                        rectangle (-66, -5);
+                    \draw[,fill,
+                          black!50]
+                        (-68, -5)
+                        rectangle (-66, -3);
+                    \draw[,fill,
+                          black!60]
+                        (-68, -3)
+                        rectangle (-66, -1);
+                    \draw[,fill,
+                          black!60]
+                        (-68, -1)
+                        rectangle (-66, 1);
+                    \draw[,fill,
+                          black!58]
+                        (-68, 1)
+                        rectangle (-66, 3);
+                    \draw[,fill,
+                          black!52]
+                        (-68, 3)
+                        rectangle (-66, 5);
+                    \draw[,fill,
+                          black!47]
+                        (-68, 5)
+                        rectangle (-66, 7);
+                    \draw[,fill,
+                          black!43]
+                        (-68, 7)
+                        rectangle (-66, 9);
+                    \draw[,fill,
+                          black!43]
+                        (-68, 9)
+                        rectangle (-66, 11);
+                    \draw[,fill,
+                          black!49]
+                        (-68, 11)
+                        rectangle (-66, 13);
+                    \draw[,fill,
+                          black!45]
+                        (-68, 13)
+                        rectangle (-66, 15);
+                    \draw[,fill,
+                          black!45]
+                        (-68, 15)
+                        rectangle (-66, 17);
+                    \draw[,fill,
+                          black!45]
+                        (-68, 17)
+                        rectangle (-66, 19);
+                    \draw[,fill,
+                          black!45]
+                        (-68, 19)
+                        rectangle (-66, 21);
+                    \draw[,fill,
+                          black!46]
+                        (-68, 21)
+                        rectangle (-66, 23);
+                    \draw[,fill,
+                          black!44]
+                        (-68, 23)
+                        rectangle (-66, 25);
+                    \draw[,fill,
+                          black!41]
+                        (-66, -25)
+                        rectangle (-64, -23);
+                    \draw[,fill,
+                          black!43]
+                        (-66, -23)
+                        rectangle (-64, -21);
+                    \draw[,fill,
+                          black!45]
+                        (-66, -21)
+                        rectangle (-64, -19);
+                    \draw[,fill,
+                          black!51]
+                        (-66, -19)
+                        rectangle (-64, -17);
+                    \draw[,fill,
+                          black!49]
+                        (-66, -17)
+                        rectangle (-64, -15);
+                    \draw[,fill,
+                          black!46]
+                        (-66, -15)
+                        rectangle (-64, -13);
+                    \draw[,fill,
+                          black!48]
+                        (-66, -13)
+                        rectangle (-64, -11);
+                    \draw[,fill,
+                          black!48]
+                        (-66, -11)
+                        rectangle (-64, -9);
+                    \draw[,fill,
+                          black!47]
+                        (-66, -9)
+                        rectangle (-64, -7);
+                    \draw[,fill,
+                          black!44]
+                        (-66, -7)
+                        rectangle (-64, -5);
+                    \draw[,fill,
+                          black!54]
+                        (-66, -5)
+                        rectangle (-64, -3);
+                    \draw[,fill,
+                          black!64]
+                        (-66, -3)
+                        rectangle (-64, -1);
+                    \draw[,fill,
+                          black!61]
+                        (-66, -1)
+                        rectangle (-64, 1);
+                    \draw[,fill,
+                          black!60]
+                        (-66, 1)
+                        rectangle (-64, 3);
+                    \draw[,fill,
+                          black!56]
+                        (-66, 3)
+                        rectangle (-64, 5);
+                    \draw[,fill,
+                          black!44]
+                        (-66, 5)
+                        rectangle (-64, 7);
+                    \draw[,fill,
+                          black!46]
+                        (-66, 7)
+                        rectangle (-64, 9);
+                    \draw[,fill,
+                          black!45]
+                        (-66, 9)
+                        rectangle (-64, 11);
+                    \draw[,fill,
+                          black!48]
+                        (-66, 11)
+                        rectangle (-64, 13);
+                    \draw[,fill,
+                          black!46]
+                        (-66, 13)
+                        rectangle (-64, 15);
+                    \draw[,fill,
+                          black!41]
+                        (-66, 15)
+                        rectangle (-64, 17);
+                    \draw[,fill,
+                          black!46]
+                        (-66, 17)
+                        rectangle (-64, 19);
+                    \draw[,fill,
+                          black!44]
+                        (-66, 19)
+                        rectangle (-64, 21);
+                    \draw[,fill,
+                          black!43]
+                        (-66, 21)
+                        rectangle (-64, 23);
+                    \draw[,fill,
+                          black!46]
+                        (-66, 23)
+                        rectangle (-64, 25);
+                    \draw[,fill,
+                          black!43]
+                        (-64, -25)
+                        rectangle (-62, -23);
+                    \draw[,fill,
+                          black!43]
+                        (-64, -23)
+                        rectangle (-62, -21);
+                    \draw[,fill,
+                          black!43]
+                        (-64, -21)
+                        rectangle (-62, -19);
+                    \draw[,fill,
+                          black!46]
+                        (-64, -19)
+                        rectangle (-62, -17);
+                    \draw[,fill,
+                          black!45]
+                        (-64, -17)
+                        rectangle (-62, -15);
+                    \draw[,fill,
+                          black!43]
+                        (-64, -15)
+                        rectangle (-62, -13);
+                    \draw[,fill,
+                          black!49]
+                        (-64, -13)
+                        rectangle (-62, -11);
+                    \draw[,fill,
+                          black!46]
+                        (-64, -11)
+                        rectangle (-62, -9);
+                    \draw[,fill,
+                          black!48]
+                        (-64, -9)
+                        rectangle (-62, -7);
+                    \draw[,fill,
+                          black!47]
+                        (-64, -7)
+                        rectangle (-62, -5);
+                    \draw[,fill,
+                          black!58]
+                        (-64, -5)
+                        rectangle (-62, -3);
+                    \draw[,fill,
+                          black!60]
+                        (-64, -3)
+                        rectangle (-62, -1);
+                    \draw[,fill,
+                          black!70]
+                        (-64, -1)
+                        rectangle (-62, 1);
+                    \draw[,fill,
+                          black!62]
+                        (-64, 1)
+                        rectangle (-62, 3);
+                    \draw[,fill,
+                          black!56]
+                        (-64, 3)
+                        rectangle (-62, 5);
+                    \draw[,fill,
+                          black!47]
+                        (-64, 5)
+                        rectangle (-62, 7);
+                    \draw[,fill,
+                          black!45]
+                        (-64, 7)
+                        rectangle (-62, 9);
+                    \draw[,fill,
+                          black!45]
+                        (-64, 9)
+                        rectangle (-62, 11);
+                    \draw[,fill,
+                          black!53]
+                        (-64, 11)
+                        rectangle (-62, 13);
+                    \draw[,fill,
+                          black!46]
+                        (-64, 13)
+                        rectangle (-62, 15);
+                    \draw[,fill,
+                          black!47]
+                        (-64, 15)
+                        rectangle (-62, 17);
+                    \draw[,fill,
+                          black!45]
+                        (-64, 17)
+                        rectangle (-62, 19);
+                    \draw[,fill,
+                          black!44]
+                        (-64, 19)
+                        rectangle (-62, 21);
+                    \draw[,fill,
+                          black!43]
+                        (-64, 21)
+                        rectangle (-62, 23);
+                    \draw[,fill,
+                          black!43]
+                        (-64, 23)
+                        rectangle (-62, 25);
+                    \draw[,fill,
+                          black!44]
+                        (-62, -25)
+                        rectangle (-60, -23);
+                    \draw[,fill,
+                          black!42]
+                        (-62, -23)
+                        rectangle (-60, -21);
+                    \draw[,fill,
+                          black!44]
+                        (-62, -21)
+                        rectangle (-60, -19);
+                    \draw[,fill,
+                          black!42]
+                        (-62, -19)
+                        rectangle (-60, -17);
+                    \draw[,fill,
+                          black!43]
+                        (-62, -17)
+                        rectangle (-60, -15);
+                    \draw[,fill,
+                          black!42]
+                        (-62, -15)
+                        rectangle (-60, -13);
+                    \draw[,fill,
+                          black!43]
+                        (-62, -13)
+                        rectangle (-60, -11);
+                    \draw[,fill,
+                          black!43]
+                        (-62, -11)
+                        rectangle (-60, -9);
+                    \draw[,fill,
+                          black!42]
+                        (-62, -9)
+                        rectangle (-60, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-62, -7)
+                        rectangle (-60, -5);
+                    \draw[,fill,
+                          black!57]
+                        (-62, -5)
+                        rectangle (-60, -3);
+                    \draw[,fill,
+                          black!64]
+                        (-62, -3)
+                        rectangle (-60, -1);
+                    \draw[,fill,
+                          black!75]
+                        (-62, -1)
+                        rectangle (-60, 1);
+                    \draw[,fill,
+                          black!63]
+                        (-62, 1)
+                        rectangle (-60, 3);
+                    \draw[,fill,
+                          black!57]
+                        (-62, 3)
+                        rectangle (-60, 5);
+                    \draw[,fill,
+                          black!47]
+                        (-62, 5)
+                        rectangle (-60, 7);
+                    \draw[,fill,
+                          black!38]
+                        (-62, 7)
+                        rectangle (-60, 9);
+                    \draw[,fill,
+                          black!48]
+                        (-62, 9)
+                        rectangle (-60, 11);
+                    \draw[,fill,
+                          black!45]
+                        (-62, 11)
+                        rectangle (-60, 13);
+                    \draw[,fill,
+                          black!44]
+                        (-62, 13)
+                        rectangle (-60, 15);
+                    \draw[,fill,
+                          black!44]
+                        (-62, 15)
+                        rectangle (-60, 17);
+                    \draw[,fill,
+                          black!46]
+                        (-62, 17)
+                        rectangle (-60, 19);
+                    \draw[,fill,
+                          black!48]
+                        (-62, 19)
+                        rectangle (-60, 21);
+                    \draw[,fill,
+                          black!46]
+                        (-62, 21)
+                        rectangle (-60, 23);
+                    \draw[,fill,
+                          black!39]
+                        (-62, 23)
+                        rectangle (-60, 25);
+                    \draw[,fill,
+                          black!40]
+                        (-60, -25)
+                        rectangle (-58, -23);
+                    \draw[,fill,
+                          black!45]
+                        (-60, -23)
+                        rectangle (-58, -21);
+                    \draw[,fill,
+                          black!45]
+                        (-60, -21)
+                        rectangle (-58, -19);
+                    \draw[,fill,
+                          black!43]
+                        (-60, -19)
+                        rectangle (-58, -17);
+                    \draw[,fill,
+                          black!43]
+                        (-60, -17)
+                        rectangle (-58, -15);
+                    \draw[,fill,
+                          black!44]
+                        (-60, -15)
+                        rectangle (-58, -13);
+                    \draw[,fill,
+                          black!44]
+                        (-60, -13)
+                        rectangle (-58, -11);
+                    \draw[,fill,
+                          black!41]
+                        (-60, -11)
+                        rectangle (-58, -9);
+                    \draw[,fill,
+                          black!39]
+                        (-60, -9)
+                        rectangle (-58, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-60, -7)
+                        rectangle (-58, -5);
+                    \draw[,fill,
+                          black!57]
+                        (-60, -5)
+                        rectangle (-58, -3);
+                    \draw[,fill,
+                          black!67]
+                        (-60, -3)
+                        rectangle (-58, -1);
+                    \draw[,fill,
+                          black!73]
+                        (-60, -1)
+                        rectangle (-58, 1);
+                    \draw[,fill,
+                          black!70]
+                        (-60, 1)
+                        rectangle (-58, 3);
+                    \draw[,fill,
+                          black!58]
+                        (-60, 3)
+                        rectangle (-58, 5);
+                    \draw[,fill,
+                          black!48]
+                        (-60, 5)
+                        rectangle (-58, 7);
+                    \draw[,fill,
+                          black!47]
+                        (-60, 7)
+                        rectangle (-58, 9);
+                    \draw[,fill,
+                          black!42]
+                        (-60, 9)
+                        rectangle (-58, 11);
+                    \draw[,fill,
+                          black!45]
+                        (-60, 11)
+                        rectangle (-58, 13);
+                    \draw[,fill,
+                          black!47]
+                        (-60, 13)
+                        rectangle (-58, 15);
+                    \draw[,fill,
+                          black!42]
+                        (-60, 15)
+                        rectangle (-58, 17);
+                    \draw[,fill,
+                          black!48]
+                        (-60, 17)
+                        rectangle (-58, 19);
+                    \draw[,fill,
+                          black!40]
+                        (-60, 19)
+                        rectangle (-58, 21);
+                    \draw[,fill,
+                          black!43]
+                        (-60, 21)
+                        rectangle (-58, 23);
+                    \draw[,fill,
+                          black!42]
+                        (-60, 23)
+                        rectangle (-58, 25);
+                    \draw[,fill,
+                          black!41]
+                        (-58, -25)
+                        rectangle (-56, -23);
+                    \draw[,fill,
+                          black!35]
+                        (-58, -23)
+                        rectangle (-56, -21);
+                    \draw[,fill,
+                          black!37]
+                        (-58, -21)
+                        rectangle (-56, -19);
+                    \draw[,fill,
+                          black!43]
+                        (-58, -19)
+                        rectangle (-56, -17);
+                    \draw[,fill,
+                          black!37]
+                        (-58, -17)
+                        rectangle (-56, -15);
+                    \draw[,fill,
+                          black!45]
+                        (-58, -15)
+                        rectangle (-56, -13);
+                    \draw[,fill,
+                          black!41]
+                        (-58, -13)
+                        rectangle (-56, -11);
+                    \draw[,fill,
+                          black!43]
+                        (-58, -11)
+                        rectangle (-56, -9);
+                    \draw[,fill,
+                          black!47]
+                        (-58, -9)
+                        rectangle (-56, -7);
+                    \draw[,fill,
+                          black!58]
+                        (-58, -7)
+                        rectangle (-56, -5);
+                    \draw[,fill,
+                          black!62]
+                        (-58, -5)
+                        rectangle (-56, -3);
+                    \draw[,fill,
+                          black!71]
+                        (-58, -3)
+                        rectangle (-56, -1);
+                    \draw[,fill,
+                          black!70]
+                        (-58, -1)
+                        rectangle (-56, 1);
+                    \draw[,fill,
+                          black!68]
+                        (-58, 1)
+                        rectangle (-56, 3);
+                    \draw[,fill,
+                          black!60]
+                        (-58, 3)
+                        rectangle (-56, 5);
+                    \draw[,fill,
+                          black!48]
+                        (-58, 5)
+                        rectangle (-56, 7);
+                    \draw[,fill,
+                          black!47]
+                        (-58, 7)
+                        rectangle (-56, 9);
+                    \draw[,fill,
+                          black!42]
+                        (-58, 9)
+                        rectangle (-56, 11);
+                    \draw[,fill,
+                          black!39]
+                        (-58, 11)
+                        rectangle (-56, 13);
+                    \draw[,fill,
+                          black!43]
+                        (-58, 13)
+                        rectangle (-56, 15);
+                    \draw[,fill,
+                          black!44]
+                        (-58, 15)
+                        rectangle (-56, 17);
+                    \draw[,fill,
+                          black!39]
+                        (-58, 17)
+                        rectangle (-56, 19);
+                    \draw[,fill,
+                          black!43]
+                        (-58, 19)
+                        rectangle (-56, 21);
+                    \draw[,fill,
+                          black!43]
+                        (-58, 21)
+                        rectangle (-56, 23);
+                    \draw[,fill,
+                          black!42]
+                        (-58, 23)
+                        rectangle (-56, 25);
+                    \draw[,fill,
+                          black!37]
+                        (-56, -25)
+                        rectangle (-54, -23);
+                    \draw[,fill,
+                          black!39]
+                        (-56, -23)
+                        rectangle (-54, -21);
+                    \draw[,fill,
+                          black!43]
+                        (-56, -21)
+                        rectangle (-54, -19);
+                    \draw[,fill,
+                          black!44]
+                        (-56, -19)
+                        rectangle (-54, -17);
+                    \draw[,fill,
+                          black!38]
+                        (-56, -17)
+                        rectangle (-54, -15);
+                    \draw[,fill,
+                          black!39]
+                        (-56, -15)
+                        rectangle (-54, -13);
+                    \draw[,fill,
+                          black!39]
+                        (-56, -13)
+                        rectangle (-54, -11);
+                    \draw[,fill,
+                          black!42]
+                        (-56, -11)
+                        rectangle (-54, -9);
+                    \draw[,fill,
+                          black!45]
+                        (-56, -9)
+                        rectangle (-54, -7);
+                    \draw[,fill,
+                          black!59]
+                        (-56, -7)
+                        rectangle (-54, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-56, -5)
+                        rectangle (-54, -3);
+                    \draw[,fill,
+                          black!69]
+                        (-56, -3)
+                        rectangle (-54, -1);
+                    \draw[,fill,
+                          black!72]
+                        (-56, -1)
+                        rectangle (-54, 1);
+                    \draw[,fill,
+                          black!74]
+                        (-56, 1)
+                        rectangle (-54, 3);
+                    \draw[,fill,
+                          black!63]
+                        (-56, 3)
+                        rectangle (-54, 5);
+                    \draw[,fill,
+                          black!54]
+                        (-56, 5)
+                        rectangle (-54, 7);
+                    \draw[,fill,
+                          black!45]
+                        (-56, 7)
+                        rectangle (-54, 9);
+                    \draw[,fill,
+                          black!42]
+                        (-56, 9)
+                        rectangle (-54, 11);
+                    \draw[,fill,
+                          black!44]
+                        (-56, 11)
+                        rectangle (-54, 13);
+                    \draw[,fill,
+                          black!44]
+                        (-56, 13)
+                        rectangle (-54, 15);
+                    \draw[,fill,
+                          black!39]
+                        (-56, 15)
+                        rectangle (-54, 17);
+                    \draw[,fill,
+                          black!41]
+                        (-56, 17)
+                        rectangle (-54, 19);
+                    \draw[,fill,
+                          black!46]
+                        (-56, 19)
+                        rectangle (-54, 21);
+                    \draw[,fill,
+                          black!46]
+                        (-56, 21)
+                        rectangle (-54, 23);
+                    \draw[,fill,
+                          black!40]
+                        (-56, 23)
+                        rectangle (-54, 25);
+                    \draw[,fill,
+                          black!42]
+                        (-54, -25)
+                        rectangle (-52, -23);
+                    \draw[,fill,
+                          black!41]
+                        (-54, -23)
+                        rectangle (-52, -21);
+                    \draw[,fill,
+                          black!39]
+                        (-54, -21)
+                        rectangle (-52, -19);
+                    \draw[,fill,
+                          black!41]
+                        (-54, -19)
+                        rectangle (-52, -17);
+                    \draw[,fill,
+                          black!47]
+                        (-54, -17)
+                        rectangle (-52, -15);
+                    \draw[,fill,
+                          black!41]
+                        (-54, -15)
+                        rectangle (-52, -13);
+                    \draw[,fill,
+                          black!39]
+                        (-54, -13)
+                        rectangle (-52, -11);
+                    \draw[,fill,
+                          black!44]
+                        (-54, -11)
+                        rectangle (-52, -9);
+                    \draw[,fill,
+                          black!49]
+                        (-54, -9)
+                        rectangle (-52, -7);
+                    \draw[,fill,
+                          black!55]
+                        (-54, -7)
+                        rectangle (-52, -5);
+                    \draw[,fill,
+                          black!66]
+                        (-54, -5)
+                        rectangle (-52, -3);
+                    \draw[,fill,
+                          black!70]
+                        (-54, -3)
+                        rectangle (-52, -1);
+                    \draw[,fill,
+                          black!71]
+                        (-54, -1)
+                        rectangle (-52, 1);
+                    \draw[,fill,
+                          black!68]
+                        (-54, 1)
+                        rectangle (-52, 3);
+                    \draw[,fill,
+                          black!68]
+                        (-54, 3)
+                        rectangle (-52, 5);
+                    \draw[,fill,
+                          black!58]
+                        (-54, 5)
+                        rectangle (-52, 7);
+                    \draw[,fill,
+                          black!50]
+                        (-54, 7)
+                        rectangle (-52, 9);
+                    \draw[,fill,
+                          black!43]
+                        (-54, 9)
+                        rectangle (-52, 11);
+                    \draw[,fill,
+                          black!44]
+                        (-54, 11)
+                        rectangle (-52, 13);
+                    \draw[,fill,
+                          black!39]
+                        (-54, 13)
+                        rectangle (-52, 15);
+                    \draw[,fill,
+                          black!40]
+                        (-54, 15)
+                        rectangle (-52, 17);
+                    \draw[,fill,
+                          black!39]
+                        (-54, 17)
+                        rectangle (-52, 19);
+                    \draw[,fill,
+                          black!40]
+                        (-54, 19)
+                        rectangle (-52, 21);
+                    \draw[,fill,
+                          black!42]
+                        (-54, 21)
+                        rectangle (-52, 23);
+                    \draw[,fill,
+                          black!39]
+                        (-54, 23)
+                        rectangle (-52, 25);
+                    \draw[,fill,
+                          black!37]
+                        (-52, -25)
+                        rectangle (-50, -23);
+                    \draw[,fill,
+                          black!37]
+                        (-52, -23)
+                        rectangle (-50, -21);
+                    \draw[,fill,
+                          black!42]
+                        (-52, -21)
+                        rectangle (-50, -19);
+                    \draw[,fill,
+                          black!39]
+                        (-52, -19)
+                        rectangle (-50, -17);
+                    \draw[,fill,
+                          black!36]
+                        (-52, -17)
+                        rectangle (-50, -15);
+                    \draw[,fill,
+                          black!41]
+                        (-52, -15)
+                        rectangle (-50, -13);
+                    \draw[,fill,
+                          black!36]
+                        (-52, -13)
+                        rectangle (-50, -11);
+                    \draw[,fill,
+                          black!40]
+                        (-52, -11)
+                        rectangle (-50, -9);
+                    \draw[,fill,
+                          black!54]
+                        (-52, -9)
+                        rectangle (-50, -7);
+                    \draw[,fill,
+                          black!59]
+                        (-52, -7)
+                        rectangle (-50, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-52, -5)
+                        rectangle (-50, -3);
+                    \draw[,fill,
+                          black!71]
+                        (-52, -3)
+                        rectangle (-50, -1);
+                    \draw[,fill,
+                          black!72]
+                        (-52, -1)
+                        rectangle (-50, 1);
+                    \draw[,fill,
+                          black!68]
+                        (-52, 1)
+                        rectangle (-50, 3);
+                    \draw[,fill,
+                          black!72]
+                        (-52, 3)
+                        rectangle (-50, 5);
+                    \draw[,fill,
+                          black!59]
+                        (-52, 5)
+                        rectangle (-50, 7);
+                    \draw[,fill,
+                          black!51]
+                        (-52, 7)
+                        rectangle (-50, 9);
+                    \draw[,fill,
+                          black!42]
+                        (-52, 9)
+                        rectangle (-50, 11);
+                    \draw[,fill,
+                          black!44]
+                        (-52, 11)
+                        rectangle (-50, 13);
+                    \draw[,fill,
+                          black!41]
+                        (-52, 13)
+                        rectangle (-50, 15);
+                    \draw[,fill,
+                          black!44]
+                        (-52, 15)
+                        rectangle (-50, 17);
+                    \draw[,fill,
+                          black!40]
+                        (-52, 17)
+                        rectangle (-50, 19);
+                    \draw[,fill,
+                          black!43]
+                        (-52, 19)
+                        rectangle (-50, 21);
+                    \draw[,fill,
+                          black!39]
+                        (-52, 21)
+                        rectangle (-50, 23);
+                    \draw[,fill,
+                          black!37]
+                        (-52, 23)
+                        rectangle (-50, 25);
+                    \draw[,fill,
+                          black!40]
+                        (-50, -25)
+                        rectangle (-48, -23);
+                    \draw[,fill,
+                          black!39]
+                        (-50, -23)
+                        rectangle (-48, -21);
+                    \draw[,fill,
+                          black!41]
+                        (-50, -21)
+                        rectangle (-48, -19);
+                    \draw[,fill,
+                          black!41]
+                        (-50, -19)
+                        rectangle (-48, -17);
+                    \draw[,fill,
+                          black!36]
+                        (-50, -17)
+                        rectangle (-48, -15);
+                    \draw[,fill,
+                          black!36]
+                        (-50, -15)
+                        rectangle (-48, -13);
+                    \draw[,fill,
+                          black!38]
+                        (-50, -13)
+                        rectangle (-48, -11);
+                    \draw[,fill,
+                          black!43]
+                        (-50, -11)
+                        rectangle (-48, -9);
+                    \draw[,fill,
+                          black!52]
+                        (-50, -9)
+                        rectangle (-48, -7);
+                    \draw[,fill,
+                          black!64]
+                        (-50, -7)
+                        rectangle (-48, -5);
+                    \draw[,fill,
+                          black!74]
+                        (-50, -5)
+                        rectangle (-48, -3);
+                    \draw[,fill,
+                          black!70]
+                        (-50, -3)
+                        rectangle (-48, -1);
+                    \draw[,fill,
+                          black!75]
+                        (-50, -1)
+                        rectangle (-48, 1);
+                    \draw[,fill,
+                          black!70]
+                        (-50, 1)
+                        rectangle (-48, 3);
+                    \draw[,fill,
+                          black!72]
+                        (-50, 3)
+                        rectangle (-48, 5);
+                    \draw[,fill,
+                          black!65]
+                        (-50, 5)
+                        rectangle (-48, 7);
+                    \draw[,fill,
+                          black!54]
+                        (-50, 7)
+                        rectangle (-48, 9);
+                    \draw[,fill,
+                          black!40]
+                        (-50, 9)
+                        rectangle (-48, 11);
+                    \draw[,fill,
+                          black!35]
+                        (-50, 11)
+                        rectangle (-48, 13);
+                    \draw[,fill,
+                          black!40]
+                        (-50, 13)
+                        rectangle (-48, 15);
+                    \draw[,fill,
+                          black!43]
+                        (-50, 15)
+                        rectangle (-48, 17);
+                    \draw[,fill,
+                          black!31]
+                        (-50, 17)
+                        rectangle (-48, 19);
+                    \draw[,fill,
+                          black!36]
+                        (-50, 19)
+                        rectangle (-48, 21);
+                    \draw[,fill,
+                          black!41]
+                        (-50, 21)
+                        rectangle (-48, 23);
+                    \draw[,fill,
+                          black!41]
+                        (-50, 23)
+                        rectangle (-48, 25);
+                    \draw[,fill,
+                          black!39]
+                        (-48, -25)
+                        rectangle (-46, -23);
+                    \draw[,fill,
+                          black!36]
+                        (-48, -23)
+                        rectangle (-46, -21);
+                    \draw[,fill,
+                          black!36]
+                        (-48, -21)
+                        rectangle (-46, -19);
+                    \draw[,fill,
+                          black!42]
+                        (-48, -19)
+                        rectangle (-46, -17);
+                    \draw[,fill,
+                          black!38]
+                        (-48, -17)
+                        rectangle (-46, -15);
+                    \draw[,fill,
+                          black!34]
+                        (-48, -15)
+                        rectangle (-46, -13);
+                    \draw[,fill,
+                          black!42]
+                        (-48, -13)
+                        rectangle (-46, -11);
+                    \draw[,fill,
+                          black!41]
+                        (-48, -11)
+                        rectangle (-46, -9);
+                    \draw[,fill,
+                          black!59]
+                        (-48, -9)
+                        rectangle (-46, -7);
+                    \draw[,fill,
+                          black!72]
+                        (-48, -7)
+                        rectangle (-46, -5);
+                    \draw[,fill,
+                          black!69]
+                        (-48, -5)
+                        rectangle (-46, -3);
+                    \draw[,fill,
+                          black!71]
+                        (-48, -3)
+                        rectangle (-46, -1);
+                    \draw[,fill,
+                          black!68]
+                        (-48, -1)
+                        rectangle (-46, 1);
+                    \draw[,fill,
+                          black!72]
+                        (-48, 1)
+                        rectangle (-46, 3);
+                    \draw[,fill,
+                          black!72]
+                        (-48, 3)
+                        rectangle (-46, 5);
+                    \draw[,fill,
+                          black!67]
+                        (-48, 5)
+                        rectangle (-46, 7);
+                    \draw[,fill,
+                          black!53]
+                        (-48, 7)
+                        rectangle (-46, 9);
+                    \draw[,fill,
+                          black!42]
+                        (-48, 9)
+                        rectangle (-46, 11);
+                    \draw[,fill,
+                          black!37]
+                        (-48, 11)
+                        rectangle (-46, 13);
+                    \draw[,fill,
+                          black!35]
+                        (-48, 13)
+                        rectangle (-46, 15);
+                    \draw[,fill,
+                          black!35]
+                        (-48, 15)
+                        rectangle (-46, 17);
+                    \draw[,fill,
+                          black!34]
+                        (-48, 17)
+                        rectangle (-46, 19);
+                    \draw[,fill,
+                          black!42]
+                        (-48, 19)
+                        rectangle (-46, 21);
+                    \draw[,fill,
+                          black!36]
+                        (-48, 21)
+                        rectangle (-46, 23);
+                    \draw[,fill,
+                          black!38]
+                        (-48, 23)
+                        rectangle (-46, 25);
+                    \draw[,fill,
+                          black!34]
+                        (-46, -25)
+                        rectangle (-44, -23);
+                    \draw[,fill,
+                          black!32]
+                        (-46, -23)
+                        rectangle (-44, -21);
+                    \draw[,fill,
+                          black!37]
+                        (-46, -21)
+                        rectangle (-44, -19);
+                    \draw[,fill,
+                          black!34]
+                        (-46, -19)
+                        rectangle (-44, -17);
+                    \draw[,fill,
+                          black!37]
+                        (-46, -17)
+                        rectangle (-44, -15);
+                    \draw[,fill,
+                          black!41]
+                        (-46, -15)
+                        rectangle (-44, -13);
+                    \draw[,fill,
+                          black!40]
+                        (-46, -13)
+                        rectangle (-44, -11);
+                    \draw[,fill,
+                          black!50]
+                        (-46, -11)
+                        rectangle (-44, -9);
+                    \draw[,fill,
+                          black!61]
+                        (-46, -9)
+                        rectangle (-44, -7);
+                    \draw[,fill,
+                          black!66]
+                        (-46, -7)
+                        rectangle (-44, -5);
+                    \draw[,fill,
+                          black!66]
+                        (-46, -5)
+                        rectangle (-44, -3);
+                    \draw[,fill,
+                          black!70]
+                        (-46, -3)
+                        rectangle (-44, -1);
+                    \draw[,fill,
+                          black!66]
+                        (-46, -1)
+                        rectangle (-44, 1);
+                    \draw[,fill,
+                          black!69]
+                        (-46, 1)
+                        rectangle (-44, 3);
+                    \draw[,fill,
+                          black!74]
+                        (-46, 3)
+                        rectangle (-44, 5);
+                    \draw[,fill,
+                          black!69]
+                        (-46, 5)
+                        rectangle (-44, 7);
+                    \draw[,fill,
+                          black!58]
+                        (-46, 7)
+                        rectangle (-44, 9);
+                    \draw[,fill,
+                          black!46]
+                        (-46, 9)
+                        rectangle (-44, 11);
+                    \draw[,fill,
+                          black!38]
+                        (-46, 11)
+                        rectangle (-44, 13);
+                    \draw[,fill,
+                          black!34]
+                        (-46, 13)
+                        rectangle (-44, 15);
+                    \draw[,fill,
+                          black!40]
+                        (-46, 15)
+                        rectangle (-44, 17);
+                    \draw[,fill,
+                          black!37]
+                        (-46, 17)
+                        rectangle (-44, 19);
+                    \draw[,fill,
+                          black!33]
+                        (-46, 19)
+                        rectangle (-44, 21);
+                    \draw[,fill,
+                          black!34]
+                        (-46, 21)
+                        rectangle (-44, 23);
+                    \draw[,fill,
+                          black!36]
+                        (-46, 23)
+                        rectangle (-44, 25);
+                    \draw[,fill,
+                          black!34]
+                        (-44, -25)
+                        rectangle (-42, -23);
+                    \draw[,fill,
+                          black!37]
+                        (-44, -23)
+                        rectangle (-42, -21);
+                    \draw[,fill,
+                          black!30]
+                        (-44, -21)
+                        rectangle (-42, -19);
+                    \draw[,fill,
+                          black!32]
+                        (-44, -19)
+                        rectangle (-42, -17);
+                    \draw[,fill,
+                          black!37]
+                        (-44, -17)
+                        rectangle (-42, -15);
+                    \draw[,fill,
+                          black!31]
+                        (-44, -15)
+                        rectangle (-42, -13);
+                    \draw[,fill,
+                          black!42]
+                        (-44, -13)
+                        rectangle (-42, -11);
+                    \draw[,fill,
+                          black!54]
+                        (-44, -11)
+                        rectangle (-42, -9);
+                    \draw[,fill,
+                          black!66]
+                        (-44, -9)
+                        rectangle (-42, -7);
+                    \draw[,fill,
+                          black!65]
+                        (-44, -7)
+                        rectangle (-42, -5);
+                    \draw[,fill,
+                          black!68]
+                        (-44, -5)
+                        rectangle (-42, -3);
+                    \draw[,fill,
+                          black!67]
+                        (-44, -3)
+                        rectangle (-42, -1);
+                    \draw[,fill,
+                          black!66]
+                        (-44, -1)
+                        rectangle (-42, 1);
+                    \draw[,fill,
+                          black!70]
+                        (-44, 1)
+                        rectangle (-42, 3);
+                    \draw[,fill,
+                          black!70]
+                        (-44, 3)
+                        rectangle (-42, 5);
+                    \draw[,fill,
+                          black!67]
+                        (-44, 5)
+                        rectangle (-42, 7);
+                    \draw[,fill,
+                          black!67]
+                        (-44, 7)
+                        rectangle (-42, 9);
+                    \draw[,fill,
+                          black!50]
+                        (-44, 9)
+                        rectangle (-42, 11);
+                    \draw[,fill,
+                          black!41]
+                        (-44, 11)
+                        rectangle (-42, 13);
+                    \draw[,fill,
+                          black!35]
+                        (-44, 13)
+                        rectangle (-42, 15);
+                    \draw[,fill,
+                          black!36]
+                        (-44, 15)
+                        rectangle (-42, 17);
+                    \draw[,fill,
+                          black!36]
+                        (-44, 17)
+                        rectangle (-42, 19);
+                    \draw[,fill,
+                          black!34]
+                        (-44, 19)
+                        rectangle (-42, 21);
+                    \draw[,fill,
+                          black!36]
+                        (-44, 21)
+                        rectangle (-42, 23);
+                    \draw[,fill,
+                          black!36]
+                        (-44, 23)
+                        rectangle (-42, 25);
+                    \draw[,fill,
+                          black!32]
+                        (-42, -25)
+                        rectangle (-40, -23);
+                    \draw[,fill,
+                          black!27]
+                        (-42, -23)
+                        rectangle (-40, -21);
+                    \draw[,fill,
+                          black!32]
+                        (-42, -21)
+                        rectangle (-40, -19);
+                    \draw[,fill,
+                          black!33]
+                        (-42, -19)
+                        rectangle (-40, -17);
+                    \draw[,fill,
+                          black!33]
+                        (-42, -17)
+                        rectangle (-40, -15);
+                    \draw[,fill,
+                          black!35]
+                        (-42, -15)
+                        rectangle (-40, -13);
+                    \draw[,fill,
+                          black!41]
+                        (-42, -13)
+                        rectangle (-40, -11);
+                    \draw[,fill,
+                          black!54]
+                        (-42, -11)
+                        rectangle (-40, -9);
+                    \draw[,fill,
+                          black!66]
+                        (-42, -9)
+                        rectangle (-40, -7);
+                    \draw[,fill,
+                          black!69]
+                        (-42, -7)
+                        rectangle (-40, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-42, -5)
+                        rectangle (-40, -3);
+                    \draw[,fill,
+                          black!68]
+                        (-42, -3)
+                        rectangle (-40, -1);
+                    \draw[,fill,
+                          black!67]
+                        (-42, -1)
+                        rectangle (-40, 1);
+                    \draw[,fill,
+                          black!67]
+                        (-42, 1)
+                        rectangle (-40, 3);
+                    \draw[,fill,
+                          black!68]
+                        (-42, 3)
+                        rectangle (-40, 5);
+                    \draw[,fill,
+                          black!68]
+                        (-42, 5)
+                        rectangle (-40, 7);
+                    \draw[,fill,
+                          black!69]
+                        (-42, 7)
+                        rectangle (-40, 9);
+                    \draw[,fill,
+                          black!51]
+                        (-42, 9)
+                        rectangle (-40, 11);
+                    \draw[,fill,
+                          black!44]
+                        (-42, 11)
+                        rectangle (-40, 13);
+                    \draw[,fill,
+                          black!37]
+                        (-42, 13)
+                        rectangle (-40, 15);
+                    \draw[,fill,
+                          black!31]
+                        (-42, 15)
+                        rectangle (-40, 17);
+                    \draw[,fill,
+                          black!35]
+                        (-42, 17)
+                        rectangle (-40, 19);
+                    \draw[,fill,
+                          black!36]
+                        (-42, 19)
+                        rectangle (-40, 21);
+                    \draw[,fill,
+                          black!32]
+                        (-42, 21)
+                        rectangle (-40, 23);
+                    \draw[,fill,
+                          black!34]
+                        (-42, 23)
+                        rectangle (-40, 25);
+                    \draw[,fill,
+                          black!35]
+                        (-40, -25)
+                        rectangle (-38, -23);
+                    \draw[,fill,
+                          black!30]
+                        (-40, -23)
+                        rectangle (-38, -21);
+                    \draw[,fill,
+                          black!32]
+                        (-40, -21)
+                        rectangle (-38, -19);
+                    \draw[,fill,
+                          black!29]
+                        (-40, -19)
+                        rectangle (-38, -17);
+                    \draw[,fill,
+                          black!34]
+                        (-40, -17)
+                        rectangle (-38, -15);
+                    \draw[,fill,
+                          black!31]
+                        (-40, -15)
+                        rectangle (-38, -13);
+                    \draw[,fill,
+                          black!45]
+                        (-40, -13)
+                        rectangle (-38, -11);
+                    \draw[,fill,
+                          black!56]
+                        (-40, -11)
+                        rectangle (-38, -9);
+                    \draw[,fill,
+                          black!67]
+                        (-40, -9)
+                        rectangle (-38, -7);
+                    \draw[,fill,
+                          black!71]
+                        (-40, -7)
+                        rectangle (-38, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-40, -5)
+                        rectangle (-38, -3);
+                    \draw[,fill,
+                          black!68]
+                        (-40, -3)
+                        rectangle (-38, -1);
+                    \draw[,fill,
+                          black!68]
+                        (-40, -1)
+                        rectangle (-38, 1);
+                    \draw[,fill,
+                          black!69]
+                        (-40, 1)
+                        rectangle (-38, 3);
+                    \draw[,fill,
+                          black!68]
+                        (-40, 3)
+                        rectangle (-38, 5);
+                    \draw[,fill,
+                          black!66]
+                        (-40, 5)
+                        rectangle (-38, 7);
+                    \draw[,fill,
+                          black!68]
+                        (-40, 7)
+                        rectangle (-38, 9);
+                    \draw[,fill,
+                          black!60]
+                        (-40, 9)
+                        rectangle (-38, 11);
+                    \draw[,fill,
+                          black!42]
+                        (-40, 11)
+                        rectangle (-38, 13);
+                    \draw[,fill,
+                          black!33]
+                        (-40, 13)
+                        rectangle (-38, 15);
+                    \draw[,fill,
+                          black!32]
+                        (-40, 15)
+                        rectangle (-38, 17);
+                    \draw[,fill,
+                          black!34]
+                        (-40, 17)
+                        rectangle (-38, 19);
+                    \draw[,fill,
+                          black!28]
+                        (-40, 19)
+                        rectangle (-38, 21);
+                    \draw[,fill,
+                          black!32]
+                        (-40, 21)
+                        rectangle (-38, 23);
+                    \draw[,fill,
+                          black!30]
+                        (-40, 23)
+                        rectangle (-38, 25);
+                    \draw[,fill,
+                          black!31]
+                        (-38, -25)
+                        rectangle (-36, -23);
+                    \draw[,fill,
+                          black!31]
+                        (-38, -23)
+                        rectangle (-36, -21);
+                    \draw[,fill,
+                          black!29]
+                        (-38, -21)
+                        rectangle (-36, -19);
+                    \draw[,fill,
+                          black!35]
+                        (-38, -19)
+                        rectangle (-36, -17);
+                    \draw[,fill,
+                          black!27]
+                        (-38, -17)
+                        rectangle (-36, -15);
+                    \draw[,fill,
+                          black!32]
+                        (-38, -15)
+                        rectangle (-36, -13);
+                    \draw[,fill,
+                          black!49]
+                        (-38, -13)
+                        rectangle (-36, -11);
+                    \draw[,fill,
+                          black!63]
+                        (-38, -11)
+                        rectangle (-36, -9);
+                    \draw[,fill,
+                          black!67]
+                        (-38, -9)
+                        rectangle (-36, -7);
+                    \draw[,fill,
+                          black!67]
+                        (-38, -7)
+                        rectangle (-36, -5);
+                    \draw[,fill,
+                          black!71]
+                        (-38, -5)
+                        rectangle (-36, -3);
+                    \draw[,fill,
+                          black!64]
+                        (-38, -3)
+                        rectangle (-36, -1);
+                    \draw[,fill,
+                          black!68]
+                        (-38, -1)
+                        rectangle (-36, 1);
+                    \draw[,fill,
+                          black!67]
+                        (-38, 1)
+                        rectangle (-36, 3);
+                    \draw[,fill,
+                          black!66]
+                        (-38, 3)
+                        rectangle (-36, 5);
+                    \draw[,fill,
+                          black!65]
+                        (-38, 5)
+                        rectangle (-36, 7);
+                    \draw[,fill,
+                          black!66]
+                        (-38, 7)
+                        rectangle (-36, 9);
+                    \draw[,fill,
+                          black!64]
+                        (-38, 9)
+                        rectangle (-36, 11);
+                    \draw[,fill,
+                          black!49]
+                        (-38, 11)
+                        rectangle (-36, 13);
+                    \draw[,fill,
+                          black!31]
+                        (-38, 13)
+                        rectangle (-36, 15);
+                    \draw[,fill,
+                          black!31]
+                        (-38, 15)
+                        rectangle (-36, 17);
+                    \draw[,fill,
+                          black!27]
+                        (-38, 17)
+                        rectangle (-36, 19);
+                    \draw[,fill,
+                          black!37]
+                        (-38, 19)
+                        rectangle (-36, 21);
+                    \draw[,fill,
+                          black!28]
+                        (-38, 21)
+                        rectangle (-36, 23);
+                    \draw[,fill,
+                          black!37]
+                        (-38, 23)
+                        rectangle (-36, 25);
+                    \draw[,fill,
+                          black!31]
+                        (-36, -25)
+                        rectangle (-34, -23);
+                    \draw[,fill,
+                          black!29]
+                        (-36, -23)
+                        rectangle (-34, -21);
+                    \draw[,fill,
+                          black!32]
+                        (-36, -21)
+                        rectangle (-34, -19);
+                    \draw[,fill,
+                          black!28]
+                        (-36, -19)
+                        rectangle (-34, -17);
+                    \draw[,fill,
+                          black!30]
+                        (-36, -17)
+                        rectangle (-34, -15);
+                    \draw[,fill,
+                          black!37]
+                        (-36, -15)
+                        rectangle (-34, -13);
+                    \draw[,fill,
+                          black!55]
+                        (-36, -13)
+                        rectangle (-34, -11);
+                    \draw[,fill,
+                          black!66]
+                        (-36, -11)
+                        rectangle (-34, -9);
+                    \draw[,fill,
+                          black!65]
+                        (-36, -9)
+                        rectangle (-34, -7);
+                    \draw[,fill,
+                          black!68]
+                        (-36, -7)
+                        rectangle (-34, -5);
+                    \draw[,fill,
+                          black!65]
+                        (-36, -5)
+                        rectangle (-34, -3);
+                    \draw[,fill,
+                          black!65]
+                        (-36, -3)
+                        rectangle (-34, -1);
+                    \draw[,fill,
+                          black!68]
+                        (-36, -1)
+                        rectangle (-34, 1);
+                    \draw[,fill,
+                          black!67]
+                        (-36, 1)
+                        rectangle (-34, 3);
+                    \draw[,fill,
+                          black!65]
+                        (-36, 3)
+                        rectangle (-34, 5);
+                    \draw[,fill,
+                          black!67]
+                        (-36, 5)
+                        rectangle (-34, 7);
+                    \draw[,fill,
+                          black!69]
+                        (-36, 7)
+                        rectangle (-34, 9);
+                    \draw[,fill,
+                          black!64]
+                        (-36, 9)
+                        rectangle (-34, 11);
+                    \draw[,fill,
+                          black!53]
+                        (-36, 11)
+                        rectangle (-34, 13);
+                    \draw[,fill,
+                          black!37]
+                        (-36, 13)
+                        rectangle (-34, 15);
+                    \draw[,fill,
+                          black!37]
+                        (-36, 15)
+                        rectangle (-34, 17);
+                    \draw[,fill,
+                          black!35]
+                        (-36, 17)
+                        rectangle (-34, 19);
+                    \draw[,fill,
+                          black!28]
+                        (-36, 19)
+                        rectangle (-34, 21);
+                    \draw[,fill,
+                          black!33]
+                        (-36, 21)
+                        rectangle (-34, 23);
+                    \draw[,fill,
+                          black!30]
+                        (-36, 23)
+                        rectangle (-34, 25);
+                    \draw[,fill,
+                          black!26]
+                        (-34, -25)
+                        rectangle (-32, -23);
+                    \draw[,fill,
+                          black!27]
+                        (-34, -23)
+                        rectangle (-32, -21);
+                    \draw[,fill,
+                          black!27]
+                        (-34, -21)
+                        rectangle (-32, -19);
+                    \draw[,fill,
+                          black!26]
+                        (-34, -19)
+                        rectangle (-32, -17);
+                    \draw[,fill,
+                          black!28]
+                        (-34, -17)
+                        rectangle (-32, -15);
+                    \draw[,fill,
+                          black!42]
+                        (-34, -15)
+                        rectangle (-32, -13);
+                    \draw[,fill,
+                          black!65]
+                        (-34, -13)
+                        rectangle (-32, -11);
+                    \draw[,fill,
+                          black!65]
+                        (-34, -11)
+                        rectangle (-32, -9);
+                    \draw[,fill,
+                          black!62]
+                        (-34, -9)
+                        rectangle (-32, -7);
+                    \draw[,fill,
+                          black!67]
+                        (-34, -7)
+                        rectangle (-32, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-34, -5)
+                        rectangle (-32, -3);
+                    \draw[,fill,
+                          black!67]
+                        (-34, -3)
+                        rectangle (-32, -1);
+                    \draw[,fill,
+                          black!67]
+                        (-34, -1)
+                        rectangle (-32, 1);
+                    \draw[,fill,
+                          black!65]
+                        (-34, 1)
+                        rectangle (-32, 3);
+                    \draw[,fill,
+                          black!66]
+                        (-34, 3)
+                        rectangle (-32, 5);
+                    \draw[,fill,
+                          black!66]
+                        (-34, 5)
+                        rectangle (-32, 7);
+                    \draw[,fill,
+                          black!65]
+                        (-34, 7)
+                        rectangle (-32, 9);
+                    \draw[,fill,
+                          black!68]
+                        (-34, 9)
+                        rectangle (-32, 11);
+                    \draw[,fill,
+                          black!62]
+                        (-34, 11)
+                        rectangle (-32, 13);
+                    \draw[,fill,
+                          black!43]
+                        (-34, 13)
+                        rectangle (-32, 15);
+                    \draw[,fill,
+                          black!28]
+                        (-34, 15)
+                        rectangle (-32, 17);
+                    \draw[,fill,
+                          black!29]
+                        (-34, 17)
+                        rectangle (-32, 19);
+                    \draw[,fill,
+                          black!25]
+                        (-34, 19)
+                        rectangle (-32, 21);
+                    \draw[,fill,
+                          black!31]
+                        (-34, 21)
+                        rectangle (-32, 23);
+                    \draw[,fill,
+                          black!28]
+                        (-34, 23)
+                        rectangle (-32, 25);
+                    \draw[,fill,
+                          black!31]
+                        (-32, -25)
+                        rectangle (-30, -23);
+                    \draw[,fill,
+                          black!23]
+                        (-32, -23)
+                        rectangle (-30, -21);
+                    \draw[,fill,
+                          black!26]
+                        (-32, -21)
+                        rectangle (-30, -19);
+                    \draw[,fill,
+                          black!27]
+                        (-32, -19)
+                        rectangle (-30, -17);
+                    \draw[,fill,
+                          black!27]
+                        (-32, -17)
+                        rectangle (-30, -15);
+                    \draw[,fill,
+                          black!46]
+                        (-32, -15)
+                        rectangle (-30, -13);
+                    \draw[,fill,
+                          black!63]
+                        (-32, -13)
+                        rectangle (-30, -11);
+                    \draw[,fill,
+                          black!64]
+                        (-32, -11)
+                        rectangle (-30, -9);
+                    \draw[,fill,
+                          black!61]
+                        (-32, -9)
+                        rectangle (-30, -7);
+                    \draw[,fill,
+                          black!66]
+                        (-32, -7)
+                        rectangle (-30, -5);
+                    \draw[,fill,
+                          black!64]
+                        (-32, -5)
+                        rectangle (-30, -3);
+                    \draw[,fill,
+                          black!65]
+                        (-32, -3)
+                        rectangle (-30, -1);
+                    \draw[,fill,
+                          black!64]
+                        (-32, -1)
+                        rectangle (-30, 1);
+                    \draw[,fill,
+                          black!69]
+                        (-32, 1)
+                        rectangle (-30, 3);
+                    \draw[,fill,
+                          black!63]
+                        (-32, 3)
+                        rectangle (-30, 5);
+                    \draw[,fill,
+                          black!62]
+                        (-32, 5)
+                        rectangle (-30, 7);
+                    \draw[,fill,
+                          black!65]
+                        (-32, 7)
+                        rectangle (-30, 9);
+                    \draw[,fill,
+                          black!66]
+                        (-32, 9)
+                        rectangle (-30, 11);
+                    \draw[,fill,
+                          black!64]
+                        (-32, 11)
+                        rectangle (-30, 13);
+                    \draw[,fill,
+                          black!43]
+                        (-32, 13)
+                        rectangle (-30, 15);
+                    \draw[,fill,
+                          black!31]
+                        (-32, 15)
+                        rectangle (-30, 17);
+                    \draw[,fill,
+                          black!26]
+                        (-32, 17)
+                        rectangle (-30, 19);
+                    \draw[,fill,
+                          black!30]
+                        (-32, 19)
+                        rectangle (-30, 21);
+                    \draw[,fill,
+                          black!23]
+                        (-32, 21)
+                        rectangle (-30, 23);
+                    \draw[,fill,
+                          black!27]
+                        (-32, 23)
+                        rectangle (-30, 25);
+                    \draw[,fill,
+                          black!28]
+                        (-30, -25)
+                        rectangle (-28, -23);
+                    \draw[,fill,
+                          black!26]
+                        (-30, -23)
+                        rectangle (-28, -21);
+                    \draw[,fill,
+                          black!25]
+                        (-30, -21)
+                        rectangle (-28, -19);
+                    \draw[,fill,
+                          black!25]
+                        (-30, -19)
+                        rectangle (-28, -17);
+                    \draw[,fill,
+                          black!31]
+                        (-30, -17)
+                        rectangle (-28, -15);
+                    \draw[,fill,
+                          black!50]
+                        (-30, -15)
+                        rectangle (-28, -13);
+                    \draw[,fill,
+                          black!63]
+                        (-30, -13)
+                        rectangle (-28, -11);
+                    \draw[,fill,
+                          black!63]
+                        (-30, -11)
+                        rectangle (-28, -9);
+                    \draw[,fill,
+                          black!64]
+                        (-30, -9)
+                        rectangle (-28, -7);
+                    \draw[,fill,
+                          black!61]
+                        (-30, -7)
+                        rectangle (-28, -5);
+                    \draw[,fill,
+                          black!64]
+                        (-30, -5)
+                        rectangle (-28, -3);
+                    \draw[,fill,
+                          black!61]
+                        (-30, -3)
+                        rectangle (-28, -1);
+                    \draw[,fill,
+                          black!62]
+                        (-30, -1)
+                        rectangle (-28, 1);
+                    \draw[,fill,
+                          black!67]
+                        (-30, 1)
+                        rectangle (-28, 3);
+                    \draw[,fill,
+                          black!65]
+                        (-30, 3)
+                        rectangle (-28, 5);
+                    \draw[,fill,
+                          black!62]
+                        (-30, 5)
+                        rectangle (-28, 7);
+                    \draw[,fill,
+                          black!63]
+                        (-30, 7)
+                        rectangle (-28, 9);
+                    \draw[,fill,
+                          black!64]
+                        (-30, 9)
+                        rectangle (-28, 11);
+                    \draw[,fill,
+                          black!60]
+                        (-30, 11)
+                        rectangle (-28, 13);
+                    \draw[,fill,
+                          black!51]
+                        (-30, 13)
+                        rectangle (-28, 15);
+                    \draw[,fill,
+                          black!28]
+                        (-30, 15)
+                        rectangle (-28, 17);
+                    \draw[,fill,
+                          black!31]
+                        (-30, 17)
+                        rectangle (-28, 19);
+                    \draw[,fill,
+                          black!26]
+                        (-30, 19)
+                        rectangle (-28, 21);
+                    \draw[,fill,
+                          black!26]
+                        (-30, 21)
+                        rectangle (-28, 23);
+                    \draw[,fill,
+                          black!29]
+                        (-30, 23)
+                        rectangle (-28, 25);
+                    \draw[,fill,
+                          black!26]
+                        (-28, -25)
+                        rectangle (-26, -23);
+                    \draw[,fill,
+                          black!25]
+                        (-28, -23)
+                        rectangle (-26, -21);
+                    \draw[,fill,
+                          black!22]
+                        (-28, -21)
+                        rectangle (-26, -19);
+                    \draw[,fill,
+                          black!23]
+                        (-28, -19)
+                        rectangle (-26, -17);
+                    \draw[,fill,
+                          black!39]
+                        (-28, -17)
+                        rectangle (-26, -15);
+                    \draw[,fill,
+                          black!66]
+                        (-28, -15)
+                        rectangle (-26, -13);
+                    \draw[,fill,
+                          black!62]
+                        (-28, -13)
+                        rectangle (-26, -11);
+                    \draw[,fill,
+                          black!64]
+                        (-28, -11)
+                        rectangle (-26, -9);
+                    \draw[,fill,
+                          black!61]
+                        (-28, -9)
+                        rectangle (-26, -7);
+                    \draw[,fill,
+                          black!63]
+                        (-28, -7)
+                        rectangle (-26, -5);
+                    \draw[,fill,
+                          black!67]
+                        (-28, -5)
+                        rectangle (-26, -3);
+                    \draw[,fill,
+                          black!67]
+                        (-28, -3)
+                        rectangle (-26, -1);
+                    \draw[,fill,
+                          black!63]
+                        (-28, -1)
+                        rectangle (-26, 1);
+                    \draw[,fill,
+                          black!61]
+                        (-28, 1)
+                        rectangle (-26, 3);
+                    \draw[,fill,
+                          black!64]
+                        (-28, 3)
+                        rectangle (-26, 5);
+                    \draw[,fill,
+                          black!65]
+                        (-28, 5)
+                        rectangle (-26, 7);
+                    \draw[,fill,
+                          black!58]
+                        (-28, 7)
+                        rectangle (-26, 9);
+                    \draw[,fill,
+                          black!65]
+                        (-28, 9)
+                        rectangle (-26, 11);
+                    \draw[,fill,
+                          black!64]
+                        (-28, 11)
+                        rectangle (-26, 13);
+                    \draw[,fill,
+                          black!58]
+                        (-28, 13)
+                        rectangle (-26, 15);
+                    \draw[,fill,
+                          black!34]
+                        (-28, 15)
+                        rectangle (-26, 17);
+                    \draw[,fill,
+                          black!28]
+                        (-28, 17)
+                        rectangle (-26, 19);
+                    \draw[,fill,
+                          black!30]
+                        (-28, 19)
+                        rectangle (-26, 21);
+                    \draw[,fill,
+                          black!25]
+                        (-28, 21)
+                        rectangle (-26, 23);
+                    \draw[,fill,
+                          black!23]
+                        (-28, 23)
+                        rectangle (-26, 25);
+                    \draw[,fill,
+                          black!25]
+                        (-26, -25)
+                        rectangle (-24, -23);
+                    \draw[,fill,
+                          black!23]
+                        (-26, -23)
+                        rectangle (-24, -21);
+                    \draw[,fill,
+                          black!22]
+                        (-26, -21)
+                        rectangle (-24, -19);
+                    \draw[,fill,
+                          black!20]
+                        (-26, -19)
+                        rectangle (-24, -17);
+                    \draw[,fill,
+                          black!46]
+                        (-26, -17)
+                        rectangle (-24, -15);
+                    \draw[,fill,
+                          black!58]
+                        (-26, -15)
+                        rectangle (-24, -13);
+                    \draw[,fill,
+                          black!60]
+                        (-26, -13)
+                        rectangle (-24, -11);
+                    \draw[,fill,
+                          black!61]
+                        (-26, -11)
+                        rectangle (-24, -9);
+                    \draw[,fill,
+                          black!61]
+                        (-26, -9)
+                        rectangle (-24, -7);
+                    \draw[,fill,
+                          black!61]
+                        (-26, -7)
+                        rectangle (-24, -5);
+                    \draw[,fill,
+                          black!63]
+                        (-26, -5)
+                        rectangle (-24, -3);
+                    \draw[,fill,
+                          black!65]
+                        (-26, -3)
+                        rectangle (-24, -1);
+                    \draw[,fill,
+                          black!62]
+                        (-26, -1)
+                        rectangle (-24, 1);
+                    \draw[,fill,
+                          black!63]
+                        (-26, 1)
+                        rectangle (-24, 3);
+                    \draw[,fill,
+                          black!62]
+                        (-26, 3)
+                        rectangle (-24, 5);
+                    \draw[,fill,
+                          black!61]
+                        (-26, 5)
+                        rectangle (-24, 7);
+                    \draw[,fill,
+                          black!62]
+                        (-26, 7)
+                        rectangle (-24, 9);
+                    \draw[,fill,
+                          black!59]
+                        (-26, 9)
+                        rectangle (-24, 11);
+                    \draw[,fill,
+                          black!64]
+                        (-26, 11)
+                        rectangle (-24, 13);
+                    \draw[,fill,
+                          black!61]
+                        (-26, 13)
+                        rectangle (-24, 15);
+                    \draw[,fill,
+                          black!45]
+                        (-26, 15)
+                        rectangle (-24, 17);
+                    \draw[,fill,
+                          black!19]
+                        (-26, 17)
+                        rectangle (-24, 19);
+                    \draw[,fill,
+                          black!23]
+                        (-26, 19)
+                        rectangle (-24, 21);
+                    \draw[,fill,
+                          black!24]
+                        (-26, 21)
+                        rectangle (-24, 23);
+                    \draw[,fill,
+                          black!19]
+                        (-26, 23)
+                        rectangle (-24, 25);
+                    \draw[,fill,
+                          black!21]
+                        (-24, -25)
+                        rectangle (-22, -23);
+                    \draw[,fill,
+                          black!15]
+                        (-24, -23)
+                        rectangle (-22, -21);
+                    \draw[,fill,
+                          black!29]
+                        (-24, -21)
+                        rectangle (-22, -19);
+                    \draw[,fill,
+                          black!23]
+                        (-24, -19)
+                        rectangle (-22, -17);
+                    \draw[,fill,
+                          black!58]
+                        (-24, -17)
+                        rectangle (-22, -15);
+                    \draw[,fill,
+                          black!61]
+                        (-24, -15)
+                        rectangle (-22, -13);
+                    \draw[,fill,
+                          black!62]
+                        (-24, -13)
+                        rectangle (-22, -11);
+                    \draw[,fill,
+                          black!60]
+                        (-24, -11)
+                        rectangle (-22, -9);
+                    \draw[,fill,
+                          black!55]
+                        (-24, -9)
+                        rectangle (-22, -7);
+                    \draw[,fill,
+                          black!62]
+                        (-24, -7)
+                        rectangle (-22, -5);
+                    \draw[,fill,
+                          black!63]
+                        (-24, -5)
+                        rectangle (-22, -3);
+                    \draw[,fill,
+                          black!57]
+                        (-24, -3)
+                        rectangle (-22, -1);
+                    \draw[,fill,
+                          black!60]
+                        (-24, -1)
+                        rectangle (-22, 1);
+                    \draw[,fill,
+                          black!61]
+                        (-24, 1)
+                        rectangle (-22, 3);
+                    \draw[,fill,
+                          black!64]
+                        (-24, 3)
+                        rectangle (-22, 5);
+                    \draw[,fill,
+                          black!61]
+                        (-24, 5)
+                        rectangle (-22, 7);
+                    \draw[,fill,
+                          black!63]
+                        (-24, 7)
+                        rectangle (-22, 9);
+                    \draw[,fill,
+                          black!60]
+                        (-24, 9)
+                        rectangle (-22, 11);
+                    \draw[,fill,
+                          black!59]
+                        (-24, 11)
+                        rectangle (-22, 13);
+                    \draw[,fill,
+                          black!59]
+                        (-24, 13)
+                        rectangle (-22, 15);
+                    \draw[,fill,
+                          black!55]
+                        (-24, 15)
+                        rectangle (-22, 17);
+                    \draw[,fill,
+                          black!23]
+                        (-24, 17)
+                        rectangle (-22, 19);
+                    \draw[,fill,
+                          black!23]
+                        (-24, 19)
+                        rectangle (-22, 21);
+                    \draw[,fill,
+                          black!15]
+                        (-24, 21)
+                        rectangle (-22, 23);
+                    \draw[,fill,
+                          black!20]
+                        (-24, 23)
+                        rectangle (-22, 25);
+                    \draw[,fill,
+                          black!24]
+                        (-22, -25)
+                        rectangle (-20, -23);
+                    \draw[,fill,
+                          black!21]
+                        (-22, -23)
+                        rectangle (-20, -21);
+                    \draw[,fill,
+                          black!20]
+                        (-22, -21)
+                        rectangle (-20, -19);
+                    \draw[,fill,
+                          black!35]
+                        (-22, -19)
+                        rectangle (-20, -17);
+                    \draw[,fill,
+                          black!59]
+                        (-22, -17)
+                        rectangle (-20, -15);
+                    \draw[,fill,
+                          black!61]
+                        (-22, -15)
+                        rectangle (-20, -13);
+                    \draw[,fill,
+                          black!58]
+                        (-22, -13)
+                        rectangle (-20, -11);
+                    \draw[,fill,
+                          black!56]
+                        (-22, -11)
+                        rectangle (-20, -9);
+                    \draw[,fill,
+                          black!62]
+                        (-22, -9)
+                        rectangle (-20, -7);
+                    \draw[,fill,
+                          black!65]
+                        (-22, -7)
+                        rectangle (-20, -5);
+                    \draw[,fill,
+                          black!61]
+                        (-22, -5)
+                        rectangle (-20, -3);
+                    \draw[,fill,
+                          black!61]
+                        (-22, -3)
+                        rectangle (-20, -1);
+                    \draw[,fill,
+                          black!60]
+                        (-22, -1)
+                        rectangle (-20, 1);
+                    \draw[,fill,
+                          black!61]
+                        (-22, 1)
+                        rectangle (-20, 3);
+                    \draw[,fill,
+                          black!59]
+                        (-22, 3)
+                        rectangle (-20, 5);
+                    \draw[,fill,
+                          black!65]
+                        (-22, 5)
+                        rectangle (-20, 7);
+                    \draw[,fill,
+                          black!58]
+                        (-22, 7)
+                        rectangle (-20, 9);
+                    \draw[,fill,
+                          black!57]
+                        (-22, 9)
+                        rectangle (-20, 11);
+                    \draw[,fill,
+                          black!62]
+                        (-22, 11)
+                        rectangle (-20, 13);
+                    \draw[,fill,
+                          black!61]
+                        (-22, 13)
+                        rectangle (-20, 15);
+                    \draw[,fill,
+                          black!58]
+                        (-22, 15)
+                        rectangle (-20, 17);
+                    \draw[,fill,
+                          black!36]
+                        (-22, 17)
+                        rectangle (-20, 19);
+                    \draw[,fill,
+                          black!22]
+                        (-22, 19)
+                        rectangle (-20, 21);
+                    \draw[,fill,
+                          black!11]
+                        (-22, 21)
+                        rectangle (-20, 23);
+                    \draw[,fill,
+                          black!17]
+                        (-22, 23)
+                        rectangle (-20, 25);
+                    \draw[,fill,
+                          black!19]
+                        (-20, -25)
+                        rectangle (-18, -23);
+                    \draw[,fill,
+                          black!20]
+                        (-20, -23)
+                        rectangle (-18, -21);
+                    \draw[,fill,
+                          black!12]
+                        (-20, -21)
+                        rectangle (-18, -19);
+                    \draw[,fill,
+                          black!43]
+                        (-20, -19)
+                        rectangle (-18, -17);
+                    \draw[,fill,
+                          black!57]
+                        (-20, -17)
+                        rectangle (-18, -15);
+                    \draw[,fill,
+                          black!60]
+                        (-20, -15)
+                        rectangle (-18, -13);
+                    \draw[,fill,
+                          black!57]
+                        (-20, -13)
+                        rectangle (-18, -11);
+                    \draw[,fill,
+                          black!61]
+                        (-20, -11)
+                        rectangle (-18, -9);
+                    \draw[,fill,
+                          black!57]
+                        (-20, -9)
+                        rectangle (-18, -7);
+                    \draw[,fill,
+                          black!60]
+                        (-20, -7)
+                        rectangle (-18, -5);
+                    \draw[,fill,
+                          black!62]
+                        (-20, -5)
+                        rectangle (-18, -3);
+                    \draw[,fill,
+                          black!56]
+                        (-20, -3)
+                        rectangle (-18, -1);
+                    \draw[,fill,
+                          black!56]
+                        (-20, -1)
+                        rectangle (-18, 1);
+                    \draw[,fill,
+                          black!60]
+                        (-20, 1)
+                        rectangle (-18, 3);
+                    \draw[,fill,
+                          black!60]
+                        (-20, 3)
+                        rectangle (-18, 5);
+                    \draw[,fill,
+                          black!60]
+                        (-20, 5)
+                        rectangle (-18, 7);
+                    \draw[,fill,
+                          black!59]
+                        (-20, 7)
+                        rectangle (-18, 9);
+                    \draw[,fill,
+                          black!60]
+                        (-20, 9)
+                        rectangle (-18, 11);
+                    \draw[,fill,
+                          black!62]
+                        (-20, 11)
+                        rectangle (-18, 13);
+                    \draw[,fill,
+                          black!60]
+                        (-20, 13)
+                        rectangle (-18, 15);
+                    \draw[,fill,
+                          black!58]
+                        (-20, 15)
+                        rectangle (-18, 17);
+                    \draw[,fill,
+                          black!41]
+                        (-20, 17)
+                        rectangle (-18, 19);
+                    \draw[,fill,
+                          black!13]
+                        (-20, 19)
+                        rectangle (-18, 21);
+                    \draw[,fill,
+                          black!14]
+                        (-20, 21)
+                        rectangle (-18, 23);
+                    \draw[,fill,
+                          black!14]
+                        (-20, 23)
+                        rectangle (-18, 25);
+                    \draw[,fill,
+                          black!14]
+                        (-18, -25)
+                        rectangle (-16, -23);
+                    \draw[,fill,
+                          black!19]
+                        (-18, -23)
+                        rectangle (-16, -21);
+                    \draw[,fill,
+                          black!17]
+                        (-18, -21)
+                        rectangle (-16, -19);
+                    \draw[,fill,
+                          black!58]
+                        (-18, -19)
+                        rectangle (-16, -17);
+                    \draw[,fill,
+                          black!56]
+                        (-18, -17)
+                        rectangle (-16, -15);
+                    \draw[,fill,
+                          black!57]
+                        (-18, -15)
+                        rectangle (-16, -13);
+                    \draw[,fill,
+                          black!57]
+                        (-18, -13)
+                        rectangle (-16, -11);
+                    \draw[,fill,
+                          black!56]
+                        (-18, -11)
+                        rectangle (-16, -9);
+                    \draw[,fill,
+                          black!60]
+                        (-18, -9)
+                        rectangle (-16, -7);
+                    \draw[,fill,
+                          black!61]
+                        (-18, -7)
+                        rectangle (-16, -5);
+                    \draw[,fill,
+                          black!61]
+                        (-18, -5)
+                        rectangle (-16, -3);
+                    \draw[,fill,
+                          black!58]
+                        (-18, -3)
+                        rectangle (-16, -1);
+                    \draw[,fill,
+                          black!61]
+                        (-18, -1)
+                        rectangle (-16, 1);
+                    \draw[,fill,
+                          black!56]
+                        (-18, 1)
+                        rectangle (-16, 3);
+                    \draw[,fill,
+                          black!57]
+                        (-18, 3)
+                        rectangle (-16, 5);
+                    \draw[,fill,
+                          black!63]
+                        (-18, 5)
+                        rectangle (-16, 7);
+                    \draw[,fill,
+                          black!61]
+                        (-18, 7)
+                        rectangle (-16, 9);
+                    \draw[,fill,
+                          black!62]
+                        (-18, 9)
+                        rectangle (-16, 11);
+                    \draw[,fill,
+                          black!60]
+                        (-18, 11)
+                        rectangle (-16, 13);
+                    \draw[,fill,
+                          black!57]
+                        (-18, 13)
+                        rectangle (-16, 15);
+                    \draw[,fill,
+                          black!56]
+                        (-18, 15)
+                        rectangle (-16, 17);
+                    \draw[,fill,
+                          black!56]
+                        (-18, 17)
+                        rectangle (-16, 19);
+                    \draw[,fill,
+                          black!18]
+                        (-18, 19)
+                        rectangle (-16, 21);
+                    \draw[,fill,
+                          black!19]
+                        (-18, 21)
+                        rectangle (-16, 23);
+                    \draw[,fill,
+                          black!17]
+                        (-18, 23)
+                        rectangle (-16, 25);
+                    \draw[,fill,
+                          black!13]
+                        (-16, -25)
+                        rectangle (-14, -23);
+                    \draw[,fill,
+                          black!9]
+                        (-16, -23)
+                        rectangle (-14, -21);
+                    \draw[,fill,
+                          black!27]
+                        (-16, -21)
+                        rectangle (-14, -19);
+                    \draw[,fill,
+                          black!56]
+                        (-16, -19)
+                        rectangle (-14, -17);
+                    \draw[,fill,
+                          black!55]
+                        (-16, -17)
+                        rectangle (-14, -15);
+                    \draw[,fill,
+                          black!61]
+                        (-16, -15)
+                        rectangle (-14, -13);
+                    \draw[,fill,
+                          black!59]
+                        (-16, -13)
+                        rectangle (-14, -11);
+                    \draw[,fill,
+                          black!63]
+                        (-16, -11)
+                        rectangle (-14, -9);
+                    \draw[,fill,
+                          black!58]
+                        (-16, -9)
+                        rectangle (-14, -7);
+                    \draw[,fill,
+                          black!57]
+                        (-16, -7)
+                        rectangle (-14, -5);
+                    \draw[,fill,
+                          black!58]
+                        (-16, -5)
+                        rectangle (-14, -3);
+                    \draw[,fill,
+                          black!58]
+                        (-16, -3)
+                        rectangle (-14, -1);
+                    \draw[,fill,
+                          black!60]
+                        (-16, -1)
+                        rectangle (-14, 1);
+                    \draw[,fill,
+                          black!57]
+                        (-16, 1)
+                        rectangle (-14, 3);
+                    \draw[,fill,
+                          black!58]
+                        (-16, 3)
+                        rectangle (-14, 5);
+                    \draw[,fill,
+                          black!54]
+                        (-16, 5)
+                        rectangle (-14, 7);
+                    \draw[,fill,
+                          black!58]
+                        (-16, 7)
+                        rectangle (-14, 9);
+                    \draw[,fill,
+                          black!56]
+                        (-16, 9)
+                        rectangle (-14, 11);
+                    \draw[,fill,
+                          black!55]
+                        (-16, 11)
+                        rectangle (-14, 13);
+                    \draw[,fill,
+                          black!59]
+                        (-16, 13)
+                        rectangle (-14, 15);
+                    \draw[,fill,
+                          black!54]
+                        (-16, 15)
+                        rectangle (-14, 17);
+                    \draw[,fill,
+                          black!58]
+                        (-16, 17)
+                        rectangle (-14, 19);
+                    \draw[,fill,
+                          black!32]
+                        (-16, 19)
+                        rectangle (-14, 21);
+                    \draw[,fill,
+                          black!15]
+                        (-16, 21)
+                        rectangle (-14, 23);
+                    \draw[,fill,
+                          black!11]
+                        (-16, 23)
+                        rectangle (-14, 25);
+                    \draw[,fill,
+                          black!11]
+                        (-14, -25)
+                        rectangle (-12, -23);
+                    \draw[,fill,
+                          black!14]
+                        (-14, -23)
+                        rectangle (-12, -21);
+                    \draw[,fill,
+                          black!48]
+                        (-14, -21)
+                        rectangle (-12, -19);
+                    \draw[,fill,
+                          black!54]
+                        (-14, -19)
+                        rectangle (-12, -17);
+                    \draw[,fill,
+                          black!52]
+                        (-14, -17)
+                        rectangle (-12, -15);
+                    \draw[,fill,
+                          black!56]
+                        (-14, -15)
+                        rectangle (-12, -13);
+                    \draw[,fill,
+                          black!58]
+                        (-14, -13)
+                        rectangle (-12, -11);
+                    \draw[,fill,
+                          black!55]
+                        (-14, -11)
+                        rectangle (-12, -9);
+                    \draw[,fill,
+                          black!54]
+                        (-14, -9)
+                        rectangle (-12, -7);
+                    \draw[,fill,
+                          black!57]
+                        (-14, -7)
+                        rectangle (-12, -5);
+                    \draw[,fill,
+                          black!55]
+                        (-14, -5)
+                        rectangle (-12, -3);
+                    \draw[,fill,
+                          black!57]
+                        (-14, -3)
+                        rectangle (-12, -1);
+                    \draw[,fill,
+                          black!56]
+                        (-14, -1)
+                        rectangle (-12, 1);
+                    \draw[,fill,
+                          black!53]
+                        (-14, 1)
+                        rectangle (-12, 3);
+                    \draw[,fill,
+                          black!57]
+                        (-14, 3)
+                        rectangle (-12, 5);
+                    \draw[,fill,
+                          black!58]
+                        (-14, 5)
+                        rectangle (-12, 7);
+                    \draw[,fill,
+                          black!57]
+                        (-14, 7)
+                        rectangle (-12, 9);
+                    \draw[,fill,
+                          black!56]
+                        (-14, 9)
+                        rectangle (-12, 11);
+                    \draw[,fill,
+                          black!57]
+                        (-14, 11)
+                        rectangle (-12, 13);
+                    \draw[,fill,
+                          black!55]
+                        (-14, 13)
+                        rectangle (-12, 15);
+                    \draw[,fill,
+                          black!57]
+                        (-14, 15)
+                        rectangle (-12, 17);
+                    \draw[,fill,
+                          black!59]
+                        (-14, 17)
+                        rectangle (-12, 19);
+                    \draw[,fill,
+                          black!46]
+                        (-14, 19)
+                        rectangle (-12, 21);
+                    \draw[,fill,
+                          black!12]
+                        (-14, 21)
+                        rectangle (-12, 23);
+                    \draw[,fill,
+                          black!9]
+                        (-14, 23)
+                        rectangle (-12, 25);
+                    \draw[,fill,
+                          black!8]
+                        (-12, -25)
+                        rectangle (-10, -23);
+                    \draw[,fill,
+                          black!12]
+                        (-12, -23)
+                        rectangle (-10, -21);
+                    \draw[,fill,
+                          black!57]
+                        (-12, -21)
+                        rectangle (-10, -19);
+                    \draw[,fill,
+                          black!54]
+                        (-12, -19)
+                        rectangle (-10, -17);
+                    \draw[,fill,
+                          black!56]
+                        (-12, -17)
+                        rectangle (-10, -15);
+                    \draw[,fill,
+                          black!59]
+                        (-12, -15)
+                        rectangle (-10, -13);
+                    \draw[,fill,
+                          black!54]
+                        (-12, -13)
+                        rectangle (-10, -11);
+                    \draw[,fill,
+                          black!56]
+                        (-12, -11)
+                        rectangle (-10, -9);
+                    \draw[,fill,
+                          black!56]
+                        (-12, -9)
+                        rectangle (-10, -7);
+                    \draw[,fill,
+                          black!58]
+                        (-12, -7)
+                        rectangle (-10, -5);
+                    \draw[,fill,
+                          black!57]
+                        (-12, -5)
+                        rectangle (-10, -3);
+                    \draw[,fill,
+                          black!55]
+                        (-12, -3)
+                        rectangle (-10, -1);
+                    \draw[,fill,
+                          black!57]
+                        (-12, -1)
+                        rectangle (-10, 1);
+                    \draw[,fill,
+                          black!56]
+                        (-12, 1)
+                        rectangle (-10, 3);
+                    \draw[,fill,
+                          black!62]
+                        (-12, 3)
+                        rectangle (-10, 5);
+                    \draw[,fill,
+                          black!58]
+                        (-12, 5)
+                        rectangle (-10, 7);
+                    \draw[,fill,
+                          black!50]
+                        (-12, 7)
+                        rectangle (-10, 9);
+                    \draw[,fill,
+                          black!57]
+                        (-12, 9)
+                        rectangle (-10, 11);
+                    \draw[,fill,
+                          black!59]
+                        (-12, 11)
+                        rectangle (-10, 13);
+                    \draw[,fill,
+                          black!58]
+                        (-12, 13)
+                        rectangle (-10, 15);
+                    \draw[,fill,
+                          black!56]
+                        (-12, 15)
+                        rectangle (-10, 17);
+                    \draw[,fill,
+                          black!55]
+                        (-12, 17)
+                        rectangle (-10, 19);
+                    \draw[,fill,
+                          black!54]
+                        (-12, 19)
+                        rectangle (-10, 21);
+                    \draw[,fill,
+                          black!9]
+                        (-12, 21)
+                        rectangle (-10, 23);
+                    \draw[,fill,
+                          black!13]
+                        (-12, 23)
+                        rectangle (-10, 25);
+                    \draw[,fill,
+                          black!5]
+                        (-10, -25)
+                        rectangle (-8, -23);
+                    \draw[,fill,
+                          black!23]
+                        (-10, -23)
+                        rectangle (-8, -21);
+                    \draw[,fill,
+                          black!52]
+                        (-10, -21)
+                        rectangle (-8, -19);
+                    \draw[,fill,
+                          black!52]
+                        (-10, -19)
+                        rectangle (-8, -17);
+                    \draw[,fill,
+                          black!51]
+                        (-10, -17)
+                        rectangle (-8, -15);
+                    \draw[,fill,
+                          black!54]
+                        (-10, -15)
+                        rectangle (-8, -13);
+                    \draw[,fill,
+                          black!55]
+                        (-10, -13)
+                        rectangle (-8, -11);
+                    \draw[,fill,
+                          black!50]
+                        (-10, -11)
+                        rectangle (-8, -9);
+                    \draw[,fill,
+                          black!52]
+                        (-10, -9)
+                        rectangle (-8, -7);
+                    \draw[,fill,
+                          black!54]
+                        (-10, -7)
+                        rectangle (-8, -5);
+                    \draw[,fill,
+                          black!53]
+                        (-10, -5)
+                        rectangle (-8, -3);
+                    \draw[,fill,
+                          black!57]
+                        (-10, -3)
+                        rectangle (-8, -1);
+                    \draw[,fill,
+                          black!61]
+                        (-10, -1)
+                        rectangle (-8, 1);
+                    \draw[,fill,
+                          black!58]
+                        (-10, 1)
+                        rectangle (-8, 3);
+                    \draw[,fill,
+                          black!60]
+                        (-10, 3)
+                        rectangle (-8, 5);
+                    \draw[,fill,
+                          black!56]
+                        (-10, 5)
+                        rectangle (-8, 7);
+                    \draw[,fill,
+                          black!58]
+                        (-10, 7)
+                        rectangle (-8, 9);
+                    \draw[,fill,
+                          black!54]
+                        (-10, 9)
+                        rectangle (-8, 11);
+                    \draw[,fill,
+                          black!50]
+                        (-10, 11)
+                        rectangle (-8, 13);
+                    \draw[,fill,
+                          black!53]
+                        (-10, 13)
+                        rectangle (-8, 15);
+                    \draw[,fill,
+                          black!50]
+                        (-10, 15)
+                        rectangle (-8, 17);
+                    \draw[,fill,
+                          black!53]
+                        (-10, 17)
+                        rectangle (-8, 19);
+                    \draw[,fill,
+                          black!51]
+                        (-10, 19)
+                        rectangle (-8, 21);
+                    \draw[,fill,
+                          black!25]
+                        (-10, 21)
+                        rectangle (-8, 23);
+                    \draw[,fill,
+                          black!12]
+                        (-10, 23)
+                        rectangle (-8, 25);
+                    \draw[,fill,
+                          black!3]
+                        (-8, -25)
+                        rectangle (-6, -23);
+                    \draw[,fill,
+                          black!51]
+                        (-8, -23)
+                        rectangle (-6, -21);
+                    \draw[,fill,
+                          black!46]
+                        (-8, -21)
+                        rectangle (-6, -19);
+                    \draw[,fill,
+                          black!49]
+                        (-8, -19)
+                        rectangle (-6, -17);
+                    \draw[,fill,
+                          black!50]
+                        (-8, -17)
+                        rectangle (-6, -15);
+                    \draw[,fill,
+                          black!51]
+                        (-8, -15)
+                        rectangle (-6, -13);
+                    \draw[,fill,
+                          black!58]
+                        (-8, -13)
+                        rectangle (-6, -11);
+                    \draw[,fill,
+                          black!51]
+                        (-8, -11)
+                        rectangle (-6, -9);
+                    \draw[,fill,
+                          black!53]
+                        (-8, -9)
+                        rectangle (-6, -7);
+                    \draw[,fill,
+                          black!58]
+                        (-8, -7)
+                        rectangle (-6, -5);
+                    \draw[,fill,
+                          black!57]
+                        (-8, -5)
+                        rectangle (-6, -3);
+                    \draw[,fill,
+                          black!58]
+                        (-8, -3)
+                        rectangle (-6, -1);
+                    \draw[,fill,
+                          black!54]
+                        (-8, -1)
+                        rectangle (-6, 1);
+                    \draw[,fill,
+                          black!56]
+                        (-8, 1)
+                        rectangle (-6, 3);
+                    \draw[,fill,
+                          black!53]
+                        (-8, 3)
+                        rectangle (-6, 5);
+                    \draw[,fill,
+                          black!58]
+                        (-8, 5)
+                        rectangle (-6, 7);
+                    \draw[,fill,
+                          black!52]
+                        (-8, 7)
+                        rectangle (-6, 9);
+                    \draw[,fill,
+                          black!56]
+                        (-8, 9)
+                        rectangle (-6, 11);
+                    \draw[,fill,
+                          black!56]
+                        (-8, 11)
+                        rectangle (-6, 13);
+                    \draw[,fill,
+                          black!54]
+                        (-8, 13)
+                        rectangle (-6, 15);
+                    \draw[,fill,
+                          black!52]
+                        (-8, 15)
+                        rectangle (-6, 17);
+                    \draw[,fill,
+                          black!53]
+                        (-8, 17)
+                        rectangle (-6, 19);
+                    \draw[,fill,
+                          black!48]
+                        (-8, 19)
+                        rectangle (-6, 21);
+                    \draw[,fill,
+                          black!53]
+                        (-8, 21)
+                        rectangle (-6, 23);
+                    \draw[,fill,
+                          black!8]
+                        (-8, 23)
+                        rectangle (-6, 25);
+                    \draw[,fill,
+                          black!0]
+                        (-6, -25)
+                        rectangle (-4, -23);
+                    \draw[,fill,
+                          black!52]
+                        (-6, -23)
+                        rectangle (-4, -21);
+                    \draw[,fill,
+                          black!49]
+                        (-6, -21)
+                        rectangle (-4, -19);
+                    \draw[,fill,
+                          black!46]
+                        (-6, -19)
+                        rectangle (-4, -17);
+                    \draw[,fill,
+                          black!53]
+                        (-6, -17)
+                        rectangle (-4, -15);
+                    \draw[,fill,
+                          black!48]
+                        (-6, -15)
+                        rectangle (-4, -13);
+                    \draw[,fill,
+                          black!50]
+                        (-6, -13)
+                        rectangle (-4, -11);
+                    \draw[,fill,
+                          black!55]
+                        (-6, -11)
+                        rectangle (-4, -9);
+                    \draw[,fill,
+                          black!51]
+                        (-6, -9)
+                        rectangle (-4, -7);
+                    \draw[,fill,
+                          black!51]
+                        (-6, -7)
+                        rectangle (-4, -5);
+                    \draw[,fill,
+                          black!54]
+                        (-6, -5)
+                        rectangle (-4, -3);
+                    \draw[,fill,
+                          black!52]
+                        (-6, -3)
+                        rectangle (-4, -1);
+                    \draw[,fill,
+                          black!52]
+                        (-6, -1)
+                        rectangle (-4, 1);
+                    \draw[,fill,
+                          black!50]
+                        (-6, 1)
+                        rectangle (-4, 3);
+                    \draw[,fill,
+                          black!53]
+                        (-6, 3)
+                        rectangle (-4, 5);
+                    \draw[,fill,
+                          black!50]
+                        (-6, 5)
+                        rectangle (-4, 7);
+                    \draw[,fill,
+                          black!53]
+                        (-6, 7)
+                        rectangle (-4, 9);
+                    \draw[,fill,
+                          black!53]
+                        (-6, 9)
+                        rectangle (-4, 11);
+                    \draw[,fill,
+                          black!53]
+                        (-6, 11)
+                        rectangle (-4, 13);
+                    \draw[,fill,
+                          black!51]
+                        (-6, 13)
+                        rectangle (-4, 15);
+                    \draw[,fill,
+                          black!51]
+                        (-6, 15)
+                        rectangle (-4, 17);
+                    \draw[,fill,
+                          black!56]
+                        (-6, 17)
+                        rectangle (-4, 19);
+                    \draw[,fill,
+                          black!53]
+                        (-6, 19)
+                        rectangle (-4, 21);
+                    \draw[,fill,
+                          black!51]
+                        (-6, 21)
+                        rectangle (-4, 23);
+                    \draw[,fill,
+                          black!2]
+                        (-6, 23)
+                        rectangle (-4, 25);
+                    \draw[,fill,
+                          black!14]
+                        (-4, -25)
+                        rectangle (-2, -23);
+                    \draw[,fill,
+                          black!47]
+                        (-4, -23)
+                        rectangle (-2, -21);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -21)
+                        rectangle (-2, -19);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -19)
+                        rectangle (-2, -17);
+                    \draw[,fill,
+                          black!50]
+                        (-4, -17)
+                        rectangle (-2, -15);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -15)
+                        rectangle (-2, -13);
+                    \draw[,fill,
+                          black!51]
+                        (-4, -13)
+                        rectangle (-2, -11);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -11)
+                        rectangle (-2, -9);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -9)
+                        rectangle (-2, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-4, -7)
+                        rectangle (-2, -5);
+                    \draw[,fill,
+                          black!51]
+                        (-4, -5)
+                        rectangle (-2, -3);
+                    \draw[,fill,
+                          black!52]
+                        (-4, -3)
+                        rectangle (-2, -1);
+                    \draw[,fill,
+                          black!53]
+                        (-4, -1)
+                        rectangle (-2, 1);
+                    \draw[,fill,
+                          black!50]
+                        (-4, 1)
+                        rectangle (-2, 3);
+                    \draw[,fill,
+                          black!51]
+                        (-4, 3)
+                        rectangle (-2, 5);
+                    \draw[,fill,
+                          black!53]
+                        (-4, 5)
+                        rectangle (-2, 7);
+                    \draw[,fill,
+                          black!50]
+                        (-4, 7)
+                        rectangle (-2, 9);
+                    \draw[,fill,
+                          black!53]
+                        (-4, 9)
+                        rectangle (-2, 11);
+                    \draw[,fill,
+                          black!50]
+                        (-4, 11)
+                        rectangle (-2, 13);
+                    \draw[,fill,
+                          black!49]
+                        (-4, 13)
+                        rectangle (-2, 15);
+                    \draw[,fill,
+                          black!46]
+                        (-4, 15)
+                        rectangle (-2, 17);
+                    \draw[,fill,
+                          black!46]
+                        (-4, 17)
+                        rectangle (-2, 19);
+                    \draw[,fill,
+                          black!50]
+                        (-4, 19)
+                        rectangle (-2, 21);
+                    \draw[,fill,
+                          black!51]
+                        (-4, 21)
+                        rectangle (-2, 23);
+                    \draw[,fill,
+                          black!15]
+                        (-4, 23)
+                        rectangle (-2, 25);
+                    \draw[,fill,
+                          black!51]
+                        (-2, -25)
+                        rectangle (0, -23);
+                    \draw[,fill,
+                          black!44]
+                        (-2, -23)
+                        rectangle (0, -21);
+                    \draw[,fill,
+                          black!49]
+                        (-2, -21)
+                        rectangle (0, -19);
+                    \draw[,fill,
+                          black!45]
+                        (-2, -19)
+                        rectangle (0, -17);
+                    \draw[,fill,
+                          black!45]
+                        (-2, -17)
+                        rectangle (0, -15);
+                    \draw[,fill,
+                          black!47]
+                        (-2, -15)
+                        rectangle (0, -13);
+                    \draw[,fill,
+                          black!48]
+                        (-2, -13)
+                        rectangle (0, -11);
+                    \draw[,fill,
+                          black!47]
+                        (-2, -11)
+                        rectangle (0, -9);
+                    \draw[,fill,
+                          black!52]
+                        (-2, -9)
+                        rectangle (0, -7);
+                    \draw[,fill,
+                          black!50]
+                        (-2, -7)
+                        rectangle (0, -5);
+                    \draw[,fill,
+                          black!53]
+                        (-2, -5)
+                        rectangle (0, -3);
+                    \draw[,fill,
+                          black!50]
+                        (-2, -3)
+                        rectangle (0, -1);
+                    \draw[,fill,
+                          black!50]
+                        (-2, -1)
+                        rectangle (0, 1);
+                    \draw[,fill,
+                          black!48]
+                        (-2, 1)
+                        rectangle (0, 3);
+                    \draw[,fill,
+                          black!52]
+                        (-2, 3)
+                        rectangle (0, 5);
+                    \draw[,fill,
+                          black!46]
+                        (-2, 5)
+                        rectangle (0, 7);
+                    \draw[,fill,
+                          black!50]
+                        (-2, 7)
+                        rectangle (0, 9);
+                    \draw[,fill,
+                          black!47]
+                        (-2, 9)
+                        rectangle (0, 11);
+                    \draw[,fill,
+                          black!49]
+                        (-2, 11)
+                        rectangle (0, 13);
+                    \draw[,fill,
+                          black!46]
+                        (-2, 13)
+                        rectangle (0, 15);
+                    \draw[,fill,
+                          black!50]
+                        (-2, 15)
+                        rectangle (0, 17);
+                    \draw[,fill,
+                          black!49]
+                        (-2, 17)
+                        rectangle (0, 19);
+                    \draw[,fill,
+                          black!52]
+                        (-2, 19)
+                        rectangle (0, 21);
+                    \draw[,fill,
+                          black!46]
+                        (-2, 21)
+                        rectangle (0, 23);
+                    \draw[,fill,
+                          black!50]
+                        (-2, 23)
+                        rectangle (0, 25);
+\end{tikzpicture}
+\end{sansmath}
+
+\end{document}

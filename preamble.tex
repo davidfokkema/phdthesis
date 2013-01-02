@@ -1,0 +1,115 @@
+\usepackage[T1]{fontenc}	% e.g. For bold small caps
+\usepackage[utf8]{inputenc}     % For `Łódź
+
+
+\usepackage[dutch,english]{babel}
+\usepackage{fouriernc}
+%\usepackage{tgschola}
+\usepackage[biolinum]{quotchap}
+\usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
+%\newcommand{\captitle}[1]{\textsmaller{\MakeUppercase{#1}}}
+\newcommand{\captitle}{}
+\DeclareCaptionFormat{thesis}{\sansmath #1#2#3}
+\captionsetup{format=thesis}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase\leftmark}
+\fancyhead[LO]{\nouppercase\rightmark}
+
+\setcounter{tocdepth}{1}
+\renewcommand{\topfraction}{.85}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.7}
+
+\renewcommand{\chapterheadstartvskip}{\vspace*{-1cm}}
+
+% Fix for layout problems
+\makeatletter
+\renewcommand{\@pnumwidth}{2em}
+\renewcommand{\@tocrmarg}{4em}
+\makeatother
+
+
+\usepackage[pdftex]{graphicx} % For automatic eps to pdf conversion
+\usepackage{tikz}
+\pgfkeys{/artist/width/.initial=.67\linewidth}
+
+
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{setspace}
+\usepackage{epstopdf}         % For automatic eps to pdf conversion
+\usetikzlibrary{calc,arrows,chains,scopes,fit,decorations.pathmorphing,decorations.markings,intersections,pgfplots.groupplots,external,shapes,spy}
+\usepackage{pgfplots}
+\usepackage{tikz-3dplot}
+\pgfplotsset{compat=1.3}
+\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true]{siunitx}
+\usepackage{amsmath}
+\usepackage{epigraph}
+\usepackage{hepnames}
+\usepackage[backend=biber,style=nature]{biblatex}
+\addbibresource{references.bib}
+\usepackage{comment}
+%\includecomment{comment}
+\usepackage{sidecap}
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{sansmath}
+\sisetup{text-sf=\sansmath}
+\usepackage{eurosym}
+\usepackage{pdfpages}
+
+% Keep this one the last packages, to let it overrule previous declarations
+\usepackage[pdfusetitle]{hyperref}
+
+\usepackage{shape-datastore}
+
+
+\newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
+\newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
+\newcommand{\sapphire}{\textsmaller{SAPPHiRE}\xspace}
+\newcommand{\hdf}{\textsmaller{HDF5}\xspace}
+\newcommand{\aires}{\textsmaller{AIRES}\xspace}
+\newcommand{\csv}{\textsmaller{CSV}\xspace}
+\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
+\newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
+\newcommand{\daq}{\textsmaller{DAQ}\xspace}
+\newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\hi}{\textsc{h i}\xspace}
+\newcommand{\hii}{\textsc{h ii}\xspace}
+\newcommand{\mip}{\textsmaller{MIP}\xspace}
+\newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\figsref}[1]{Figures~\ref{#1}}
+\newcommand{\figtworef}[2]{Figures~\ref{#1} and~\ref{#2}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+\newcommand{\chref}[1]{Chapter~\ref{#1}}
+\newcommand{\chtworef}[2]{Chapters~\ref{#1} and~\ref{#2}}
+\renewcommand{\eqref}[1]{Equation~\ref{#1}}
+\newcommand{\eqsref}[1]{Equations~\ref{#1}}
+\newcommand{\eqtworef}[2]{Equations~\ref{#1} and~\ref{#2}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\appref}[1]{Appendix~\ref{#1}}
+\newcommand{\pgref}[1]{page~\pageref{#1}}
+
+% Redefine to ensure proper spacing (fouriernc)
+\DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
+
+\DeclareSIUnit{\unitsigma}{\ensuremath{\sigma}}
+\DeclareSIUnit{\mip}{\textsmaller{MIP}}
+\DeclareSIUnit{\adc}{\textsmaller{ADC}}
+
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\year}{yr}
+
+\newcommand{\ud}{\mathrm{d}}
+
+\renewcommand{\EUR}[1]{\euro\,\num{#1}}
+
+\newcommand{\longprocess}[1]{#1}

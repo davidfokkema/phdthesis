@@ -1,0 +1,71 @@
+\begin{sansmath}
+\pgfmathsetmacro{\unit}{3mm}
+\begin{tikzpicture}[x=\unit, y=\unit, draft/.style={red,opacity=0},
+                    font=\sffamily,
+                    every pin edge/.style={<-, >=stealth', shorten <=2pt}]
+\pgfmathsetmacro{\zenith}{30}
+\coordinate[label={[draft]below:{$O$}}] (O) at (0, 0);
+\begin{scope}
+    \clip (-13, -1) rectangle (26, 2);
+    \foreach \x in {-32, -31, ..., 33}
+        \draw (\x, 0) -- +(225:1);
+    \foreach \x in {-32.5, -19.5, ..., 32.5}
+        \draw[gray] (\x - 1.2, 0) rectangle (\x + 1.2, 1);
+    \draw (-32.5, 0) -- (32.5, 0);
+\end{scope}
+\coordinate[label={[draft]below:{$S'$}}] (S') at (19.5, 0);
+\coordinate[label={[draft]above:{$S_1'$}}] (S1') at ($(S') - (1.2,0)$);
+\coordinate[label={[draft]above:{$S_2'$}}] (S2') at ($(S') + (1.2,0)$);
+\draw ($(S1') - (0,3pt)$) -- ($(S1') + (0,3pt)$);
+\draw ($(S2') - (0,3pt)$) -- ($(S2') + (0,3pt)$);
+\draw[dashed] (0, 20) -- (0, -5);
+\begin{scope}[rotate=\zenith]
+    \coordinate[label={[draft]left:{$A$}}] (A) at (-10, 0);
+    \coordinate[label={[draft]right:{$B$}}] (B) at (30, 0);
+
+    \coordinate[label={[draft]above:{$C$}}] (C) at (0, -5);
+    \coordinate[label={[draft]below:{$C'$}}] (C') at (0, 25);
+    \draw[gray] (C) -- (O);
+    \draw (O) -- (C');
+    \draw[gray] (A) -- (O);
+    \draw (O) -- (B);
+    \draw (0, 20pt) arc (90:90-\zenith:20pt);
+    \draw (90-.5*\zenith:25pt) node {$\theta$};
+    \draw (20pt, 0) arc (0:-\zenith:20pt);
+    \draw (-.5*\zenith:25pt) node {$\theta$};
+
+    \coordinate[label={[draft]above:{$S$}}] (S) at ($(A)!(S')!(B)$);
+    \coordinate[label={[draft]above:{$S_1$}}] (S1) at ($(A)!(S1')!(B)$);
+    \coordinate[label={[draft]above:{$S_2$}}] (S2) at ($(A)!(S2')!(B)$);
+    \draw ($(S1) - (0,3pt)$) -- ($(S1) + (0,3pt)$);
+    \draw ($(S2) - (0,3pt)$) -- ($(S2) + (0,3pt)$);
+\end{scope}
+\path (C') -- (C) node[near start, sloped, below] {shower core};
+\path (A) -- (B) node[very near end, sloped, below] {shower front};
+%\draw[dashed] (S) -- (S');
+\draw[dashed] (S1) -- (S1');
+\draw[dashed] (S2) -- (S2');
+\draw[|<->|] ($(O)!5pt!90:(S)$) -- ($(S)!5pt!-90:(O)$)
+    node[midway, sloped, above] {$r$};
+\draw[|<->|] ($(O)!10pt!-90:(S')$) -- ($(S')!10pt!90:(O)$)
+    node[midway, below] {$r'$ = $r\sec\theta$};
+\path (O) -- (S) node[at end, sloped, below] {$\rho$};
+%\path (O) -- (S') node[at end, above=-5pt] {$\rho'$};
+\node (rho') at ($(S') + (30pt,30pt)$) {$\rho'$ = $\rho\cos\theta$};
+\draw[->] (rho') to[bend left=20] (S');
+
+\begin{scope}[rotate=\zenith]
+\begin{axis}[x=\unit,height=8cm,ymin=0,ymax=200,xmin=0,xmax=25,axis lines=none,legend style={empty legend, draw=none}]
+    \pgfmathsetmacro{\logNe}{5}
+    \pgfmathsetmacro{\a}{1.5}
+    \pgfmathsetmacro{\b}{3.6}
+    \pgfmathsetmacro{\rn}{40}
+    \pgfmathsetmacro{\s}{.9}
+    \addplot[smooth,id=nkg,domain=.2:20,samples=50] function {10 ** \logNe *
+    gamma(\b - \s) / (2 * pi * \rn ** 2 * gamma(\s - \a + 2) * gamma(\a + \b - 2 * \s - 2)) * (x / \rn) ** (\s - \a) * (1 + x / \rn) ** (\s - \b)};
+    %\addlegendentry{$\displaystyle\rho(r) = N_e\;\tilde{c}(s) \left(\frac{r}{r_0}\right)^{s - \alpha} \left(1 + \frac{r}{r_0}\right)^{s - \beta}$}
+\end{axis}
+\end{scope}
+\node[pin=above right:{$\rho(r)$}] at (-8, 15) {};
+\end{tikzpicture}
+\end{sansmath}

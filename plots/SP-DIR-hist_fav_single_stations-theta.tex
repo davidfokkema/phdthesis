@@ -1,0 +1,249 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,pgfplots.groupplots}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .35\linewidth }}
+%
+\pgfkeysifdefined{/artist/height}
+    {\pgfkeysgetvalue{/artist/height}{\defaultheight}}
+    {\def\defaultheight{ .35\linewidth }}
+%
+\begin{sansmath}
+\begin{tikzpicture}[font=\sffamily]
+\node[inner sep=0pt] (plot) {
+    \begin{tikzpicture}[
+            inner sep=.3333em,
+            font=\sffamily,
+            every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+            every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+            every pin edge/.style={<-, >=stealth', shorten <=2pt},
+            pin distance=2.5ex,
+        ]
+        \begin{groupplot}[
+                xmode=normal,
+                ymode=normal,
+                width=\defaultwidth,
+                height=\defaultheight,
+                %
+                xmin={ 0 },
+                xmax={ 45 },
+                ymin={ 0 },
+                ymax={ 2000 },
+                %
+                group style={rows=1,columns=3,
+                             horizontal sep=4pt, vertical sep=4pt},
+                %
+                tick align=outside,
+                max space between ticks=40,
+                every tick/.style={},
+                axis on top,
+                %
+                xtick=\empty, ytick=\empty,
+                scaled ticks=false,
+            ]
+            
+                
+                \nextgroupplot[
+                    % Default: empty ticks all round the border of the
+                    % multiplot
+                            xtick={  },
+                            xtick pos=both,
+                            xticklabel=\empty,
+                            ytick={  },
+                            ytick pos=left,
+                            yticklabel=\empty,
+                        xticklabel={},
+                        yticklabel={},
+                    title={  },
+                    xlabel={  },
+                    ylabel={  },
+                ]
+
+                
+
+                
+
+                
+
+                
+                    \addplot[no markers,solid,const plot] coordinates {
+                        (0.0, 170)
+                        (2.25, 534)
+                        (4.5, 820)
+                        (6.75, 1123)
+                        (9.0, 1332)
+                        (11.25, 1581)
+                        (13.5, 1659)
+                        (15.75, 1665)
+                        (18.0, 1748)
+                        (20.25, 1687)
+                        (22.5, 1639)
+                        (24.75, 1523)
+                        (27.0, 1384)
+                        (29.25, 1157)
+                        (31.5, 979)
+                        (33.75, 854)
+                        (36.0, 685)
+                        (38.25, 540)
+                        (40.5, 440)
+                        (42.75, 313)
+                        (45.0, 313)
+                    };
+                
+
+                
+
+                
+
+                
+
+                
+                    \node[,
+                          below left=2pt
+                        ]
+                        at (rel axis cs:1,
+                            1)
+                        { 501 };
+                
+
+            
+                
+                \nextgroupplot[
+                    % Default: empty ticks all round the border of the
+                    % multiplot
+                            xtick={  },
+                            xtick pos=both,
+                            xticklabel=\empty,
+                        xticklabel={},
+                        xticklabel pos=right,
+                    title={  },
+                    xlabel={  },
+                    ylabel={  },
+                ]
+
+                
+
+                
+
+                
+
+                
+                    \addplot[no markers,solid,const plot] coordinates {
+                        (0.0, 123)
+                        (2.25, 402)
+                        (4.5, 648)
+                        (6.75, 882)
+                        (9.0, 1023)
+                        (11.25, 1143)
+                        (13.5, 1315)
+                        (15.75, 1375)
+                        (18.0, 1297)
+                        (20.25, 1309)
+                        (22.5, 1214)
+                        (24.75, 1164)
+                        (27.0, 1108)
+                        (29.25, 871)
+                        (31.5, 750)
+                        (33.75, 627)
+                        (36.0, 508)
+                        (38.25, 425)
+                        (40.5, 296)
+                        (42.75, 236)
+                        (45.0, 236)
+                    };
+                
+
+                
+
+                
+
+                
+
+                
+                    \node[,
+                          below left=2pt
+                        ]
+                        at (rel axis cs:1,
+                            1)
+                        { 503 };
+                
+
+            
+                
+                \nextgroupplot[
+                    % Default: empty ticks all round the border of the
+                    % multiplot
+                            xtick={  },
+                            xtick pos=both,
+                            xticklabel=\empty,
+                            ytick={  },
+                            ytick pos=right,
+                            yticklabel=\empty,
+                        xticklabel={},
+                    title={  },
+                    xlabel={  },
+                    ylabel={  },
+                ]
+
+                
+
+                
+
+                
+
+                
+                    \addplot[no markers,solid,const plot] coordinates {
+                        (0.0, 130)
+                        (2.25, 381)
+                        (4.5, 587)
+                        (6.75, 820)
+                        (9.0, 967)
+                        (11.25, 1208)
+                        (13.5, 1259)
+                        (15.75, 1335)
+                        (18.0, 1278)
+                        (20.25, 1334)
+                        (22.5, 1226)
+                        (24.75, 1171)
+                        (27.0, 1047)
+                        (29.25, 915)
+                        (31.5, 770)
+                        (33.75, 650)
+                        (36.0, 498)
+                        (38.25, 422)
+                        (40.5, 304)
+                        (42.75, 226)
+                        (45.0, 226)
+                    };
+                
+
+                
+
+                
+
+                
+
+                
+                    \node[,
+                          below left=2pt
+                        ]
+                        at (rel axis cs:1,
+                            1)
+                        { 506 };
+                
+
+            
+        \end{groupplot}
+        \end{tikzpicture}
+    };
+    \node[below] at (plot.south) { Shower zenith angle [\si{\degree}] };
+    \node[above, rotate=90] at (plot.west) { Count };
+    \end{tikzpicture}
+\end{sansmath}

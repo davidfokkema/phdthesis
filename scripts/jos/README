@@ -1,0 +1,11 @@
+How to create scintillator-yield-crop.pdf
+=========================================
+
+Run plot_fishtail.py.  Edit scintillator-yield.tex:
+
+    1. Remove axis environment
+    2. 1,$s/axis cs://
+    3. Add x=2pt, y=2pt to tikzpicture options
+    4. Compile document (you now have scintillator-yield.pdf)
+    5. $ sh crop-scintillator-yield.sh
+

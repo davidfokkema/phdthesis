@@ -1,0 +1,828 @@
+\chapter{HiSPARC at KASCADE}
+\label{ch:kascade}
+
+On July 1, 2008 a four-detector \hisparc station was deployed at the \kascade
+array at the Forschungszentrum Karlsruhe.  In this chapter, a study on the
+performance of this \hisparc station is presented.
+The \hisparc station receives a trigger signal from the \kascade array whenever
+the array detects an EAS. This enables the \hisparc station to observe the same
+showers and the \hisparc measurements are compared to the large and
+well-calibrated \kascade array.  Detector efficiency and the
+reconstruction of shower direction will be discussed.  The dataset analyzed in
+this chapter was taken from July 1 to Aug 6, 2008, and contains more than
+\num{5e5} events.
+
+
+\section{KASCADE}
+
+The \kascade experiment \cite{Antoni:2003gd} is a well-studied and calibrated
+cosmic ray experiment which has taken data continuously since 1996.  Officially,
+the experiment closed down early 2009, but it continues to provide data to
+guest experiments.  In addition to \hisparc, the \textsmaller{LOPES}
+\cite{Badea:2004un} and \textsmaller{TAUWER} \cite{Iori:2009} experiments are
+external users of the \kascade facility.
+
+The array consists of 252 detector stations spaced \SI{13}{\meter} apart on a
+square grid \SI{195}{\meter} on a side. \kascade has an area of
+\SI{38025}{\square\meter} with an active detector area of
+\SI{490}{\square\meter} for $e/\gamma$ and \SI{622}{\square\meter} for $\mu$
+detection.
+For practical purposes, the array is divided into 16 clusters, each with its own
+\daq electronics.  The four inner clusters contain 15 stations and each station
+has four $e/\gamma$ detectors without a muon detector.  The twelve outer
+clusters contain 16 stations each with two $e/\gamma$ detectors and one muon
+detector. The $e/\gamma$ detectors consist of a liquid scintillator
+(\SI{5}{\centi\meter} thickness) to measure the electromagnetic component of the
+shower.  In the outer clusters, these detectors are placed on a lead/iron plate
+(\SI{10}{\centi\meter} Pb and \SI{4}{\centi\meter} Fe, corresponding to 20
+radiation lengths).  A scintillator (\SI{3}{\centi\meter} thickness) is placed
+below this absorber to measure the muonic component. For details, see
+\cite{Antoni:2003gd}.  For a map of the \kascade array, including the
+position of the \hisparc station, see \figref{fig:map}.  The station is
+shown in \figref{fig:kascade-station}.
+
+\begin{figure}
+\centering
+\input{figures/kascade-map}
+\caption{Schematic layout of the \kascade experiment, including the \hisparc
+guest experiment.  Green: the calorimeter.  Light red: the muon tracker.
+Yellow: the sixteen array clusters.  Dark gray: the array detectors.  Light
+gray: the electronic huts.  Bright red: the four \hisparc detectors.  Pale blue:
+access roads.  The coordinate system used by \kascade is shown in gray.  For the
+present analysis, the \kascade $x, y$ coordinate system is used.  Azimuthal
+angles are between \SI{-180}{\degree} and \SI{180}{\degree} with the positive $x$-direction
+at \SI{0}{\degree}.  The positive $y$-direction points to
+\SI{15}{\degree}~North.}
+\label{fig:map}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{figures/kascade}
+\caption{\hisparc station at the \kascade experiment.  The roof boxes
+contain the \hisparc detectors.  Several \kascade detector huts are
+visible in the background.  The large building in the background on the
+right is the central calorimeter and electronics building.}
+\label{fig:kascade-station}
+\end{figure}
+
+All detector signals in the same cluster are read out by the \daq electronics.
+These electronics are located in a shelter in the center of the cluster. If a
+signal goes over threshold, it is temporarily stored in a buffer.
+When a preset number of detectors go over threshold, a trigger is generated.
+For the inner clusters this number is 20 out of 60 $e/\gamma$ detectors, whereas
+for the outer clusters a minimum of 10 out of 32 $e/\gamma$ detectors is
+required.  A trigger is distributed throughout the experiment and then the
+entire array is read out.  All buffered detector signals are transferred to the
+central electronics.  Each detector
+signal receives a timestamp from the cluster electronics.  All clocks within the
+experiment are synchronized using fiber optic cables, carrying a \SI{1}{\hertz}
+and a \SI{5}{\mega\hertz} signal.
+The timestamps are generated using these signals at \SI{200}{\nano\second}
+accuracy.
+
+Showers are reconstructed in three stages using different algorithms
+\cite{Antoni:2000mg}.  First, the shower core position is determined by the
+center of gravity of the $e/\gamma$ detector signals.  The shower direction is
+determined by assuming a plane shower front.  The shower size (number of
+electrons $N_e$ and muons $N_\mu$) is estimated by summing the detector signals
+(weighted by a factor which depends on the core distance).  In the next step,
+the core position and electron shower size are used as a first guess in a
+fitting procedure.  In this procedure, a revised core position and electron
+shower size are determined, as well as a shape parameter $s$, by fitting the
+lateral distribution function to the detector signals.  The arrival times
+(for detectors within a distance of \SI{70}{\meter} from the shower core) are
+fitted to a conical shower front.  In the final step the detector signals are adjusted for expected
+contributions from other particles, and the fitting procedure is repeated.
+
+Once the shower parameters have been determined, the particle densities can then
+be calculated at arbitrary locations and this is used to provide guest
+experiments with estimated particle densities at the location of their
+detectors. The particle densities are calculated on the shower front, not on the
+ground. This is crucial for inclined showers, see \figref{fig:inclined-ldf}.
+From the figure, it becomes clear that the core distance $r$ that is being
+sampled by a detector is not the distance $r'$ of the detector to the shower
+core on the ground.  Furthermore, particles reaching the ground are distributed
+over a larger area and thus the density $\rho'$ is lower than the particle
+density on the shower front $\rho$. The zenith angle of the shower only has a
+small effect on the distribution of particle density on the shower front.
+
+\begin{figure}
+\centering
+\input{figures/ldf-angled-shower}
+\caption{Mapping of the lateral distribution of particle density of an angled
+shower to ground level density measurements.  In the figure, $\rho$ and
+$\rho'$ illustrate the measurement of the particle density in an area
+occupied by a detector.}
+\label{fig:inclined-ldf}
+\end{figure}
+
+A \hisparc station is installed inside the \kascade array.  The station
+consists of four scintillator detectors in the standard triangle setup shown in
+\figref{fig:station-layout}. The \kascade cluster in which the \hisparc station
+is located will be referred to as the \emph{local cluster}.
+
+The \hisparc station is not used in self-trigger mode. To observe the same
+showers, the cluster electronics provide a pulse whenever the \kascade array is
+triggered.  This signal is used by the \hisparc electronics to read out the
+detectors.  For each trigger, the \hisparc \textsmaller{GPS} receiver provides a
+timestamp.
+This timestamp is used to synchronize with the \kascade clock. The events
+detected by the \hisparc station are reconstructed using the algorithm described
+in \chref{ch:reconstruction}. The \kascade array provides estimates of the
+particle densities at the location of the \hisparc detectors, as well as the
+direction and primary energy of the shower. These measurements are used to
+determine the efficiency and accuracy of the reconstruction performed by
+\hisparc.
+
+
+\subsection{Trigger Synchronization}
+
+While \hisparc and \kascade use
+different clocks, both clocks derive from the same time standard.  By
+determining the offset between the two clocks, the corresponding events in the
+datasets can be found.  Note that the \kascade clock expresses time
+in UTC, while the \hisparc clock uses GPS time.
+
+The showers in the reconstructed dataset are a subset of the showers seen by the
+\kascade array.  In the following, the \hisparc events will be referred to as
+\emph{triggered events}, and the dataset provided by \kascade, containing only
+reconstructed showers, will be referred to as \emph{reconstructed events}. The
+occurence of triggered events follows the Poisson statistics.
+In particular, the time differences between consecutive events are independent
+random variables which are exponentially distributed.
+
+To determine the clock offset the \hisparc dataset, i.e. the triggered events,
+is shifted in time.  For each event, the nearest-neighbor triggered event is
+determined.  \figref{fig:timeshifts} shows histograms of the resulting time
+differences for various timeshifts. When different events are compared in the
+two datasets the resulting time differences are random and determined by the
+statistical nature of the triggered events.  The time differences should thus
+follow an exponential distribution with rate parameter $\lambda$.  This rate
+parameter is not equal to the rate of the triggered events.  Since the procedure
+uses nearest neighbors, both preceding and following the reconstructed events,
+the mean time differences are halved and the rate parameter is \emph{twice} the
+trigger rate.  The figure shows that $\lambda = \SI{7.2}{\hertz}$
+which is consistent with the observed trigger rate of \SI{3.6}{\hertz}.
+
+When the timeshift is close to the true offset between the clocks the
+correlation shows itself by a spike in the histogram of the time differences,
+resulting from correctly synchronized events.  Uncorrelated events with time
+differences smaller than the remaining offset will still be selected as
+nearest neighbor.  Hence, the data is random and follows Poisson statistics up to the observed spike.
+Uncorrelated events with larger time differences will not be selected as the
+nearest neighbor.  Thus, the distribution is cut off after the spike.
+Optimizing the timeshift results in a single spike.
+
+\figref{fig:timeshifts-corr} shows the residual time differences.  The
+distribution on the left has a standard deviation of approximately
+\SI{.5}{\micro\second}, which is not yet fully understood but is an unwanted
+property of the \kascade hardware \cite{Schieler:2010-clock}.
+The shape of this distribution is already visible in a few minutes worth of data
+and does not result from changes in the clock offset.  The clock offset slowly
+moves back-and-forth over the five-week period with a largest observed deviation
+of \SI{8}{\micro\second}.  Since this happens slowly, it is possible to correct
+for this shift.  The time difference distribution over the whole period results
+from a drifting offset of the \kascade clock hardware.  The offset is stable for
+periods of time, and then changes again.
+
+The probability of one or more random triggered events occuring in a time window
+of \SI{1}{\micro\second} is \num{7.0e-6}.  Therefore, it can be concluded that
+triggered and reconstructed events are correctly synchronized and that the
+probability of incorrect matches is very low.
+
+For this particular dataset, the timeshift which results in a mean time
+difference closest to zero, is found to be $\overline{t_K - t_H} =
+\SI{-13.180}{\second}$.  The time difference between the \hisparc clock
+(\textsmaller{GPS}) and the \kascade clock (\textsmaller{UTC}) should be
+\SI{14}{\second} due to leap seconds.\footnote{Between January 1, 2006 and
+January 1, 2009 the offset between \textsmaller{GPS} and \textsmaller{UTC}
+clocks was \SI{14}{\second}, with \textsmaller{UTC} lagging behind
+\textsmaller{GPS}.  At the end of December 31, 2008 a leap second was introduced
+to bring the offset to \SI{15}{\second}.}  The \SI{820}{\milli\second}
+difference is caused by the clock offset in the \kascade experiment
+\cite{Schieler:2010-clock}.
+
+\begin{figure}
+\centering
+\input{plots/MAT-nearest-neighbors}
+\caption{The triggered data (\hisparc clock) is shifted in time to
+synchronize with the reconstructed data (\kascade clock).  For each
+reconstructed event, the time difference with the nearest triggered event
+is determined.  The time shifts are \SI{-12}{\second} (solid gray line),
+\SI{-13}{\second} (dashed gray line) and \SI{-14}{\second} (dashdotted
+gray line).  For uncorrelated events, the time differences follow Poisson
+statistics and hence give rise to an exponential distribution.  The slope
+of the distribution is \SI{7.2}{\hertz} (solid black line), which is equal
+to twice the observed trigger rate of \SI{3.6}{\hertz}.  If the time shift
+differs only slightly from the clock offset, partial matches give rise to
+spikes in the graph.  These occur at the residual time difference to the
+correct clock offset.  In that case, for each reconstructed event, there
+is a triggered event at precisely this time difference.  There are
+uncorrelated events randomly occuring with smaller time differences,
+resulting in an exponential distribution up to the spike.}
+\label{fig:timeshifts}
+\end{figure}
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/MAT-residual-time-differences}
+}
+\caption{Time differences of synchronized events showing the residual
+offset between \hisparc and \kascade clocks during one day (left) and over
+the whole five-week period (right).  The distribution in the left graph
+does \emph{not} result from a drifting clock offset.  Every sample of
+events throughout the day shows this distribution.}
+\label{fig:timeshifts-corr}
+\end{figure}
+
+
+\subsection{KASCADE Data}
+
+The \kascade experiment provides a list of reconstructed events in which the
+local cluster took part.  As previously mentioned, the test facility provides
+estimates of the particle densities at the location of the detectors.  In
+addition to that, shower direction, primary energy, core position and various
+atmospheric observables are provided.  For details of the data format, see
+\tabref{tab:dataformat}.  The list is provided offline, and events in this list
+must be synchronized with the corresponding \hisparc events.
+
+\begin{table}
+\centering
+\begin{tabular}{@{}>{\scshape}ll@{}}
+\toprule
+{\upshape Column name} & Column description \\
+\midrule
+irun & \kascade run number \\
+ieve & \kascade event number \\
+gt & Timestamp (\textsmaller{UTC}) \\
+mmn & Nanosecond part of timestamp \\
+energyarray & Primary particle energy estimation (\si\electronvolt) \\
+xc & X coordinate of the shower core position \\
+yc & Y coordinate of the shower core position \\
+ze & Zenith angle (\si\radian) \\
+az & Azimuth angle (\si\radian) \\
+size & Total number of electrons in the shower \\
+nmu & Total number of muons in the shower \\
+he0, \ldots, he3 & Density of electrons at \hisparc detector 1, \ldots, 4
+    (\si{\per\square\meter}) \\
+hmu0, \ldots, hmu3 & Density of muons at \hisparc detector 1, \ldots, 4
+    (\si{\per\square\meter}) \\
+t200 & Temperature at 200m above ground) (\si\celsius) \\
+p200 & Atmospheric pressure at 200 m above ground (\si{\hecto\pascal}) \\
+\bottomrule
+\end{tabular}
+\caption{Format of the text file provided by \kascade.  Each row consists of the
+columns shown, in listed order.  The temperature and atmospheric pressure are
+measured quantities, while all other physical observables are reconstructed.
+The particle densities are given on the shower front.}
+\label{tab:dataformat}
+\end{table}
+
+
+\section{Detector Efficiency}
+
+The dataset of synchronized events contains all showers on which the local \kascade
+cluster has triggered.  That does not mean that the \hisparc station should have
+detected the shower.  Many showers are very small.  Larger showers may have a
+core position outside the cluster, with low particle densities at the position
+of the \hisparc detectors.  The \hisparc station only covers
+\SI{43}{\square\meter} of the cluster, which has an area of
+\SI{1521}{\square\meter}.
+
+The efficiency of the detectors is determined by measuring their response to
+known particle inputs.  On an event by event basis, the number of particles
+traversing each detector are unknown.  However, estimated particle densities in
+the shower are provided by \kascade.  Given a particle density, the
+probabilities for an exact number of particles traversing a detector follow
+Poisson statistics.  Let $\lambda = \rho A$ be the expected number of particles,
+with the particle density $\rho$ and the detector area $A$.
+Then the probability of $k$ particles hitting the detector is given by
+\begin{equation}
+P_k(\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}.
+\end{equation}
+It is very difficult to disentangle the contributions for 1, 2, 3, \ldots
+particles.  It is much easier to distinguish between \emph{no} particles and
+\emph{any number} of particles.  Given the particle densities $\rho_e$ (for
+$e^\pm$) and $\rho_\mu$ (for $\mu^\pm$) on the shower front, the probability of
+any number of \emph{charged} particles in a \hisparc detector is given by
+\begin{equation}
+\label{eq:efficiency-probability}
+P_p(\rho_e,\, \rho_\mu,\, \theta) = 1 - e^{-A \cos\theta (\rho_e +
+\rho_\mu)},
+\end{equation}
+with $\theta$ the zenith angle of the shower and $A$ the detector area
+(\SI{0.5}{\meter\squared}).
+
+Given a sufficiently large number of events, the
+fraction of events with charged particle content is determined.  This fraction
+is the \emph{probability} of finding charged particles in the data.  By making
+cuts based on the particle density, the data can be compared to the probability distribution
+from \eqref{eq:efficiency-probability}.
+
+\begin{figure}
+\centering
+\input{plots/EFF-plot_gamma_landau_fit}
+\caption{Integral spectrum for five weeks of data (gray).  The $\gamma$
+contribution is fitted with a power law, which is cut off at \SI{3}{\mip}
+(dashed).  The single charged particle contribution is fitted with a
+Landau distribution convolved with a normal distribution (dashdotted).
+The sum of the two distributions describes the data well up to the \mip
+peak (solid line).}
+\label{fig:efficiency-spectrum-fit}
+\end{figure}
+
+First, some parameters are determined from the complete dataset.
+\figref{fig:efficiency-spectrum-fit} shows the distribution of pulse integrals
+of a detector.
+Analogous to \secref{sec:features-pulseheight-spectrum}, the $\gamma$ and
+charged particle contributions are determined.  The $\gamma$ contribution is fitted with a
+parametrized distribution inspired by the Monte Carlo described in
+\cite{Pennink:2010}. The $\gamma$ distribution is given by
+\begin{equation}
+\label{eq:fit-gamma}
+N_\gamma(S) = a_\gamma\, S^{k_\gamma},
+\end{equation}
+with $N_\gamma(S)$ the number of events with the value of the integral equal to
+$S$, $a_\gamma = \num{4.477e+06}$ and $k_\gamma = -\num{1.106e+00}$. The
+distribution is cut off at \SI{3}{\mip}. This value was chosen because the
+simulation shows that the $\gamma$ contribution for higher energies can be
+neglected.  In this range, \eqref{eq:fit-gamma} is no longer valid.
+The charged particle contribution is determined by first subtracting the $\gamma$
+contribution from the spectrum.  Then, the remaining spectrum is fitted with a
+Landau distribution convolved with a normal distribution to account for the
+resolution of the detector:
+\begin{equation}
+\label{eq:fit-charged}
+N_{e/\mu}(S) = a_{e/\mu} (f \otimes g(\sigma_\mathrm{res}))
+    (C_{\si{\mega\electronvolt}} S),
+\end{equation}
+with $f(\Delta)$ the Landau probability density function for an energy loss
+$\Delta$, $g(\sigma_\mathrm{res})$ the normal distribution with
+$\sigma_\mathrm{res}$ the resolution of the detector, and
+$C_{\si{\mega\electronvolt}}$ the scale factor relating the signal $S$ to the
+energy loss in \si{\mega\electronvolt}, i.e. $\Delta =
+C_{\si{\mega\electronvolt}} S$.  The fit gives $a_{e/\mu} = \num{5.958e+03}$,
+$C_{\si{\mega\electronvolt}} =
+\SI{7.389e-04}{\mega\electronvolt\per\nano\volt\per\second}$ and
+$\sigma_\mathrm{res} = \num{6.767e-01}$.  The $\gamma$ and charged particle
+contributions taken together, explain the data up to the \textsc{mip} peak.
+For higher energies, the contributions from multiple charged particles in the
+detector start to dominate.
+
+Using $\rho'_\mathrm{charged} = \cos\theta (\rho_e + \rho_\mu)$, with
+$\rho'_\mathrm{charged}$ the charged particle density \emph{on the ground}, cuts
+are imposed on the data for a series of densities.
+The data surviving each cut is fitted with
+\eqtworef{eq:fit-gamma}{eq:fit-charged}.  Only the count scale parameters
+$a_\gamma$ and $a_{e/\mu}$ are left as free parameters in the fits on partial
+data.  The number of charged particle events in the dataset is parametrized by
+\eqref{eq:fit-charged} for $S \leq \SI{1}{\mip}$. For $S > \SI{1}{\mip}$, one
+has to account for multiple charged particles in the detector. In this region,
+the number of charged particles are determined by the data, with the $\gamma$
+contribution (\eqref{eq:fit-gamma}) subtracted. Since the $\gamma$ contribution
+is cut off at \SI{3}{\mip}, the number of charged particle events higher than
+the cut-off is taken to be equal to the number of events in the data. See
+\figref{fig:efficiency-spectrum-density-fit}.
+The probability of particles in the detector, for a given charged particle
+density $\rho'_\mathrm{charged}$, is estimated by dividing the number of charged
+particle events by the total number of events.
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/EFF-plot_full_spectrum_fit_in_density_range-0_0-0_2}
+\input{plots/EFF-plot_full_spectrum_fit_in_density_range-4_0-4_2}
+}
+\caption{The charged particle contribution to the spectrum (black solid
+line) is determined for various particle density ranges.  Left:
+$\SI{0.0}{\per\square\meter} \leq \rho_\mathrm{charged}$ <
+$\SI{0.2}{\per\square\meter}$.  Right: $\SI{4.0}{\per\square\meter} \leq
+\rho_\mathrm{charged}$ < $\SI{4.2}{\per\square\meter}$.  The $\gamma$
+contribution (dashed) and single charged particle contribution
+(dashdotted) are shown for comparison.  The charged particle contribution
+is parametrized by \eqref{eq:fit-charged} for $S \leq \SI{1}{\mip}$. The
+data (gray solid line) with the $\gamma$ contribution
+(\eqref{eq:fit-gamma}) subtracted, is used for $\SI{1}{\mip}$ < $S \leq
+\SI{3}{\mip}$. Finally, for $S$ > $\SI{3}{\mip}$, only the data is used to
+determine the charged particle contribution.}
+\label{fig:efficiency-spectrum-density-fit}
+\end{figure}
+
+\figref{fig:detection-efficiency} shows the detection efficiency
+of a \hisparc detector.  The data are compared with the Poisson probability from
+\eqref{eq:efficiency-probability}.  At densities less than
+\SI{0.5}{\per\square\meter}, the data points lie above the Poisson expectation.
+This suggests that there \emph{are} charged particles, where \kascade only reports few.
+Convoluting the Poisson probability with a normal distribution ($\sigma =
+\num{0.40}$) accounts for uncertainties in the \kascade particle
+densities.  The actual value of this uncertainty is not communicated by
+the \kascade experiment.
+While the data at low densities suggest the uncertainties are larger, the data
+at densities of \SIrange{2}{4}{\per\square\meter} suggests that the
+uncertainties are quite small.  Furthermore, the data at these densities
+shows that the present analysis overestimates the fraction of charged particles
+by a few percent. Overall, however, the data fits the Poisson curves well and
+the conclusion is justified that the detection of charged particles by the
+\hisparc detectors is well understood.
+
+\begin{figure}
+\centering
+\input{plots/EFF-plot_detection_efficiency}
+\caption{Detection efficiency of a \hisparc detector.  Results from data
+(circles) are compared with Poisson probability (solid line), and Poisson
+probability convolved with a normal distribution ($\sigma$ = $\num{0.40}$)
+describing \kascade density uncertainties (dashed line).  For low
+densities, the data points are too high, suggesting that the density
+uncertainty is higher.  For intermediate and high particle densities, the
+uncertainties seem to be lower, as the probability curve would go down
+with higher uncertainties.}
+\label{fig:detection-efficiency}
+\end{figure}
+
+
+\section{Reconstruction of Shower Direction}
+\label{sec:kascade-reconstruction}
+
+To reconstruct the shower direction the algorithms and uncertainty estimation
+developed in \secref{sec:direction-reconstruction-method} will be used.
+For this, the particle arrival times measured by the detectors are determined.
+Two different methods were used to obtain a value for the start of the pulse.
+The first method consists of simply taking the timing value from the first
+sample which goes over threshold (\emph{first sample over threshold}, denoted by
+\textsmaller{FSOT}), where a low threshold is chosen (\SI{20}{\adc}, which is
+approx. \SI{6}{\percent} of the \textsmaller{MIP} peak, but more than
+\SI{28}{\unitsigma} above the noise level).  The second method interpolates
+linearly between the last sample below threshold and the first sample above
+threshold (\emph{linear interpolation}, denoted by \textsmaller{LINT}), as shown
+in \figref{fig:startofpulse}.  The latter method is expected to give a better
+estimate for the arrival time with a standard deviation smaller than
+$\sqrt{\frac{2.5^2}{12}} = \SI{.72}{\nano\second}$, which is the uncertainty
+introduced by the \SI{2.5}{\nano\second} sampling time.
+
+\begin{figure}
+\begin{center}
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/timing-methods}
+}
+\caption{Reconstruction of start-of-pulse time.  The figure on the left
+shows the full signal, where the area between the dotted lines is enlarged
+and shown in the figure on the right.  The individual samples are graphed
+as open circles.  The threshold is indicated by the gray line.  Two
+methods are used for determining the start-of-pulse time: first sample
+over threshold (dashdotted line) and linear interpolation of samples
+(dashed line).  The difference between both values in this particular
+event is \SI{1.6}{\nano\second}.}
+\label{fig:startofpulse}
+\end{center}
+\end{figure}
+
+Due to differences in the voltage applied to the phototubes a systematic time
+shift will be introduced since a higher voltage causes electrons to travel
+faster through the phototube.  Furthermore, the transit time of the cables
+(\SI{30}{\meter}) can differ slightly.  It is possible to correct for this by
+plotting time differences between the central detector and all other detectors
+and measure the mean time difference (\tabref{tab:timings}).  The systematic
+errors are very small and certainly much smaller than the \SI{2.5}{\nano\second}
+sampling time of the electronics.
+
+\begin{table}
+\centering
+\begin{tabular}{@{}cS[table-number-alignment=center,
+                      table-figures-integer=1,
+                      table-sign-mantissa=true,
+                      table-figures-uncertainty=3]@{}}
+\toprule
+Detector Pair & {Offset [\si{\nano\second}]} \\
+\midrule
+1 - 2 & -0.36 +- 0.02 \\
+3 - 2 & -1.43 +- 0.02 \\
+4 - 2 & 0.27 +- 0.02 \\
+\bottomrule
+\end{tabular}
+\caption{Systematic time shifts in detector data, most probably due to transit
+time differences in the phototubes and signal cables.  These values are
+obtained from the complete dataset (about five weeks), by fitting the data to a
+normal distribution.}
+\label{tab:timings}
+\end{table}
+
+The distribution of propagation times of scintillation light photons to the PMT
+depends on the position of the particle in the scintillator.  In
+\cite{Steijger:2010-time} simulations of photon paths
+in a uniformly illuminated \hisparc scintillator are performed.  The standard
+deviation of the transport time for the first photon over threshold is found to
+be \SI{1.2}{\nano\second} (\secref{sec:detector-response}).  Further
+uncertanties are introduced by the propagation time jitter of the PMT.
+The datasheet quotes \SI{4}{\nano\second} for a single
+photoelectron \cite{9107B}. Since the trigger threshold is approximately equal
+to 15 photoelectrons ($\sigma_{t,\, \mathrm{transport}} =
+\SI{1.2}{\nano\second}$) \cite{Steijger:2010-time}, the effect on the timing
+measurement uncertainty is expected to be smaller than \SI{4}{\nano\second}. The
+uncertainty in the arrival time measured by a single detector is taken to
+be:
+\begin{equation}
+\label{eq:kascade-timings}
+\sigma_t = \sqrt{\sigma_{t,\, \mathrm{front}}^2 + \sigma_{t,\,
+\mathrm{transport}}^2 + \sigma_{t,\, \mathrm{sampling}}^2 + \sigma_{t,\,
+\mathrm{other}}^2}\,,
+\end{equation}
+with $\sigma_{t,\, \mathrm{other}}$ the unknown uncertainties, including the PMT
+jitter and the thickness of the shower front. An unknown (with respect to the
+simulations) contribution of the shower front is expected since the \hisparc
+station at \kascade also measures EAS from primary particles other than protons,
+and at other energies than \SI{1}{\peta\electronvolt}. Also, a full detector
+simulation with GEANT or FLUKA was not performed.
+The effects are expected to be minor. This unknown contribution will be
+determined from data, with the other contributions taken from
+\chref{ch:reconstruction}.
+
+The \hisparc reconstructed shower direction is compared to the \kascade data on
+an event by event basis.
+In the following analysis,
+experimental uncertainties (resolution) are determined by the
+difference in \hisparc and \kascade angle containing \SI{66}{\percent} of the
+events, unless otherwise noted.
+
+\figref{fig:results-2d-phi} shows the azimuthal angle reconstruction for
+events which have at least a \SI{1}{\mip} signal in all corner detectors.
+An excellent correlation between \hisparc reconstruction and the \kascade
+reference is observed.  The resolution does not depend on the azimuthal
+angle.  The two clusters in the upper-left and lower-right corners are
+over- and underflows at the $\phi = \SI{-180}{\degree} /
+\SI{180}{\degree}$ boundaries.  Similarly, \figref{fig:results-2d-theta}
+shows the comparison between zenith angles.
+
+\begin{figure}
+\centering
+\longprocess{\input{plots/KAS-LINT-OFFSETS-plot_phi_reconstruction_results_for_MIP-1}}
+\caption{Two-dimensional histogram of the azimuthal angle reconstruction.
+A single \hisparc station is able to reconstruct the azimuthal angle of a
+shower.  Only events with at least \SI{1}{\mip} in all corner detectors
+are shown.  $\phi_K$ is the azimuthal angle reconstructed by \kascade, and
+$\phi_H$ is the \hisparc reconstruction.  For this plot,
+\textsmaller{LINT} timings were used to avoid artifacts from sampling.}
+\label{fig:results-2d-phi}
+\end{figure}
+
+\begin{figure}
+\centering
+\longprocess{\input{plots/KAS-LINT-OFFSETS-plot_theta_reconstruction_results_for_MIP-1}}
+\caption{Two-dimensional histogram of the zenith angle reconstruction.  A
+single \hisparc station is able to reconstruct the zenith angle.  Only
+events with at least \SI{1}{\mip} in all corner detectors are shown.
+$\theta_K$ is the zenith angle reconstructed by \kascade, and $\theta_H$
+is the \hisparc reconstruction.  For this plot, \textsmaller{LINT} timings
+were used to avoid artifacts from sampling.}
+\label{fig:results-2d-theta}
+\end{figure}
+
+Systematic errors are shown in
+\figtworef{fig:results-bin-phi}{fig:results-bin-theta}.  There is a bias in the
+azimuthal reconstruction towards \SI{0}{\degree}.  For $\phi < 0$, the azimuthal
+angle tends to be overestimated, bringing it closer to zero.  For $\phi > 0$,
+the azimuthal angle tends to be underestimated, again bringing it closer to
+zero.  The explanation may be found in \tabref{tab:timings}.  It is clear that
+there is a slight bias towards \emph{earlier} timings from detector 3.
+Referring to \figref{fig:station-layout} and \figref{fig:map}, it follows
+that earlier arrival times in detector 3 would suggest an azimuthal angle
+closer to \SI{0}{\degree}.  Correcting for these time differences by subtracting
+the mean values from the measured timings, results in the right plot in the
+figure.
+The systematic effect is much reduced.
+
+The systematic error in the zenith angle reconstruction shows a bias towards
+more inclined showers, especially for small zenith angles.  This is a direct
+result from timing uncertainties.  For a shower with zero inclination one should
+expect to have no time differences between the detectors.  In reality, small
+time differences will exist and therefore, the reconstruction will give a
+(slightly) inclined shower.  For larger zenith angles, the zenith angle is
+overestimated by less than \SI{5}{\degree}.  The reconstruction algorithm is
+based on the assumption that the shower front is a flat plane. The additional
+time lag introduced by the curvature is of the order of
+\SI{.14}{\nano\second\per\meter} \cite{1991ICRC....2..712M}, consistent with the
+simulations (\figref{fig:arrival-time-distributions}).  This results in an error
+of a few degrees \cite{1991ICRC....2..712M}.
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.45\linewidth}
+\input{plots/KAS-boxplot_phi_reconstruction_results_for_MIP-1}
+\input{plots/KAS-OFFSETS-boxplot_phi_reconstruction_results_for_MIP-1}
+}
+\caption{The median uncertainty (open circles) of the azimuthal angle
+reconstruction as a function of the azimuthal angle clearly shows some
+systematic effects.  
+The shaded region contains \SI{50}{\percent} of the events equally
+distributed around the median.
+Left: \textsmaller{FSOT} timings.  Right: \textsmaller{FSOT} timings,
+corrected for the observed offsets from \tabref{tab:timings}.}
+\label{fig:results-bin-phi}
+\end{figure}
+
+\begin{figure}
+\centering
+\input{plots/KAS-OFFSETS-boxplot_theta_reconstruction_results_for_MIP-1}
+\caption{The median uncertainty (open circles) of the zenith angle
+reconstruction as a function of the zenith angle shows a bias towards more
+inclined showers.  The shaded region contains \SI{50}{\percent} of the
+events equally distributed around the median.
+}
+\label{fig:results-bin-theta}
+\end{figure}
+
+Next, following \secref{sec:shower-direction}, the analysis will consider
+$N_\mathrm{\mip} \geq 2$. The uncertainty $\sigma_{t,\, \mathrm{other}}$
+will first be determined from data. 
+
+The uncertainty in angle reconstruction as a function of zenith angle is shown
+in \figref{fig:results-zenith}.  The zenith reconstruction does not depend much
+on zenith angle.  While the azimuthal reconstruction appears to depend heavily
+on zenith angle, this is not entirely accurate.  For small zenith angles, two
+points with very different azimuthal angles may still be close together, in
+terms of angular distance. 
+
+The solid lines follow from the calculations discussed in
+\secref{sec:uncertainty-calculations}. The value of $\sigma_t$ is
+determined to be equal to \SI{2.4}{\nano\second} by means of a fit.  Using
+\eqref{eq:kascade-timings} and the values from
+\eqtworef{eq:ch4-timing1}{eq:ch4-timing2}
+one obtains $\sigma_{t,\, \mathrm{other}} = \SI{1.6}{\nano\second}$. This
+contribution is large compared to the other contributions, but smaller
+than the \SI{4}{\nano\second} single-electron jitter reported for the PMT.
+
+The estimated uncertainty describes the data well over the range of zenith
+angles. This is true for both the zenith and azimuthal angles. The data
+from the simulation (\figref{fig:results-sim-zenith}) does not include the
+experimental uncertainty of $\sigma_{t,\,\mathrm{other}} =
+\SI{1.6}{\nano\second}$.  Therefore, the uncertainties are smaller than
+those from the \hisparc/\kascade comparison.
+
+\begin{figure}
+\centering
+\input{plots/KAS-OFFSETS-plot_uncertainty_zenith}
+\caption{Uncertainty in angle reconstruction as a function of the zenith
+angle, for $N_\mathrm{MIP} \geq 2$ and $14.5 \leq \lg E \leq 15.5$.  The
+data points show the uncertainties in the reconstruction of zenith angle
+(open circles) and azimuthal angle (closed circles).  Estimates for the
+reconstruction uncertainties are represented by the solid lines.}
+\label{fig:results-zenith}
+\end{figure}
+
+\figref{fig:results-mip} shows the
+uncertainties as a function of number of particles in the \hisparc
+detectors.  Data points from this analysis and the simulations are shown
+for comparison.  The solid lines show the calculated uncertainties.  The
+simulation underestimates the reconstruction uncertainties.
+
+\begin{figure}
+\centering
+\input{plots/KAS-OFFSETS-plot_uncertainty_mip}
+\caption{Uncertainty in angle reconstruction as a function of the number
+of particles in the \hisparc detectors, for $\theta$ = $\SI{22.5}{\degree}
+\pm 5$ and $14.5 \leq \lg E \leq 15.5$.  Data points from experiment
+(circles) are shown next to simulation (squares). The symbols show the
+uncertainties in the reconstruction of zenith angle (open) and azimuthal
+angle (closed). The calculated uncertainties are depicted by the solid
+lines. The timing uncertainty is larger in the experiment than in the
+simulation.}
+\label{fig:results-mip}
+\end{figure}
+
+\figref{fig:results-core-mip} depicts the relation between $N_{MIP}$ and shower
+core distance.  Large numbers of particles in a detector are usually observed
+close to the shower core.  Experiment and simulation show the same dependence.
+However, the median core distance is smaller in the experiment. This may be due
+to the experimental cuts imposed on the \kascade analysis, in particular the
+requirement that the EAS should be observed by the local cluster. Not all
+particles are found close to the causal front and the arrival time spread
+increases with increasing core distance
+(\figref{fig:results-core-arrival-time}).  The arrival time spread has been
+estimated by taking the arrival time differences between detectors 1 and 2. Data
+and simulation are in agreement for core distances larger than \SI{30}{\meter}.
+For smaller core distances, the effect of the transport time of photons in the
+detector dominates the measured time differences. The larger spread in arrival
+time with increasing core distance means a larger uncertainty in arrival time
+measurements and thus a larger uncertainty in angle reconstruction
+(\figref{fig:results-core-distance}).
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.35\linewidth}
+ \pgfkeys{/artist/height/.initial=.45\linewidth}
+\input{plots/KAS-OFFSETS-boxplot_core_distances_for_mips}
+}
+\caption{Core distance as a function of the number of particles in the \hisparc
+detectors for the simulation (open circles), and \kascade data (closed circles).
+The dots show the median values. The shaded region contains \SI{50}{\percent} of the events
+equally distributed around the median. The third panel is included for easy
+comparison of the median values. A larger number of particles implies a
+smaller core distance and thus increased timing accuracy due to a thinner shower front.}
+\label{fig:results-core-mip}
+\end{figure}
+
+\begin{figure}
+\centering
+{\pgfkeys{/artist/width/.initial=.35\linewidth}
+ \pgfkeys{/artist/height/.initial=.45\linewidth}
+\input{plots/KAS-OFFSETS-boxplot_arrival_times-1}
+}
+\caption{The spread in particle arrival times increases with increasing shower
+core distance.  In other words, the shower front is thicker further away from
+the shower core.  For both simulation and \kascade data, data points are taken
+by calculating detected particle arrival time relative to the station's center
+detector.  The dots show the median values. The shaded region contains
+\SI{50}{\percent} of the events equally distributed around the median. The third
+panel is included for easy comparison of the median values.}
+\label{fig:results-core-arrival-time}
+\end{figure}
+
+\begin{figure}
+\centering
+\input{plots/KAS-OFFSETS-plot_uncertainty_core_distance}
+\caption{Uncertainty in angle reconstruction as a function of shower core
+distance, for $N_\mathrm{MIP}$ = $2 \pm 0.5$, $\theta$ = $\SI{22.5}{\degree}
+\pm \SI{5}{\degree}$ and $14.5 \leq \lg E \leq 15.5$.  Data points from
+experiment (circles) are shown next to simulation (squares). The symbols
+show the uncertainties in the reconstruction of zenith angle (open) and
+azimuthal angle (closed). The data points are connected to guide the eye.
+A larger core distance implies a thicker shower front and thus a larger
+uncertainty in the reconstruction.}
+\label{fig:results-core-distance}
+\end{figure}
+
+Two methods for determining
+the arrival time of a particle in a \hisparc detector are applied.
+In the previous analysis, the \textsmaller{FSOT} timings are used. In
+\figref{fig:results-fsot-lint} the analysis is repeated using \textsmaller{LINT}
+timings. Differences are very small and no significant improvements of using
+linear interpolation are observed.
+
+\begin{figure}
+\centering
+\input{plots/KAS-plot_fsot_vs_lint_for_zenith}
+\caption{Comparison of results using \emph{first sample over threshold
+(\textsmaller{FSOT})} timings (solid) and \emph{linear interpolation
+(\textsmaller{LINT})} timings (dashed).  Note that the differences are
+very small.}
+\label{fig:results-fsot-lint}
+\end{figure}
+
+
+\section{Discussion and Conclusions}
+
+The integration of a \hisparc station into the \kascade array allows for
+detailed performance studies.
+The detection efficiency is consistent with expectations from Poisson
+probability distributions for particle densities larger than
+\SI{0.5}{\per\square\meter}.
+At lower particle densities, the detection efficiency is better than expected.
+\kascade does not provide an estimate of the uncertainty on the particle
+densities, and thus the effects of local density fluctuations can not be
+estimated. The \kascade collaboration has agreed to release a dataset of the
+individual \kascade detector measurements for future studies
+\cite{Haungs:2012-data}.
+
+Direction reconstruction of EAS using a single \hisparc station is surprisingly
+accurate, when taking the size of a single station into account.
+Systematic reconstruction errors are explained by transit time differences
+in the PMTs and cables. These errors have been corrected for
+(\figref{fig:results-bin-phi}). Statistical errors on the data points are
+inconsequential.
+
+Uncertainties in angular reconstruction are due to timing uncertainties
+($\sigma_t = \SI{2.4}{\nano\second}$), caused by the thickness of the shower
+front, and by an as yet unexplained contribution with a standard deviation of
+\SI{1.6}{\nano\second}. The PMT jitter may explain part of this uncertainty,
+while a full detector simulation using a simulation package such as GEANT or
+FLUKA may further explain this discrepancy.
+
+Uncertainties are compared to calculations. \hisparc and \kascade reconstruction
+of the EAS direction is in agreement.
+Deviations from calculated uncertainties are explained by taking into account
+secondary effects of the shower front structure.
+\figref{fig:results-core-arrival-time} demonstrates that the shower front
+thickness (increasing with core distance) is evident in the \hisparc data, and
+is consistent with the simulations.
+Using linear interpolation (\textsmaller{LINT}) to determine the arrival time of
+particles yields no significant improvement over first sample over threshold
+(\textsmaller{FSOT}) timings.
+
+For the most probable zenith angle $\theta = \SI{22.5}{\degree}$ and
+$N_\mathrm{MIP} \geq 2$ the observed uncertainties are $\sigma_\theta \simeq
+\SI{6.1}{\degree}$ and $\sigma_\phi \simeq \SI{15.9}{\degree}$
+(\figref{fig:results-zenith}).
+Following the discussion in \secref{sec:reconstruction-conclusions}, the angular
+uncertainties are calculated to be $\phi_\mathrm{dist} = \SI{6.1}{\degree}$, and
+$d = \SI{8.6}{\degree}$.
+Thus, under these conditions, \SI{66}{\percent} of all reconstructed EAS
+directions are accurate to within \SI{8.6}{\degree} on the celestial sphere,
+which demonstrates the excellent performance of the \hisparc station.
+
+The performance of a single \hisparc station is well understood. This
+performance will now be used in the study of a triangular setup (equilateral
+triangle with sides of $\approx \SI{130}{\meter}$) of three stations within the
+Science Park array (\chref{ch:sciencepark}). The direction reconstruction of
+single stations will be compared to the direction reconstruction of the large
+triangle.

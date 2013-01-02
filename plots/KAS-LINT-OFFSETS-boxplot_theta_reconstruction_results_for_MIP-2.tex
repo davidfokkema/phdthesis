@@ -1,0 +1,102 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.3}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            width=\defaultwidth,
+            %
+            title={  },
+            %
+            xlabel={ $\theta_K$ [\si{\degree}] },
+            ylabel={ $\theta_H - \theta_K$ [\si{\degree}] },
+            %
+            xmin={  },
+            xmax={  },
+            ymin={ -5 },
+            ymax={ 15 },
+            %
+            xtick={  },
+            ytick={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+        ]
+
+        
+
+        
+            \addplot[draw=none, fill=lightgray] coordinates {
+                (0, 3.98356354237)
+                (5, 0.608219757676)
+                (10, -1.63716769218)
+                (15, -2.5144315958)
+                (22.5, -2.79376327991)
+                (35, -3.26852446795)
+                (35, 6.09243094921)
+                (22.5, 5.78400802612)
+                (15, 5.73806345463)
+                (10, 5.63107800484)
+                (5, 6.78270125389)
+                (0, 10.771686554)
+                } -- cycle;
+        
+
+        
+            
+            % Draw series plot
+            \addplot[mark=*,mark options=white,only marks] coordinates {
+                (0, 7.37412)
+                (5, 3.28861534595)
+                (10, 1.67240798473)
+                (15, 1.55969411135)
+                (22.5, 0.852133)
+                (35, 0.880612820387)
+            };
+        
+            
+            % Draw series plot
+            \addplot[mark=o,only marks] coordinates {
+                (0, 7.37412)
+                (5, 3.28861534595)
+                (10, 1.67240798473)
+                (15, 1.55969411135)
+                (22.5, 0.852133)
+                (35, 0.880612820387)
+            };
+        
+
+        
+            \draw[gray]
+                ({rel axis cs:0, 0} |- {axis cs:0, 0 }) --
+                ({rel axis cs:1, 1} |- {axis cs:0, 0 });
+        
+
+        
+
+        
+
+        
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}

@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+[font=\sffamily,
+ node distance=3cm and 4.5cm,
+ source/.style={draw,thick,rounded corners,fill=yellow!20,inner sep=.3cm},
+ process/.style={draw,thick,circle,fill=blue!20},
+ sink/.style={source,fill=green!20},
+ datastore/.style={draw,very thick,shape=datastore,inner sep=.3cm},
+ dots/.style={gray,scale=2},
+ to/.style={->,>=stealth',shorten >=1pt,semithick,font=\sffamily\footnotesize},
+ every node/.style={on grid,align=center},
+]
+
+\node[source] (station) {station};
+\node[process,below=of station] (stationpc) {station\\pc};
+\node[process,right=of stationpc] (writer) {datastore\\writer};
+\node[datastore,below right=3cm and 3cm of writer] (datastore) {datastore};
+\node[process,below left=3cm and 3cm of datastore] (access) {public\\access};
+\node[process,below right=3cm and 3cm of datastore] (quicklook) {quicklook\\generator};
+\node[datastore,below=6cm of datastore] (publicdb) {publicdb};
+\node[sink,left=of access] (users) {users};
+
+\draw[to] (station) -- (stationpc) node[midway,right] {raw events\\level 0};
+\draw[to] (stationpc) -- (writer) node[midway,above] {events} node[midway,below] {level 1};
+\draw[to] (writer) to[out=0,in=90] node[near start,above,sloped] {events} node[near start,below,sloped] {level 1} (datastore);
+
+\draw[to] (datastore) to[out=-80,in=90] node[midway,above] {events} node[midway,below] {level 1} (quicklook);
+\draw[to] (datastore) to[out=-100,in=90] node[midway,above] {events} node[midway,below] {level 1} (access);
+
+\draw[to] (quicklook) to[out=-90,in=90] node[midway,above] {histograms\\coincidences} node[midway,below] {level 2} (publicdb);
+
+\draw[to] (access) to[out=0,in=100] node[near start,above,sloped] {results} node[near start,below,sloped] {level 3} (publicdb);
+\draw[to] (publicdb) to[out=110,in=-90,looseness=1.3] node[midway,above] {histograms\\coincidences} node[midway,below] {level 2} (access);
+
+\draw[to] (access) to[bend left] node[midway,above] {histograms\\coincidences\\events} node[midway,below] {level 1, 2} (users);
+\draw[to] (users) to[bend left] node[midway,above] {results} node[midway,below] {level 3} (access);
+
+\node[draw,dashed,very thick,black!60,fit=(writer) (datastore) (access) (quicklook) (publicdb),inner sep=.3cm] (domain) {};
+\node[black!60,below=10pt of domain.north] {\textbf{\Large Nikhef}};
+\end{tikzpicture}
