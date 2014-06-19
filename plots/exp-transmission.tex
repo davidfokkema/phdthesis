@@ -21,7 +21,10 @@
         pin distance=2.5ex,
     ]
     \begin{axis}[
+            xmode=normal,
+            ymode=normal,
             width=\defaultwidth,
+            axis equal=false,
             %
             title={  },
             %
@@ -39,198 +42,201 @@
             tick align=outside,
             max space between ticks=40,
             every tick/.style={},
+            axis on top,
         ]
 
         
 
-        
-            
-            % Draw series plot
-            \addplot[mark=*,mark options=white,only marks] coordinates {
-                (587.0, 281.2916112)
-                (587.0, 313.1659409)
-                (385.0, 264.2069882)
-                (454.0, 277.9605263)
-                (436.0, 266.7929592)
-                (454.0, 262.7896128)
-                (532.0, 267.4050633)
-                (221.0, 217.4752284)
-                (492.0, 258.2518337)
-                (524.0, 244.4846293)
-                (313.0, 201.4302741)
-                (524.0, 248.182686)
-                (385.0, 238.7848817)
-                (350.0, 220.2815433)
-                (391.0, 226.9217858)
-                (304.0, 219.9661591)
-                (608.0, 286.1981372)
-                (606.0, 279.0160145)
-                (324.0, 221.0161512)
-            };
-        
-            
-            % Draw series plot
-            \addplot[mark=o,only marks] coordinates {
-                (587.0, 281.2916112)
-                (587.0, 313.1659409)
-                (385.0, 264.2069882)
-                (454.0, 277.9605263)
-                (436.0, 266.7929592)
-                (454.0, 262.7896128)
-                (532.0, 267.4050633)
-                (221.0, 217.4752284)
-                (492.0, 258.2518337)
-                (524.0, 244.4846293)
-                (313.0, 201.4302741)
-                (524.0, 248.182686)
-                (385.0, 238.7848817)
-                (350.0, 220.2815433)
-                (391.0, 226.9217858)
-                (304.0, 219.9661591)
-                (608.0, 286.1981372)
-                (606.0, 279.0160145)
-                (324.0, 221.0161512)
-            };
-        
-            
-            % Draw series plot
-            \addplot[no markers,solid] coordinates {
-                (0.0, 156.592481479)
-                (14.2857142857, 159.660219185)
-                (28.5714285714, 162.727956892)
-                (42.8571428571, 165.795694598)
-                (57.1428571429, 168.863432305)
-                (71.4285714286, 171.931170011)
-                (85.7142857143, 174.998907718)
-                (100.0, 178.066645424)
-                (114.285714286, 181.134383131)
-                (128.571428571, 184.202120837)
-                (142.857142857, 187.269858544)
-                (157.142857143, 190.337596251)
-                (171.428571429, 193.405333957)
-                (185.714285714, 196.473071664)
-                (200.0, 199.54080937)
-                (214.285714286, 202.608547077)
-                (228.571428571, 205.676284783)
-                (242.857142857, 208.74402249)
-                (257.142857143, 211.811760196)
-                (271.428571429, 214.879497903)
-                (285.714285714, 217.947235609)
-                (300.0, 221.014973316)
-                (314.285714286, 224.082711022)
-                (328.571428571, 227.150448729)
-                (342.857142857, 230.218186436)
-                (357.142857143, 233.285924142)
-                (371.428571429, 236.353661849)
-                (385.714285714, 239.421399555)
-                (400.0, 242.489137262)
-                (414.285714286, 245.556874968)
-                (428.571428571, 248.624612675)
-                (442.857142857, 251.692350381)
-                (457.142857143, 254.760088088)
-                (471.428571429, 257.827825794)
-                (485.714285714, 260.895563501)
-                (500.0, 263.963301208)
-                (514.285714286, 267.031038914)
-                (528.571428571, 270.098776621)
-                (542.857142857, 273.166514327)
-                (557.142857143, 276.234252034)
-                (571.428571429, 279.30198974)
-                (585.714285714, 282.369727447)
-                (600.0, 285.437465153)
-                (614.285714286, 288.50520286)
-                (628.571428571, 291.572940566)
-                (642.857142857, 294.640678273)
-                (657.142857143, 297.708415979)
-                (671.428571429, 300.776153686)
-                (685.714285714, 303.843891393)
-                (700.0, 306.911629099)
-            };
-        
 
-        
 
-        
 
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 1 }}]
-                at (axis cs:587.0, 281.2916112) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 2 }}]
-                at (axis cs:587.0, 313.1659409) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 3 }}]
-                at (axis cs:385.0, 264.2069882) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 4 }}]
-                at (axis cs:454.0, 277.9605263) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 5 }}]
-                at (axis cs:436.0, 266.7929592) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below:{ 6 }}]
-                at (axis cs:454.0, 262.7896128) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 7 }}]
-                at (axis cs:532.0, 267.4050633) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 8 }}]
-                at (axis cs:221.0, 217.4752284) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above:{ 9 }}]
-                at (axis cs:492.0, 258.2518337) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below:{ 10 }}]
-                at (axis cs:524.0, 244.4846293) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 11 }}]
-                at (axis cs:313.0, 201.4302741) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 12 }}]
-                at (axis cs:524.0, 248.182686) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 13 }}]
-                at (axis cs:385.0, 238.7848817) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 14 }}]
-                at (axis cs:350.0, 220.2815433) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 15 }}]
-                at (axis cs:391.0, 226.9217858) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] above left:{ 16 }}]
-                at (axis cs:304.0, 219.9661591) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] right:{ 17 }}]
-                at (axis cs:608.0, 286.1981372) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 18 }}]
-                at (axis cs:606.0, 279.0160145) {};
-        
-            \node[coordinate,
-                  pin={[lightgray,pin edge=lightgray] below right:{ 19 }}]
-                at (axis cs:324.0, 221.0161512) {};
-        
+    
+    % Draw series plot
+    \addplot[mark=*,mark options=white,only marks] coordinates {
+        (587.0, 281.2916112)
+        (587.0, 313.1659409)
+        (385.0, 264.2069882)
+        (454.0, 277.9605263)
+        (436.0, 266.7929592)
+        (454.0, 262.7896128)
+        (532.0, 267.4050633)
+        (221.0, 217.4752284)
+        (492.0, 258.2518337)
+        (524.0, 244.4846293)
+        (313.0, 201.4302741)
+        (524.0, 248.182686)
+        (385.0, 238.7848817)
+        (350.0, 220.2815433)
+        (391.0, 226.9217858)
+        (304.0, 219.9661591)
+        (608.0, 286.1981372)
+        (606.0, 279.0160145)
+        (324.0, 221.0161512)
+    };
 
-        
+    
+    % Draw series plot
+    \addplot[mark=o,only marks] coordinates {
+        (587.0, 281.2916112)
+        (587.0, 313.1659409)
+        (385.0, 264.2069882)
+        (454.0, 277.9605263)
+        (436.0, 266.7929592)
+        (454.0, 262.7896128)
+        (532.0, 267.4050633)
+        (221.0, 217.4752284)
+        (492.0, 258.2518337)
+        (524.0, 244.4846293)
+        (313.0, 201.4302741)
+        (524.0, 248.182686)
+        (385.0, 238.7848817)
+        (350.0, 220.2815433)
+        (391.0, 226.9217858)
+        (304.0, 219.9661591)
+        (608.0, 286.1981372)
+        (606.0, 279.0160145)
+        (324.0, 221.0161512)
+    };
+
+    
+    % Draw series plot
+    \addplot[no markers,solid] coordinates {
+        (0.0, 156.592481479)
+        (14.2857142857, 159.660219185)
+        (28.5714285714, 162.727956892)
+        (42.8571428571, 165.795694598)
+        (57.1428571429, 168.863432305)
+        (71.4285714286, 171.931170011)
+        (85.7142857143, 174.998907718)
+        (100.0, 178.066645424)
+        (114.285714286, 181.134383131)
+        (128.571428571, 184.202120837)
+        (142.857142857, 187.269858544)
+        (157.142857143, 190.337596251)
+        (171.428571429, 193.405333957)
+        (185.714285714, 196.473071664)
+        (200.0, 199.54080937)
+        (214.285714286, 202.608547077)
+        (228.571428571, 205.676284783)
+        (242.857142857, 208.74402249)
+        (257.142857143, 211.811760196)
+        (271.428571429, 214.879497903)
+        (285.714285714, 217.947235609)
+        (300.0, 221.014973316)
+        (314.285714286, 224.082711022)
+        (328.571428571, 227.150448729)
+        (342.857142857, 230.218186436)
+        (357.142857143, 233.285924142)
+        (371.428571429, 236.353661849)
+        (385.714285714, 239.421399555)
+        (400.0, 242.489137262)
+        (414.285714286, 245.556874968)
+        (428.571428571, 248.624612675)
+        (442.857142857, 251.692350381)
+        (457.142857143, 254.760088088)
+        (471.428571429, 257.827825794)
+        (485.714285714, 260.895563501)
+        (500.0, 263.963301208)
+        (514.285714286, 267.031038914)
+        (528.571428571, 270.098776621)
+        (542.857142857, 273.166514327)
+        (557.142857143, 276.234252034)
+        (571.428571429, 279.30198974)
+        (585.714285714, 282.369727447)
+        (600.0, 285.437465153)
+        (614.285714286, 288.50520286)
+        (628.571428571, 291.572940566)
+        (642.857142857, 294.640678273)
+        (657.142857143, 297.708415979)
+        (671.428571429, 300.776153686)
+        (685.714285714, 303.843891393)
+        (700.0, 306.911629099)
+    };
+
+
+
+
+
+
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 1 }}]
+        at (axis cs:587.0, 281.2916112) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 2 }}]
+        at (axis cs:587.0, 313.1659409) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 3 }}]
+        at (axis cs:385.0, 264.2069882) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 4 }}]
+        at (axis cs:454.0, 277.9605263) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 5 }}]
+        at (axis cs:436.0, 266.7929592) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below:{ 6 }}]
+        at (axis cs:454.0, 262.7896128) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 7 }}]
+        at (axis cs:532.0, 267.4050633) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 8 }}]
+        at (axis cs:221.0, 217.4752284) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above:{ 9 }}]
+        at (axis cs:492.0, 258.2518337) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below:{ 10 }}]
+        at (axis cs:524.0, 244.4846293) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 11 }}]
+        at (axis cs:313.0, 201.4302741) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 12 }}]
+        at (axis cs:524.0, 248.182686) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 13 }}]
+        at (axis cs:385.0, 238.7848817) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 14 }}]
+        at (axis cs:350.0, 220.2815433) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 15 }}]
+        at (axis cs:391.0, 226.9217858) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ above left:{ 16 }}]
+        at (axis cs:304.0, 219.9661591) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ right:{ 17 }}]
+        at (axis cs:608.0, 286.1981372) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 18 }}]
+        at (axis cs:606.0, 279.0160145) {};
+
+    \node[coordinate,lightgray,pin edge=lightgray,
+          pin={ below right:{ 19 }}]
+        at (axis cs:324.0, 221.0161512) {};
+
+
+
 
     \end{axis}
 \end{tikzpicture}

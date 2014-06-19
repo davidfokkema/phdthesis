@@ -3,7 +3,7 @@ from datetime import datetime
 import tables
 import numpy as np
 
-from hisparc import publicdb
+from sapphire import publicdb
 from artist import GraphArtist
 
 
