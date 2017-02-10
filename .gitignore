@@ -20,3 +20,5 @@ comment.cut
 *.auxlock
 *.dep
 *.fls
+*.md5
+_minted*/
